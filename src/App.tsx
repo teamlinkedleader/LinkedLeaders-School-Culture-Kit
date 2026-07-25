@@ -6,7 +6,7 @@ import { Principles } from '@/components/Principles';
 import { ActivityGrid } from '@/components/ActivityGrid';
 import { FeaturedPreview } from '@/components/FeaturedPreview';
 import { ActivityCorner } from '@/components/ActivityCorner';
-import { SelfAssessment } from '@/components/SelfAssessment';
+import { FrameworkSection } from '@/components/FrameworkSection';
 import { UnlockModal } from '@/components/UnlockModal';
 import { CoachingOffer } from '@/components/CoachingOffer';
 import { MentorOfferModal } from '@/components/MentorOfferModal';
@@ -106,8 +106,8 @@ function App() {
           onClaimClick={openClaim}
           onActivityClick={(a) => setSelectedActivity(a)}
         />
+        <FrameworkSection access={access} onActivityClick={(a) => setSelectedActivity(a)} />
         <CoachingOffer access={access} />
-        <SelfAssessment />
       </main>
       <Footer />
       <ActivityCorner

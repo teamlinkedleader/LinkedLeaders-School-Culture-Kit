@@ -2,7 +2,7 @@ import { Sparkles, Calendar } from 'lucide-react';
 import { activities, monthThemes, categoryColors } from '@/data/activities';
 import { ActivityCard } from './ActivityCard';
 import type { CultureActivity } from '@/data/activities';
-import { totalActivities } from '@/data/stats';
+import { calendarActivities } from '@/data/stats';
 import { canRead, type AccessState } from '@/lib/access';
 
 interface ActivityGridProps {
@@ -12,14 +12,19 @@ interface ActivityGridProps {
 }
 
 export function ActivityGrid({ access, onClaimClick, onActivityClick }: ActivityGridProps) {
-  const sortedMonths = [...monthThemes].sort((a, b) => a.monthIndex - b.monthIndex);
+  // The Bonus grouping (monthIndex 11) is rendered by FrameworkSection, which
+  // gives the Collaborative Impact Framework its own home rather than leaving it
+  // as a twelfth "month" at the end of the calendar.
+  const sortedMonths = [...monthThemes]
+    .filter((m) => m.month !== 'Bonus')
+    .sort((a, b) => a.monthIndex - b.monthIndex);
   return (
     <section id="activities" className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
-            {totalActivities} Culture-Building Activities
+            {calendarActivities} Culture-Building Activities
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
             A Full Year of

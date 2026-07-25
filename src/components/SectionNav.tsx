@@ -1,62 +1,78 @@
-import { Compass, LayoutGrid, ClipboardCheck, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Compass, LayoutGrid, Workflow, ClipboardCheck, CalendarCheck } from 'lucide-react';
 
 /**
- * In-page section navigation.
+ * Sticky section navigation.
  *
- * This app is embedded inside the main LinkedLeaders web application, so it
- * must not present a second navigation bar competing with the host's. What used
- * to live in the top nav lives here instead, as buttons on the page.
+ * This app embeds inside the main LinkedLeaders application, so it must not
+ * present a second top-level navigation bar competing with the host's. These
+ * are page controls rather than site navigation, which is why they live on the
+ * page and stick below the header instead of inside it.
+ *
+ * The page is roughly 20,000 pixels tall. Without something persistent, anyone
+ * halfway down has no way back to a section except scrolling.
  */
 const sections = [
-  {
-    id: 'principles',
-    icon: Compass,
-    label: 'Guiding Principles',
-    blurb: 'The six ideas every activity is built on.',
-  },
-  {
-    id: 'activities',
-    icon: LayoutGrid,
-    label: 'The Activities',
-    blurb: 'A full school year, month by month.',
-  },
-  {
-    id: 'self-assessment',
-    icon: ClipboardCheck,
-    label: 'Self-Reflection',
-    blurb: 'Rate your practice and find your weakest phase.',
-  },
-  {
-    id: 'coaching',
-    icon: Sparkles,
-    label: 'Book a Mentor',
-    blurb: 'An hour with someone who has done the job.',
-  },
+  { id: 'principles', icon: Compass, label: 'Guiding Principles' },
+  { id: 'activities', icon: LayoutGrid, label: 'The Activities' },
+  { id: 'framework', icon: Workflow, label: 'Collaborative Impact Framework' },
+  { id: 'self-assessment', icon: ClipboardCheck, label: 'Self-Reflection' },
+  { id: 'coaching', icon: CalendarCheck, label: 'Book a Mentor' },
 ];
 
 export function SectionNav() {
-  const go = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const [active, setActive] = useState<string>('principles');
+
+  /**
+   * Highlight whichever section the reader is actually in. Uses scroll position
+   * against each section's top rather than IntersectionObserver, because these
+   * sections are far taller than the viewport and would rarely be "intersecting"
+   * in any useful sense.
+   */
+  useEffect(() => {
+    const onScroll = () => {
+      const marker = window.scrollY + window.innerHeight * 0.35;
+      let current = sections[0].id;
+      for (const s of sections) {
+        const el = document.getElementById(s.id);
+        if (el && el.offsetTop <= marker) current = s.id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <nav aria-label="Sections" className="bg-white border-b border-slate-100 py-8">
+    <nav
+      aria-label="Sections"
+      className="sticky top-16 md:top-20 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border shadow-sm"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {sections.map((s) => (
-            <button
-              key={s.id}
-              onClick={() => go(s.id)}
-              className="group text-left rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-blue-400 hover:shadow-md"
-            >
-              <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors">
-                  <s.icon className="w-4.5 h-4.5 text-blue-600" />
-                </span>
-                <span className="text-sm font-bold text-slate-800">{s.label}</span>
-              </div>
-              <p className="text-xs text-slate-500 leading-relaxed">{s.blurb}</p>
-            </button>
-          ))}
+        {/* Horizontal scroll on narrow screens rather than wrapping, which would
+            change the sticky bar's height as the page moves. */}
+        <div className="flex items-center gap-1.5 overflow-x-auto py-2.5 -mx-1 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {sections.map((s) => {
+            const isActive = active === s.id;
+            return (
+              <button
+                key={s.id}
+                onClick={() => go(s.id)}
+                aria-current={isActive ? 'true' : undefined}
+                className={`shrink-0 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-brand-navy text-white'
+                    : 'text-slate-600 hover:bg-blue-50 hover:text-brand-navy'
+                }`}
+              >
+                <s.icon className="w-4 h-4 shrink-0" />
+                <span className="whitespace-nowrap">{s.label}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </nav>
