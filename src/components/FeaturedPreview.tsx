@@ -74,7 +74,7 @@ export function FeaturedPreview({ activity, onOpen, onSubscribeClick, access }: 
                 </span>
               </div>
               <span className="text-white/90 text-sm font-medium">
-                {activity.month} · {activity.ref}
+                {activity.month}
               </span>
             </div>
 

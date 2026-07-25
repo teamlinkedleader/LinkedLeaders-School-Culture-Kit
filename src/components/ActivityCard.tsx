@@ -117,12 +117,11 @@ export function ActivityCard({
 
         {/* Footer */}
         <div className="mt-4 pt-4 border-t border-slate-200/60 flex items-center justify-between gap-2">
-          {/* The reference is an internal label, not something a reader needs.
-              Given prominence it read as a date: JUL-1 looks like 1 July, which
-              it is not. Demoted to the meta line and dimmed. */}
+          {/* No reference here. It is an internal label, and on a card it both
+              competed with the title and read as a date. It lives in the detail
+              drawer's footer, where someone who wants it can find it. */}
           <span className={`text-xs font-medium ${unlocked ? 'text-slate-400' : 'text-slate-300'}`}>
             {activity.month} · {activity.theme}
-            <span className={unlocked ? 'text-slate-300' : 'text-slate-200'}> · {activity.ref}</span>
           </span>
           {unlocked ? (
             <div className="flex items-center gap-2">
