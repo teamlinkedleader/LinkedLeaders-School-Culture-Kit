@@ -1,4 +1,4 @@
-import { CalendarCheck, Check, AlertTriangle } from 'lucide-react';
+import { CalendarCheck, Check } from 'lucide-react';
 import { PACK_SIZE } from '@/data/packs';
 import type { AccessState } from '@/lib/access';
 
@@ -7,9 +7,14 @@ const PRICE_USD = 29;
 /**
  * Where the booking flow lives.
  *
- * Set this to the Stripe Payment Link (with the scheduler as its success URL)
- * or directly to the scheduling page if payment is collected there. Until it is
- * set, the button below is disabled rather than pretending to work.
+ * Intentionally null. Mike's decision 2026-07-25: booking gets wired once this
+ * app is incorporated into the main LinkedLeaders application, so that payment
+ * and scheduling are built once rather than twice.
+ *
+ * To go live, set this to the Stripe Payment Link (with the scheduler as its
+ * success URL), or to the scheduling page directly if payment is collected
+ * there. Nothing else needs to change; the button switches from a waiting-list
+ * state to a real link on its own.
  */
 const BOOKING_URL: string | null = null;
 
@@ -76,21 +81,15 @@ export function CoachingOffer({ access }: CoachingOfferProps) {
               Book your session
             </a>
           ) : (
+            /* Visitor-facing waiting state. Deliberately says nothing about
+               implementation: this is what a real visitor would read. */
             <>
-              <button
-                type="button"
-                disabled
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-blue-600 text-white font-semibold opacity-50 cursor-not-allowed"
-              >
-                <CalendarCheck className="w-4 h-4" />
-                Book your session
-              </button>
-              <p className="flex items-start gap-2 text-xs text-amber-300/90 max-w-md text-left">
-                <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
-                <span>
-                  Booking is not connected yet. Set <code>BOOKING_URL</code> in CoachingOffer.tsx to
-                  the payment or scheduling link and this becomes live.
-                </span>
+              <span className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white font-semibold">
+                <CalendarCheck className="w-4 h-4 text-blue-300" />
+                Sessions open soon
+              </span>
+              <p className="text-xs text-slate-400 max-w-md">
+                Claim your free kit and we will let you know the moment booking opens.
               </p>
             </>
           )}
