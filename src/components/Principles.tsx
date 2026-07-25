@@ -42,8 +42,8 @@ export function Principles() {
             Guiding Principles
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
-            The Framework Behind
-            <span className="text-blue-600"> Every Activity</span>
+            The Framework That
+            <span className="text-blue-600"> Builds Culture</span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 leading-relaxed">
             Every activity in this toolkit is rooted in six core principles.
