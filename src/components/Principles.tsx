@@ -56,11 +56,15 @@ export function Principles() {
           {principles.map((p, i) => {
             const Icon = p.icon;
             return (
+              // Deliberately inert. These lift, shadow and highlight on hover
+              // exactly like the activity cards, which do open, so they read as
+              // clickable and are not. Nothing here to open: the principle is
+              // the whole content.
               <div
                 key={i}
-                className="group bg-white rounded-xl p-7 border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-white rounded-xl p-7 border border-slate-100"
               >
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 group-hover:bg-blue-100 transition-colors mb-5">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 mb-5">
                   <Icon className="w-6 h-6 text-blue-600" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-800 mb-2">{p.title}</h3>
