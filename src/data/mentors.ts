@@ -18,12 +18,9 @@
  * The LinkedLeaders mentor directory, behind "See all available mentors" and
  * the fallback destination for every Book now button.
  *
- * UNCONFIRMED. Mike has not given the path and it is recorded nowhere in the
- * vault; this is the conventional guess and it must be checked before the site
- * goes in front of anyone. It is a single constant precisely so that check is a
- * one-line change.
+ * Confirmed by Mike 2026-07-25.
  */
-export const MENTOR_DIRECTORY_URL = 'https://www.linkedleaders.com/mentors';
+export const MENTOR_DIRECTORY_URL = 'https://www.linkedleaders.com/search';
 
 /**
  * Where the booking flow lives.
