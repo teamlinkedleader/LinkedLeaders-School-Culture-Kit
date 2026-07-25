@@ -35,7 +35,10 @@ export function ActivityCard({
   return (
     <div
       onClick={unlocked ? onClick : onClaimClick}
-      className={`relative rounded-xl border-2 transition-all duration-300 overflow-hidden group ${
+      // flex column at full height so every card's footer, and therefore every
+      // Unlock button, sits on the same line across a row regardless of how
+      // many lines the title runs to.
+      className={`relative flex h-full flex-col rounded-xl border-2 transition-all duration-300 overflow-hidden group ${
         unlocked
           ? `${colors.bg} ${colors.border} hover:shadow-xl hover:-translate-y-1 ${onClick ? 'cursor-pointer' : ''}`
           : `bg-slate-50 border-slate-200 ${
@@ -93,7 +96,7 @@ export function ActivityCard({
         </span>
       </div>
 
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         {/* Icon */}
         <div
           className={`flex items-center justify-center w-12 h-12 rounded-xl mb-4 ${
@@ -121,19 +124,22 @@ export function ActivityCard({
           {activity.title}
         </h3>
 
-        {/* Description */}
-        {unlocked ? (
-          <p className="text-sm text-slate-600 leading-relaxed">{activity.description}</p>
-        ) : (
-          <div className="space-y-2">
-            <div className="h-3 rounded-full bg-slate-200 w-full" />
-            <div className="h-3 rounded-full bg-slate-200 w-4/5" />
-            <div className="h-3 rounded-full bg-slate-200 w-3/5" />
-          </div>
-        )}
+        {/* Description. Grows to fill whatever the title left over, which is
+            what pushes the footer down to a consistent line. */}
+        <div className="flex-1">
+          {unlocked ? (
+            <p className="text-sm text-slate-600 leading-relaxed">{activity.description}</p>
+          ) : (
+            <div className="space-y-2">
+              <div className="h-3 rounded-full bg-slate-200 w-full" />
+              <div className="h-3 rounded-full bg-slate-200 w-4/5" />
+              <div className="h-3 rounded-full bg-slate-200 w-3/5" />
+            </div>
+          )}
+        </div>
 
         {/* Footer */}
-        <div className="mt-4 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+        <div className="mt-4 pt-4 border-t border-slate-200/60 flex items-center justify-between gap-2">
           <span className={`text-xs font-medium ${unlocked ? 'text-slate-400' : 'text-slate-300'}`}>
             {activity.month} · {activity.theme}
           </span>
