@@ -69,14 +69,16 @@ export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCar
         </div>
       )}
 
-      {/* Week badge. Sits left of the save control rather than under it. */}
+      {/* Activity reference, e.g. SEP-4. Sits left of the save control rather
+          than under it. This replaced a week number, which broke once a month
+          held more than four activities. */}
       <div className={`absolute top-4 ${unlocked ? 'right-12' : 'right-4'}`}>
         <span
           className={`text-xs font-bold px-2.5 py-1 rounded-full ${
             unlocked ? 'bg-white/80 text-slate-600' : 'bg-slate-200 text-slate-400'
           }`}
         >
-          Week {activity.week}
+          {activity.ref}
         </span>
       </div>
 

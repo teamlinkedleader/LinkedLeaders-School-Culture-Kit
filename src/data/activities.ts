@@ -11,7 +11,8 @@ export interface ActivityStep {
 
 export interface CultureActivity {
   id: number;
-  week: number;
+  /** Short human reference, e.g. "SEP-4". Month code plus position in month. */
+  ref: string;
   title: string;
   category: 'Staff Culture' | 'Student Belonging' | 'Family & Community' | 'Leader';
   month: string;
@@ -64,7 +65,7 @@ export const activities: CultureActivity[] = [
   // July — Renewal & Preparation
   {
     id: 1,
-    week: 1,
+    ref: "JUL-1",
     title: "Name Next Year's Culture in One Sentence",
     category: "Leader",
     month: "July",
@@ -133,7 +134,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 2,
-    week: 2,
+    ref: "JUL-2",
     title: "Pick Your BE Words",
     category: "Leader",
     month: "July",
@@ -202,7 +203,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 116,
-    week: 3,
+    ref: "JUL-3",
     title: "The Fresh Eyes Walk",
     category: "Leader",
     month: "July",
@@ -274,7 +275,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 117,
-    week: 4,
+    ref: "JUL-4",
     title: "The Five Calls",
     category: "Staff Culture",
     month: "July",
@@ -344,7 +345,7 @@ export const activities: CultureActivity[] = [
   // August — Welcome & Belonging
   {
     id: 3,
-    week: 1,
+    ref: "AUG-1",
     title: "Design Your Pre-Service Week",
     category: "Leader",
     month: "August",
@@ -413,7 +414,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 4,
-    week: 2,
+    ref: "AUG-2",
     title: "The August Culture Kit",
     category: "Leader",
     month: "August",
@@ -483,7 +484,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 5,
-    week: 3,
+    ref: "AUG-3",
     title: "Speed Connections, Back-to-School Edition",
     category: "Staff Culture",
     month: "August",
@@ -555,7 +556,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 6,
-    week: 4,
+    ref: "AUG-4",
     title: "Your Seat at This Table",
     category: "Staff Culture",
     month: "August",
@@ -625,7 +626,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 7,
-    week: 5,
+    ref: "AUG-5",
     title: "First Day Photos, Staff Edition",
     category: "Staff Culture",
     month: "August",
@@ -698,7 +699,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 8,
-    week: 6,
+    ref: "AUG-6",
     title: "This Year, I'm All In On",
     category: "Staff Culture",
     month: "August",
@@ -764,7 +765,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 49,
-    week: 7,
+    ref: "AUG-7",
     title: "My Summer in 6 Words",
     category: "Staff Culture",
     month: "August",
@@ -831,7 +832,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 54,
-    week: 8,
+    ref: "AUG-8",
     title: "The Greeting Line",
     category: "Leader",
     month: "August",
@@ -901,7 +902,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 55,
-    week: 9,
+    ref: "AUG-9",
     title: "Six Things That Make Me",
     category: "Student Belonging",
     month: "August",
@@ -972,7 +973,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 56,
-    week: 10,
+    ref: "AUG-10",
     title: "Open House That Actually Opens",
     category: "Family & Community",
     month: "August",
@@ -1043,7 +1044,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 57,
-    week: 11,
+    ref: "AUG-11",
     title: "The First 30 Days Partner",
     category: "Staff Culture",
     month: "August",
@@ -1115,7 +1116,7 @@ export const activities: CultureActivity[] = [
   // September — Establishing Identity
   {
     id: 9,
-    week: 1,
+    ref: "SEP-1",
     title: "Sticky Note Shout-Out Wall",
     category: "Staff Culture",
     month: "September",
@@ -1179,7 +1180,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 10,
-    week: 2,
+    ref: "SEP-2",
     title: "Class Traditions Charter",
     category: "Student Belonging",
     month: "September",
@@ -1250,7 +1251,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 11,
-    week: 3,
+    ref: "SEP-3",
     title: "The 10-Minute Rounds",
     category: "Staff Culture",
     month: "September",
@@ -1320,7 +1321,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 12,
-    week: 4,
+    ref: "SEP-4",
     title: "One Good Story",
     category: "Family & Community",
     month: "September",
@@ -1391,7 +1392,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 53,
-    week: 5,
+    ref: "SEP-5",
     title: "Every Student Claimed",
     category: "Staff Culture",
     month: "September",
@@ -1463,7 +1464,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 58,
-    week: 6,
+    ref: "SEP-6",
     title: "The Chip Bowl",
     category: "Staff Culture",
     month: "September",
@@ -1535,7 +1536,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 59,
-    week: 7,
+    ref: "SEP-7",
     title: "The One Thing We Always Do",
     category: "Staff Culture",
     month: "September",
@@ -1607,7 +1608,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 60,
-    week: 8,
+    ref: "SEP-8",
     title: "Who To Ask For What",
     category: "Staff Culture",
     month: "September",
@@ -1678,7 +1679,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 61,
-    week: 9,
+    ref: "SEP-9",
     title: "Every Kid Has a Job",
     category: "Student Belonging",
     month: "September",
@@ -1749,7 +1750,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 62,
-    week: 10,
+    ref: "SEP-10",
     title: "Name the First Win",
     category: "Staff Culture",
     month: "September",
@@ -1820,7 +1821,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 118,
-    week: 11,
+    ref: "SEP-11",
     title: "The Front Office Is the Front Door",
     category: "Staff Culture",
     month: "September",
@@ -1894,7 +1895,7 @@ export const activities: CultureActivity[] = [
   // October — Connection & Recognition
   {
     id: 13,
-    week: 1,
+    ref: "OCT-1",
     title: "The Great Staff Scavenger Shuffle",
     category: "Staff Culture",
     month: "October",
@@ -1966,7 +1967,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 15,
-    week: 2,
+    ref: "OCT-2",
     title: "Pumpkin Awards",
     category: "Staff Culture",
     month: "October",
@@ -2037,7 +2038,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 63,
-    week: 3,
+    ref: "OCT-3",
     title: "Spirit Week With a Point",
     category: "Student Belonging",
     month: "October",
@@ -2108,7 +2109,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 64,
-    week: 4,
+    ref: "OCT-4",
     title: "The Potluck With Assigned Seats",
     category: "Staff Culture",
     month: "October",
@@ -2180,7 +2181,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 65,
-    week: 5,
+    ref: "OCT-5",
     title: "A Note From a Kid",
     category: "Student Belonging",
     month: "October",
@@ -2252,7 +2253,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 66,
-    week: 6,
+    ref: "OCT-6",
     title: "Solve One Real Problem Together",
     category: "Staff Culture",
     month: "October",
@@ -2322,7 +2323,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 67,
-    week: 7,
+    ref: "OCT-7",
     title: "Pass the Baton",
     category: "Staff Culture",
     month: "October",
@@ -2393,7 +2394,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 119,
-    week: 8,
+    ref: "OCT-8",
     title: "Lunchroom and Playground",
     category: "Student Belonging",
     month: "October",
@@ -2467,7 +2468,7 @@ export const activities: CultureActivity[] = [
   // November — Gratitude
   {
     id: 17,
-    week: 1,
+    ref: "NOV-1",
     title: "The Ripple of Gratitude",
     category: "Staff Culture",
     month: "November",
@@ -2532,7 +2533,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 18,
-    week: 2,
+    ref: "NOV-2",
     title: "Gratitude Graffiti Wall",
     category: "Staff Culture",
     month: "November",
@@ -2598,7 +2599,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 68,
-    week: 3,
+    ref: "NOV-3",
     title: "The Handwritten Five",
     category: "Staff Culture",
     month: "November",
@@ -2669,7 +2670,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 69,
-    week: 4,
+    ref: "NOV-4",
     title: "Gratitude That Leaves the Building",
     category: "Family & Community",
     month: "November",
@@ -2740,7 +2741,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 70,
-    week: 5,
+    ref: "NOV-5",
     title: "Thank the Family, Not the Kid",
     category: "Family & Community",
     month: "November",
@@ -2811,7 +2812,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 71,
-    week: 6,
+    ref: "NOV-6",
     title: "The Thank You You Never Sent",
     category: "Student Belonging",
     month: "November",
@@ -2883,7 +2884,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 72,
-    week: 7,
+    ref: "NOV-7",
     title: "November Without Assumptions",
     category: "Leader",
     month: "November",
@@ -2954,7 +2955,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 120,
-    week: 8,
+    ref: "NOV-8",
     title: "Thank the Substitutes",
     category: "Staff Culture",
     month: "November",
@@ -3026,7 +3027,7 @@ export const activities: CultureActivity[] = [
   // December — Celebration & Care
   {
     id: 21,
-    week: 1,
+    ref: "DEC-1",
     title: "The Great Staff Sock Exchange",
     category: "Staff Culture",
     month: "December",
@@ -3094,7 +3095,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 23,
-    week: 2,
+    ref: "DEC-2",
     title: "Comfort Food Cruise",
     category: "Staff Culture",
     month: "December",
@@ -3164,7 +3165,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 73,
-    week: 3,
+    ref: "DEC-3",
     title: "Cover the Class",
     category: "Staff Culture",
     month: "December",
@@ -3236,7 +3237,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 74,
-    week: 4,
+    ref: "DEC-4",
     title: "The December Subtraction",
     category: "Leader",
     month: "December",
@@ -3307,7 +3308,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 75,
-    week: 5,
+    ref: "DEC-5",
     title: "Quiet Support",
     category: "Family & Community",
     month: "December",
@@ -3378,7 +3379,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 76,
-    week: 6,
+    ref: "DEC-6",
     title: "The Last Day Ritual",
     category: "Student Belonging",
     month: "December",
@@ -3450,7 +3451,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 77,
-    week: 7,
+    ref: "DEC-7",
     title: "The Note to Their Person",
     category: "Staff Culture",
     month: "December",
@@ -3522,7 +3523,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 121,
-    week: 8,
+    ref: "DEC-8",
     title: "When Someone Is Grieving",
     category: "Staff Culture",
     month: "December",
@@ -3596,7 +3597,7 @@ export const activities: CultureActivity[] = [
   // January — Fresh Start & Goals
   {
     id: 78,
-    week: 1,
+    ref: "JAN-1",
     title: "The First Morning Back",
     category: "Student Belonging",
     month: "January",
@@ -3667,7 +3668,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 79,
-    week: 2,
+    ref: "JAN-2",
     title: "Stay Conversations",
     category: "Staff Culture",
     month: "January",
@@ -3739,7 +3740,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 80,
-    week: 3,
+    ref: "JAN-3",
     title: "The Halfway Honest Check",
     category: "Leader",
     month: "January",
@@ -3810,7 +3811,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 81,
-    week: 4,
+    ref: "JAN-4",
     title: "One Thing By March",
     category: "Student Belonging",
     month: "January",
@@ -3882,7 +3883,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 82,
-    week: 5,
+    ref: "JAN-5",
     title: "Mid-Year in Plain English",
     category: "Family & Community",
     month: "January",
@@ -3953,7 +3954,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 122,
-    week: 6,
+    ref: "JAN-6",
     title: "Welcome the Mid-Year Hire",
     category: "Staff Culture",
     month: "January",
@@ -4024,7 +4025,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 123,
-    week: 7,
+    ref: "JAN-7",
     title: "The New Kid in January",
     category: "Student Belonging",
     month: "January",
@@ -4097,7 +4098,7 @@ export const activities: CultureActivity[] = [
   // February — Kindness & Belonging
   {
     id: 31,
-    week: 1,
+    ref: "FEB-1",
     title: "Classified Staff Appreciation Swap",
     category: "Staff Culture",
     month: "February",
@@ -4164,7 +4165,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 83,
-    week: 2,
+    ref: "FEB-2",
     title: "The Kindness Nobody Sees",
     category: "Student Belonging",
     month: "February",
@@ -4236,7 +4237,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 84,
-    week: 3,
+    ref: "FEB-3",
     title: "The Hard Week Protocol",
     category: "Staff Culture",
     month: "February",
@@ -4308,7 +4309,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 85,
-    week: 4,
+    ref: "FEB-4",
     title: "February 14 Without the Sorting",
     category: "Student Belonging",
     month: "February",
@@ -4379,7 +4380,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 86,
-    week: 5,
+    ref: "FEB-5",
     title: "Family Night, Simplified",
     category: "Family & Community",
     month: "February",
@@ -4450,7 +4451,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 87,
-    week: 6,
+    ref: "FEB-6",
     title: "The Person You'd Miss",
     category: "Staff Culture",
     month: "February",
@@ -4522,7 +4523,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 124,
-    week: 7,
+    ref: "FEB-7",
     title: "The Two Who Cannot Work Together",
     category: "Staff Culture",
     month: "February",
@@ -4594,7 +4595,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 125,
-    week: 8,
+    ref: "FEB-8",
     title: "Attendance Is a Belonging Problem",
     category: "Family & Community",
     month: "February",
@@ -4667,7 +4668,7 @@ export const activities: CultureActivity[] = [
   // March — Perseverance
   {
     id: 88,
-    week: 1,
+    ref: "MAR-1",
     title: "Kill a Task",
     category: "Staff Culture",
     month: "March",
@@ -4739,7 +4740,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 89,
-    week: 2,
+    ref: "MAR-2",
     title: "Growth Made Visible",
     category: "Student Belonging",
     month: "March",
@@ -4811,7 +4812,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 90,
-    week: 3,
+    ref: "MAR-3",
     title: "Testing Week Without the Panic",
     category: "Family & Community",
     month: "March",
@@ -4882,7 +4883,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 91,
-    week: 4,
+    ref: "MAR-4",
     title: "Who Is Actually Covering",
     category: "Staff Culture",
     month: "March",
@@ -4954,7 +4955,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 92,
-    week: 5,
+    ref: "MAR-5",
     title: "The Leader Who Is Still Here in June",
     category: "Leader",
     month: "March",
@@ -5026,7 +5027,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 126,
-    week: 6,
+    ref: "MAR-6",
     title: "The Students Who Get Pulled Out",
     category: "Student Belonging",
     month: "March",
@@ -5098,7 +5099,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 127,
-    week: 7,
+    ref: "MAR-7",
     title: "The Phone Fight",
     category: "Staff Culture",
     month: "March",
@@ -5171,7 +5172,7 @@ export const activities: CultureActivity[] = [
   // April — Appreciation
   {
     id: 93,
-    week: 1,
+    ref: "APR-1",
     title: "The Quiet Contributors",
     category: "Staff Culture",
     month: "April",
@@ -5243,7 +5244,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 94,
-    week: 2,
+    ref: "APR-2",
     title: "Recognition Beyond Grades",
     category: "Student Belonging",
     month: "April",
@@ -5314,7 +5315,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 95,
-    week: 3,
+    ref: "APR-3",
     title: "Staff Appreciation Week, Planned in April",
     category: "Staff Culture",
     month: "April",
@@ -5386,7 +5387,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 96,
-    week: 4,
+    ref: "APR-4",
     title: "The People Who Are Not Paid",
     category: "Family & Community",
     month: "April",
@@ -5458,7 +5459,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 97,
-    week: 5,
+    ref: "APR-5",
     title: "Re-Recruit the People You Cannot Lose",
     category: "Staff Culture",
     month: "April",
@@ -5529,7 +5530,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 128,
-    week: 6,
+    ref: "APR-6",
     title: "The Student Culture Council",
     category: "Student Belonging",
     month: "April",
@@ -5601,7 +5602,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 129,
-    week: 7,
+    ref: "APR-7",
     title: "Staff Who Are Also Parents Here",
     category: "Staff Culture",
     month: "April",
@@ -5672,7 +5673,7 @@ export const activities: CultureActivity[] = [
   // May — Celebration & Legacy
   {
     id: 98,
-    week: 1,
+    ref: "MAY-1",
     title: "Transition Support",
     category: "Student Belonging",
     month: "May",
@@ -5744,7 +5745,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 99,
-    week: 2,
+    ref: "MAY-2",
     title: "Celebrate the Movers",
     category: "Student Belonging",
     month: "May",
@@ -5816,7 +5817,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 100,
-    week: 3,
+    ref: "MAY-3",
     title: "The Survey People Actually Answer",
     category: "Family & Community",
     month: "May",
@@ -5889,7 +5890,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 101,
-    week: 4,
+    ref: "MAY-4",
     title: "How the Year Ends for Staff",
     category: "Staff Culture",
     month: "May",
@@ -5961,7 +5962,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 130,
-    week: 5,
+    ref: "MAY-5",
     title: "Bring the Graduates Back",
     category: "Family & Community",
     month: "May",
@@ -6035,7 +6036,7 @@ export const activities: CultureActivity[] = [
   // June — Reflection & Closure
   {
     id: 102,
-    week: 1,
+    ref: "JUN-1",
     title: "What We Keep, What We Kill",
     category: "Staff Culture",
     month: "June",
@@ -6107,7 +6108,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 103,
-    week: 2,
+    ref: "JUN-2",
     title: "Your Year in Six Words",
     category: "Staff Culture",
     month: "June",
@@ -6179,7 +6180,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 104,
-    week: 3,
+    ref: "JUN-3",
     title: "The Final Grade",
     category: "Leader",
     month: "June",
@@ -6251,7 +6252,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 131,
-    week: 4,
+    ref: "JUN-4",
     title: "Hand Over Well",
     category: "Leader",
     month: "June",
@@ -6325,7 +6326,7 @@ export const activities: CultureActivity[] = [
   // Bonus — The Collaborative Impact Framework
   {
     id: 105,
-    week: 1,
+    ref: "CIF-1",
     title: "World Café",
     category: "Staff Culture",
     month: "Bonus",
@@ -6402,7 +6403,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 106,
-    week: 2,
+    ref: "CIF-2",
     title: "Appreciative Inquiry",
     category: "Staff Culture",
     month: "Bonus",
@@ -6481,7 +6482,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 107,
-    week: 3,
+    ref: "CIF-3",
     title: "Design Thinking Sprint",
     category: "Staff Culture",
     month: "Bonus",
@@ -6550,7 +6551,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 108,
-    week: 4,
+    ref: "CIF-4",
     title: "Future Search",
     category: "Staff Culture",
     month: "Bonus",
@@ -6630,7 +6631,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 109,
-    week: 5,
+    ref: "CIF-5",
     title: "Open Space",
     category: "Staff Culture",
     month: "Bonus",
@@ -6706,7 +6707,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 110,
-    week: 6,
+    ref: "CIF-6",
     title: "Consultancy Protocol",
     category: "Staff Culture",
     month: "Bonus",
@@ -6781,7 +6782,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 111,
-    week: 7,
+    ref: "CIF-7",
     title: "Fishbowl",
     category: "Staff Culture",
     month: "Bonus",
@@ -6860,7 +6861,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 112,
-    week: 8,
+    ref: "CIF-8",
     title: "Success Gallery Walk",
     category: "Staff Culture",
     month: "Bonus",
@@ -6936,7 +6937,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 113,
-    week: 9,
+    ref: "CIF-9",
     title: "Liberating Structures Starter Set",
     category: "Staff Culture",
     month: "Bonus",
@@ -7011,7 +7012,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 114,
-    week: 10,
+    ref: "CIF-10",
     title: "The Collective Ownership Session",
     category: "Staff Culture",
     month: "Bonus",
@@ -7092,7 +7093,7 @@ export const activities: CultureActivity[] = [
   },
   {
     id: 115,
-    week: 11,
+    ref: "CIF-11",
     title: "The Collaborative Impact Framework",
     category: "Leader",
     month: "Bonus",

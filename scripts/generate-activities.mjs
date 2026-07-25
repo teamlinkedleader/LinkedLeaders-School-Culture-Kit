@@ -71,6 +71,29 @@ const MONTH_THEMES = [
  * month rather than trusted from frontmatter — otherwise a moved activity shows
  * September alongside August's theme.
  */
+/**
+ * Short month codes for the per-activity reference, e.g. JUL-1, SEP-4.
+ *
+ * Three letters rather than one, because a single initial collides on seven of
+ * the twelve months: J is July, June and January; M is March and May; A is
+ * April and August. "J3" would be unreadable.
+ */
+const MONTH_CODE = {
+  July: 'JUL',
+  August: 'AUG',
+  September: 'SEP',
+  October: 'OCT',
+  November: 'NOV',
+  December: 'DEC',
+  January: 'JAN',
+  February: 'FEB',
+  March: 'MAR',
+  April: 'APR',
+  May: 'MAY',
+  June: 'JUN',
+  Bonus: 'CIF',
+};
+
 const BE_WORD = {
   July: 'BE Ready',
   August: 'BE Visible',
@@ -265,12 +288,14 @@ function build() {
   // Display order: by month, then by activity number within the month.
   parsed.sort((a, b) => a.monthIndex - b.monthIndex || a.id - b.id);
 
-  // `week` is the slot within its month, so it always renders as "Week N".
+  // Each activity gets a short reference: its month code plus its position
+  // within that month, e.g. JUL-1, SEP-4. This replaces the old "Week N"
+  // label, which stopped making sense once months held more than four.
   const perMonth = new Map();
   for (const a of parsed) {
     const n = (perMonth.get(a.month) ?? 0) + 1;
     perMonth.set(a.month, n);
-    a.week = n;
+    a.ref = `${MONTH_CODE[a.month] ?? 'ACT'}-${n}`;
   }
 
   const duplicates = parsed.map((a) => a.code).filter((c, i, all) => all.indexOf(c) !== i);
@@ -284,7 +309,7 @@ const s = (v) => JSON.stringify(v);
 function emitActivity(a) {
   const lines = [
     `    id: ${a.id},`,
-    `    week: ${a.week},`,
+    `    ref: ${s(a.ref)},`,
     `    title: ${s(a.title)},`,
     `    category: ${s(a.category)},`,
     `    month: ${s(a.month)},`,
@@ -353,7 +378,8 @@ export interface ActivityStep {
 
 export interface CultureActivity {
   id: number;
-  week: number;
+  /** Short human reference, e.g. "SEP-4". Month code plus position in month. */
+  ref: string;
   title: string;
   category: 'Staff Culture' | 'Student Belonging' | 'Family & Community' | 'Leader';
   month: string;
