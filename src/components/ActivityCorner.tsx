@@ -115,7 +115,7 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
             <div className="flex items-center justify-center w-14 h-14 rounded-full bg-slate-100 mx-auto mb-4">
               <Lock className="w-7 h-7 text-slate-400" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800">This one is not in your kit</h3>
+            <h3 className="text-lg font-bold text-slate-800">Unlock this and the rest of the year</h3>
             <p className="mt-2 text-sm text-slate-500 leading-relaxed max-w-sm mx-auto">
               {activity.promise}
             </p>
@@ -124,7 +124,7 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
               onClick={onClaimClick}
               className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-lg"
             >
-              Choose your free 3-pack
+              Unlock the year
             </button>
           </div>
         ) : (

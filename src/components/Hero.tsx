@@ -1,6 +1,5 @@
 import { ArrowDown, Sparkles, Users, HeartHandshake, Home } from 'lucide-react';
 import { totalActivities, culturePillars, monthsCovered, collectionSummary } from '@/data/stats';
-import { PACK_SIZE } from '@/data/packs';
 import type { AccessState } from '@/lib/access';
 
 interface HeroProps {
@@ -67,7 +66,7 @@ export function Hero({ onClaimClick, access }: HeroProps) {
                 onClick={onClaimClick}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-blue-600 text-white font-semibold text-base hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
-                Get {PACK_SIZE} Activities Free
+                Unlock a Year of Culture Building
               </button>
             )}
             <button

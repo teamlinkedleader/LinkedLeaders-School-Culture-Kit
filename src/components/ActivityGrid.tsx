@@ -52,18 +52,18 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
           <div className="mb-10 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 p-6 md:p-8 text-center">
             <div className="flex items-center justify-center gap-3 mb-3">
               <Sparkles className="w-6 h-6 text-blue-100" />
-              <h3 className="text-xl font-bold text-white">Not sure where to start?</h3>
+              <h3 className="text-xl font-bold text-white">Unlock a year of culture building</h3>
             </div>
             <p className="text-blue-100 mb-5 max-w-xl mx-auto">
-              Everything here is free to read. Tell us which theme you need most and we will send
-              you those three, ready to run, plus one new idea each week.
+              Tell us who you are and which theme you need most. The whole year opens, and we
+              will send you one ready-to-run activity a week, starting where you chose.
             </p>
             <button
               onClick={() => onClaimClick()}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-blue-700 font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:scale-105 transform"
             >
               <Sparkles className="w-5 h-5" />
-              Send Me the Weekly Activity
+              Unlock a Year of Culture Building
             </button>
           </div>
         )}
@@ -88,12 +88,12 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
                     </div>
                     <p className="text-sm text-slate-400 mt-1">{mt.blurb}</p>
                   </div>
-                  {access.packKey !== mt.month && access.tier !== 'full' && packByKey(mt.month) && (
+                  {access.tier === 'visitor' && packByKey(mt.month) && (
                     <button
                       onClick={() => onClaimClick(mt.month)}
                       className="ml-auto shrink-0 text-xs font-semibold px-3.5 py-2 rounded-full border border-blue-200 text-blue-700 hover:bg-blue-50 transition-colors"
                     >
-                      {access.tier === 'visitor' ? 'Get this 3-pack free' : 'Not in your kit'}
+                      Start here
                     </button>
                   )}
                 </div>
@@ -104,7 +104,7 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
                     <ActivityCard
                       key={activity.id}
                       activity={activity}
-                      unlocked={canRead(access, activity.id)}
+                      unlocked={canRead(access)}
                       index={i}
                       onClick={() => onActivityClick?.(activity)}
                     />

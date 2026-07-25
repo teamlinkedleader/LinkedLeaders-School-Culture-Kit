@@ -1,5 +1,4 @@
 import { CalendarCheck, Check } from 'lucide-react';
-import { PACK_SIZE } from '@/data/packs';
 import type { AccessState } from '@/lib/access';
 
 const PRICE_USD = 29;
@@ -25,9 +24,10 @@ interface CoachingOfferProps {
 /**
  * The tripwire.
  *
- * Deliberately not a content unlock. The activities remain a free lead magnet
- * traded for an email; what is sold here is an hour with someone who has done
- * the job, which is the one thing that cannot be copied, forwarded or scraped.
+ * Deliberately not a content unlock. The full year of activities is the free
+ * lead magnet, traded for an email; what is sold here is an hour with someone
+ * who has done the job, which is the one thing that cannot be copied,
+ * forwarded or scraped.
  */
 export function CoachingOffer({ access }: CoachingOfferProps) {
   const opener = access.name ? `${access.name}, you` : 'You';
@@ -45,9 +45,9 @@ export function CoachingOffer({ access }: CoachingOfferProps) {
         </h2>
 
         <p className="mt-5 text-lg text-slate-300 leading-relaxed">
-          {opener} can collect kits all year and still be stuck on the same question. The hard part
-          is not finding ideas, it is deciding which few matter for your building this year and
-          actually running them. That is what the hour is for.
+          {opener} now have a year of activities. The hard part was never finding ideas, it is
+          deciding which few matter for your building this year and actually running them. That is
+          what the hour is for.
         </p>
 
         <ul className="mt-8 grid gap-3 sm:grid-cols-2 text-left max-w-xl mx-auto">
@@ -95,8 +95,8 @@ export function CoachingOffer({ access }: CoachingOfferProps) {
           )}
 
           <p className="text-xs text-slate-400 max-w-md">
-            Not sure yet? Start with your free {PACK_SIZE}-activity kit and come back when you know
-            what you want to work on.
+            Not sure yet? Unlock the year first and come back once you know what you want to work
+            on.
           </p>
         </div>
       </div>

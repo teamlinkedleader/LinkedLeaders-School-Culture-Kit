@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { GraduationCap } from 'lucide-react';
-import { PACK_SIZE } from '@/data/packs';
 import type { AccessState } from '@/lib/access';
 
 interface HeaderProps {
@@ -74,7 +73,7 @@ export function Header({ onClaimClick, access }: HeaderProps) {
               onClick={onClaimClick}
               className="text-sm font-semibold px-5 py-2.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              {access.tier === 'pack' ? 'Unlock Everything' : `Get ${PACK_SIZE} Free`}
+              Unlock the Year
             </button>
           )}
         </div>

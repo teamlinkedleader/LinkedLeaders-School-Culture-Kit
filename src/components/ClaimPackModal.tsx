@@ -1,7 +1,8 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { X, Mail, User, Briefcase, School, Loader2, CheckCircle2, AlertCircle, Check } from 'lucide-react';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
-import { packs, PACK_SIZE, type CulturePack } from '@/data/packs';
+import { packs, type CulturePack } from '@/data/packs';
+import { totalActivities } from '@/data/stats';
 
 interface ClaimPackModalProps {
   open: boolean;
@@ -43,7 +44,7 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
     e.preventDefault();
 
     if (!packKey) {
-      setErrorMsg('Choose which three-pack you would like first.');
+      setErrorMsg('Choose where you would like to start.');
       setStatus('error');
       return;
     }
@@ -103,11 +104,11 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
             <X className="w-5 h-5 text-white" />
           </button>
           <h2 className="text-2xl font-bold text-white">
-            Choose Your Free {PACK_SIZE}-Activity Culture Kit
+            Unlock a Year of Culture Building
           </h2>
           <p className="text-blue-100 text-sm mt-2 max-w-lg">
-            Pick the theme you need most right now. We will send you those {PACK_SIZE} activities,
-            ready to run, plus one new idea each week.
+            All {totalActivities} activities open straight away. Tell us which theme you need most
+            and we will start you there, then send one ready-to-run idea a week.
           </p>
         </div>
 
@@ -116,10 +117,11 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
               <CheckCircle2 className="w-9 h-9 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-2">Your kit is unlocked</h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-2">The whole year is open</h3>
             <p className="text-slate-500 text-sm">
-              {selected ? `${selected.month}: ${selected.theme}` : ''} is open below, and your first
-              email is on its way.
+              All {totalActivities} activities are unlocked below. We will start you at{' '}
+              {selected ? `${selected.month}: ${selected.theme}` : 'your chosen theme'}, and your
+              first email is on its way.
             </p>
           </div>
         ) : (
@@ -127,7 +129,7 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
             {/* Pack chooser */}
             <fieldset>
               <legend className="block text-sm font-semibold text-slate-700 mb-3">
-                1. Which {PACK_SIZE} activities would you like?{' '}
+                1. Where would you like to start?{' '}
                 <span className="text-rose-500">*</span>
               </legend>
               <div className="grid gap-2.5 sm:grid-cols-2 max-h-64 overflow-y-auto pr-1">
@@ -162,6 +164,9 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
               </div>
               {selected && (
                 <ul className="mt-3 rounded-lg bg-slate-50 border border-slate-100 p-3 space-y-1">
+                  <li className="text-xs font-semibold text-slate-500 pb-1">
+                    We will start you with these:
+                  </li>
                   {selected.activities.map((a) => (
                     <li key={a.id} className="flex gap-2 text-xs text-slate-600">
                       <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
@@ -199,7 +204,7 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
               {status === 'submitting' ? (
                 <><Loader2 className="w-5 h-5 animate-spin" />Sending...</>
               ) : (
-                `Send Me My ${PACK_SIZE} Activities`
+                'Unlock the Year'
               )}
             </button>
 

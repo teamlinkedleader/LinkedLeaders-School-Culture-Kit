@@ -102,9 +102,19 @@ export async function checkFullAccess(email: string): Promise<boolean> {
 /**
  * Whether an activity's full text is shown.
  *
+ * One question: has this visitor given us their details? If so, the whole year
+ * opens.
+ *
+ * It used to open only the three activities in their chosen theme. That made
+ * sense while the remaining activities were going to be the paid tripwire.
+ * Once the tripwire became a coaching session, holding back 80 activities
+ * protected nothing and simply made the magnet stingy. Worse, the headline
+ * promises a year of culture building, and delivering three against that
+ * promise would be a bait-and-switch.
+ *
  * This is a soft gate, enforced in the browser. That is deliberate and it is
- * fine here, because nothing behind it costs money: it exists to trade a full
- * activity for an email address, which is the entire job of a lead magnet.
+ * fine here, because nothing behind it costs money: it exists to trade content
+ * for an email address, which is the entire job of a lead magnet.
  *
  * The earlier objection to client-side gating stands only where money is
  * involved. Charging for something a visitor can lift out of the bundle is
@@ -115,8 +125,12 @@ export async function checkFullAccess(email: string): Promise<boolean> {
  * Card-level information (title, promise, month, time) is always visible. That
  * is the advertisement, and hiding it would defeat the point.
  */
-export function canRead(state: AccessState, activityId: number): boolean {
-  if (state.tier === 'full') return true;
-  if (state.tier === 'pack') return packActivityIds(state.packKey).has(activityId);
-  return false;
+export function canRead(state: AccessState): boolean {
+  return state.tier !== 'visitor';
+}
+
+/** Whether an activity is in the theme the visitor chose to start with. Used
+ *  only to highlight their starting point, never to restrict anything. */
+export function isStartingTheme(state: AccessState, activityId: number): boolean {
+  return state.tier !== 'visitor' && packActivityIds(state.packKey).has(activityId);
 }
