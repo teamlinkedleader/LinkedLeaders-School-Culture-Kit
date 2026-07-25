@@ -1,4 +1,5 @@
-import { Lock, Users, HeartHandshake, Home, Compass, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Lock, Users, HeartHandshake, Home, Compass, CheckCircle2, ArrowRight, Star } from 'lucide-react';
+import { toggleFavourite, useIsFavourite } from '@/lib/favourites';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
 
@@ -20,6 +21,7 @@ export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCar
   const Icon = iconComponents[activity.icon] ?? Users;
   const colors = categoryColors[activity.category];
   const isFreePreview = activity.freePreview;
+  const saved = useIsFavourite(activity.id);
 
   return (
     <div
@@ -33,6 +35,31 @@ export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCar
         animationDelay: `${index * 40}ms`,
       }}
     >
+      {/* Save control. Stops propagation so saving does not also open the
+          activity, which would be maddening. */}
+      {unlocked && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFavourite(activity.id);
+          }}
+          aria-pressed={saved}
+          aria-label={saved ? `Remove ${activity.title} from saved` : `Save ${activity.title}`}
+          title={saved ? 'Saved' : 'Save this activity'}
+          // Always visible, never hover-gated. A control that only appears on
+          // hover does not exist on a touch device, and school leaders are
+          // heavily on iPads.
+          className={`absolute top-3 right-3 z-20 flex items-center justify-center w-8 h-8 rounded-full transition-colors ${
+            saved
+              ? 'bg-brand-purple text-white shadow-sm'
+              : 'bg-white/70 text-slate-400 hover:bg-white hover:text-brand-purple'
+          }`}
+        >
+          <Star className={`w-4 h-4 ${saved ? 'fill-current' : ''}`} />
+        </button>
+      )}
+
       {/* Free preview badge */}
       {isFreePreview && unlocked && (
         <div className="absolute top-4 left-4 z-10">
@@ -42,8 +69,8 @@ export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCar
         </div>
       )}
 
-      {/* Week badge */}
-      <div className="absolute top-4 right-4">
+      {/* Week badge. Sits left of the save control rather than under it. */}
+      <div className={`absolute top-4 ${unlocked ? 'right-12' : 'right-4'}`}>
         <span
           className={`text-xs font-bold px-2.5 py-1 rounded-full ${
             unlocked ? 'bg-white/80 text-slate-600' : 'bg-slate-200 text-slate-400'

@@ -18,9 +18,11 @@ import {
   ExternalLink,
   Workflow,
   Lock,
+  Star,
 } from 'lucide-react';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
+import { toggleFavourite, useIsFavourite } from '@/lib/favourites';
 
 interface ActivityCornerProps {
   /** Whether this visitor's access tier allows reading the full activity. */
@@ -44,6 +46,10 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
       };
     }
   }, [activity, onClose]);
+
+  // Hooks cannot be called conditionally, so this runs before the null guard
+  // with a sentinel id that will never match a real activity.
+  const saved = useIsFavourite(activity?.id ?? -1);
 
   if (!activity) return null;
 
@@ -86,13 +92,29 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
                 </p>
               )}
             </div>
-            <button
-              onClick={onClose}
-              className="shrink-0 p-2 rounded-lg text-slate-500 hover:bg-white/60 hover:text-slate-700 transition-colors"
-              aria-label="Close"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <div className="shrink-0 flex items-center gap-1">
+              {readable && (
+                <button
+                  onClick={() => toggleFavourite(activity.id)}
+                  aria-pressed={saved}
+                  aria-label={saved ? 'Remove from saved' : 'Save this activity'}
+                  className={`p-2 rounded-lg transition-colors ${
+                    saved
+                      ? 'text-brand-purple hover:bg-white/60'
+                      : 'text-slate-500 hover:bg-white/60 hover:text-brand-purple'
+                  }`}
+                >
+                  <Star className={`w-5 h-5 ${saved ? 'fill-current' : ''}`} />
+                </button>
+              )}
+              <button
+                onClick={onClose}
+                className="p-2 rounded-lg text-slate-500 hover:bg-white/60 hover:text-slate-700 transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           {/* Meta strip */}

@@ -1,4 +1,6 @@
-import { Sparkles, Calendar } from 'lucide-react';
+import { useState } from 'react';
+import { Sparkles, Calendar, Star } from 'lucide-react';
+import { useFavourites } from '@/lib/favourites';
 import { activities, monthThemes, categoryColors } from '@/data/activities';
 import { ActivityCard } from './ActivityCard';
 import type { CultureActivity } from '@/data/activities';
@@ -12,6 +14,11 @@ interface ActivityGridProps {
 }
 
 export function ActivityGrid({ access, onClaimClick, onActivityClick }: ActivityGridProps) {
+  const favourites = useFavourites();
+  const [savedOnly, setSavedOnly] = useState(false);
+  // Filtering to an empty screen is a dead end, so the toggle only appears once
+  // there is something to filter to.
+  const canFilter = favourites.length > 0;
   // The Bonus grouping (monthIndex 11) is rendered by FrameworkSection, which
   // gives the Collaborative Impact Framework its own home rather than leaving it
   // as a twelfth "month" at the end of the calendar.
@@ -36,6 +43,25 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
             or family connection.
           </p>
         </div>
+
+        {/* Saved filter. Only rendered once something has been saved. */}
+        {canFilter && (
+          <div className="flex justify-center mb-8">
+            <button
+              type="button"
+              onClick={() => setSavedOnly((v) => !v)}
+              aria-pressed={savedOnly}
+              className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
+                savedOnly
+                  ? 'bg-brand-purple text-white'
+                  : 'border border-brand-border text-slate-600 hover:border-brand-purple hover:text-brand-purple'
+              }`}
+            >
+              <Star className={`w-4 h-4 ${savedOnly ? 'fill-current' : ''}`} />
+              {savedOnly ? 'Showing saved only' : `Show my saved (${favourites.length})`}
+            </button>
+          </div>
+        )}
 
         {/* Category legend */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
@@ -75,7 +101,12 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
         {/* Month sections */}
         <div className="space-y-16">
           {sortedMonths.map((mt) => {
-            const monthActivities = activities.filter((a) => a.monthIndex === mt.monthIndex);
+            const monthActivities = activities
+              .filter((a) => a.monthIndex === mt.monthIndex)
+              .filter((a) => !savedOnly || favourites.includes(a.id));
+            // Hide months entirely when filtering, rather than leaving a row of
+            // empty headings down the page.
+            if (savedOnly && monthActivities.length === 0) return null;
             return (
               <div key={mt.monthIndex}>
                 {/* Month header */}
