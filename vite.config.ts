@@ -6,9 +6,13 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173,
-    strictPort: true,
+    // `host: true` binds all interfaces, which WebContainer-based
+    // environments like Bolt need in order to reach the dev server.
     host: true,
+    // Deliberately no `strictPort`. With it, a port already in use is a fatal
+    // error rather than a prompt to try the next one, which is what broke
+    // Bolt previews: a leftover dev process holding 5173 made every
+    // subsequent start fail instead of quietly moving to 5174.
   },
   resolve: {
     alias: {
