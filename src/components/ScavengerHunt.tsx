@@ -6,9 +6,9 @@ export function ScavengerHunt() {
 
   const rules = [
     { icon: Clock, text: 'Teams have 15 minutes to find items on a themed list hidden in classrooms.' },
-    { icon: Search, text: 'Take only 3 items from any one classroom — keep moving and exploring.' },
+    { icon: Search, text: 'Take only 3 items from any one classroom, so teams keep moving and exploring.' },
     { icon: Users, text: 'One teammate photographs each item; another records which classroom. Stay together.' },
-    { icon: Award, text: 'Award a small prize for the winning team — and celebrate everyone who played.' },
+    { icon: Award, text: 'Award a small prize for the winning team, and celebrate everyone who played.' },
   ];
 
   return (

@@ -1,6 +1,7 @@
 import { HeartHandshake, Clock, DollarSign, Compass, Flag, UserCheck, ArrowRight, Eye } from 'lucide-react';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
+import { totalActivities } from '@/data/stats';
 
 interface FeaturedPreviewProps {
   activity: CultureActivity;
@@ -25,8 +26,8 @@ export function FeaturedPreview({ activity, onOpen, onSubscribeClick }: Featured
             <span className="text-blue-600"> Before You Subscribe</span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 leading-relaxed">
-            This is a complete, unabridged activity — exactly what you'll get every week
-            for 52 weeks. Read it, use it, and decide if the rest is worth it.
+            This is a complete, unabridged activity, exactly what you'll get every week.
+            All {totalActivities} are free to read. Start with this one.
           </p>
         </div>
 

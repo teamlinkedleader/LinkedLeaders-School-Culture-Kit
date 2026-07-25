@@ -1,4 +1,5 @@
 import { ArrowDown, Sparkles, Users, HeartHandshake, Home } from 'lucide-react';
+import { totalActivities, culturePillars, monthsCovered, collectionSummary } from '@/data/stats';
 
 interface HeroProps {
   onSubscribeClick: () => void;
@@ -45,8 +46,8 @@ export function Hero({ onSubscribeClick, isSubscribed }: HeroProps) {
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-blue-100/90 leading-relaxed max-w-2xl">
-            52 weeks of culture-building activities for school leadership. One actionable
-            idea delivered to your inbox each week — for staff morale, student belonging,
+            {collectionSummary}. One actionable
+            idea delivered to your inbox each week, for staff morale, student belonging,
             and family connection.
           </p>
 
@@ -80,21 +81,21 @@ export function Hero({ onSubscribeClick, isSubscribed }: HeroProps) {
             <div>
               <div className="flex items-center gap-2 text-white">
                 <Users className="w-5 h-5 text-blue-300" />
-                <span className="text-2xl font-bold">52</span>
+                <span className="text-2xl font-bold">{totalActivities}</span>
               </div>
-              <p className="text-sm text-blue-200/80 mt-1">Weekly activities</p>
+              <p className="text-sm text-blue-200/80 mt-1">Activities</p>
             </div>
             <div>
               <div className="flex items-center gap-2 text-white">
                 <HeartHandshake className="w-5 h-5 text-blue-300" />
-                <span className="text-2xl font-bold">3</span>
+                <span className="text-2xl font-bold">{culturePillars}</span>
               </div>
               <p className="text-sm text-blue-200/80 mt-1">Culture pillars</p>
             </div>
             <div>
               <div className="flex items-center gap-2 text-white">
                 <Home className="w-5 h-5 text-blue-300" />
-                <span className="text-2xl font-bold">11</span>
+                <span className="text-2xl font-bold">{monthsCovered}</span>
               </div>
               <p className="text-sm text-blue-200/80 mt-1">Months covered</p>
             </div>

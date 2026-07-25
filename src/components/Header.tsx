@@ -54,7 +54,7 @@ export function Header({ onSubscribeClick, isSubscribed }: HeaderProps) {
               onClick={() => scrollTo('activities')}
               className={`text-sm font-medium transition-colors ${scrolled ? 'text-slate-600 hover:text-blue-600' : 'text-white/90 hover:text-white'}`}
             >
-              52 Activities
+              Activities
             </button>
             <button
               onClick={() => scrollTo('self-assessment')}
@@ -100,7 +100,7 @@ export function Header({ onSubscribeClick, isSubscribed }: HeaderProps) {
         {mobileOpen && (
           <div className="md:hidden pb-4 pt-2 space-y-3 bg-white/95 backdrop-blur-md rounded-b-2xl shadow-lg -mx-4 px-4">
             <button onClick={() => scrollTo('principles')} className="block w-full text-left py-2 text-slate-600 font-medium">Guiding Principles</button>
-            <button onClick={() => scrollTo('activities')} className="block w-full text-left py-2 text-slate-600 font-medium">52 Activities</button>
+            <button onClick={() => scrollTo('activities')} className="block w-full text-left py-2 text-slate-600 font-medium">Activities</button>
             <button onClick={() => scrollTo('self-assessment')} className="block w-full text-left py-2 text-slate-600 font-medium">Self-Reflection</button>
             <button onClick={() => scrollTo('scavenger-hunt')} className="block w-full text-left py-2 text-slate-600 font-medium">Featured Activity</button>
             {!isSubscribed && (

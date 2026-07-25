@@ -2,6 +2,7 @@ import { Sparkles, Calendar } from 'lucide-react';
 import { activities, monthThemes, categoryColors } from '@/data/activities';
 import { ActivityCard } from './ActivityCard';
 import type { CultureActivity } from '@/data/activities';
+import { totalActivities } from '@/data/stats';
 
 interface ActivityGridProps {
   unlocked: boolean;
@@ -17,7 +18,7 @@ export function ActivityGrid({ unlocked, onSubscribeClick, onActivityClick }: Ac
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
-            52 Culture-Building Activities
+            {totalActivities} Culture-Building Activities
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
             A Full Year of

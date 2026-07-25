@@ -4,7 +4,7 @@ const principles = [
   {
     icon: Heart,
     title: 'Culture Is Cumulative',
-    text: 'Culture is not an event — it\u2019s the accumulation of hundreds of small, intentional moments across the year. Your job is to be the steward of it.',
+    text: 'Culture is not an event. It\u2019s the accumulation of hundreds of small, intentional moments across the year. Your job is to be the steward of it.',
   },
   {
     icon: Eye,
@@ -14,12 +14,12 @@ const principles = [
   {
     icon: MessageCircle,
     title: 'Anchor It in the \u201CBE\u201D Words',
-    text: 'Give your culture a shared language. Post BE words — be kind, be honest, be grateful, be visible, be your best — where staff and students see them daily.',
+    text: 'Give your culture a shared language. Post BE words, such as be kind, be honest, be grateful, be visible and be your best, where staff and students see them daily.',
   },
   {
     icon: Calendar,
     title: 'Keep the Cadence',
-    text: 'A monthly rhythm for staff morale, student belonging, and family connection. Adapt the activities to your community, but keep the cadence — culture withers when attention is only paid to it in a crisis.',
+    text: 'A monthly rhythm for staff morale, student belonging, and family connection. Adapt the activities to your community, but keep the cadence, because culture withers when attention is only paid to it in a crisis.',
   },
   {
     icon: Sparkles,
@@ -29,7 +29,7 @@ const principles = [
   {
     icon: Shield,
     title: 'Protect What Matters',
-    text: 'Protect staff from unnecessary work — kill a task instead of adding one. Protect time for the people in your building. Protect the values you\u2019ve named.',
+    text: 'Protect staff from unnecessary work by killing a task instead of adding one. Protect time for the people in your building. Protect the values you\u2019ve named.',
   },
 ];
 
@@ -43,7 +43,7 @@ export function Principles() {
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
             The Framework Behind
-            <span className="text-blue-600"> 52 Weeks</span>
+            <span className="text-blue-600"> Every Activity</span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 leading-relaxed">
             Every activity in this toolkit is rooted in six core principles.
