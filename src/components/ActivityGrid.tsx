@@ -4,7 +4,7 @@ import { useFavourites } from '@/lib/favourites';
 import { activities, monthThemes, categoryColors } from '@/data/activities';
 import { ActivityCard } from './ActivityCard';
 import type { CultureActivity } from '@/data/activities';
-import { calendarActivities } from '@/data/stats';
+import { calendarActivities, bonusActivities } from '@/data/stats';
 import { canRead, type AccessState } from '@/lib/access';
 
 interface ActivityGridProps {
@@ -85,8 +85,9 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
               <h3 className="text-xl font-bold text-white">Unlock a year of culture building</h3>
             </div>
             <p className="text-blue-100 mb-5 max-w-xl mx-auto">
-              Tell us who you are and which theme you need most. The whole year opens, and we
-              will send you one ready-to-run activity a week, starting where you chose.
+              Tell us who you are and all {calendarActivities + bonusActivities} activities open at
+              once. We will also send you one ready-to-run idea a week, so you never have to plan
+              it yourself.
             </p>
             <button
               onClick={onClaimClick}
