@@ -1,19 +1,26 @@
 # Netlify deploy config.
 #
 # Connect the repo at netlify.com (Add new site -> Import an existing project)
-# and this is picked up automatically. Two environment variables must be set in
-# the Netlify UI or the sign-up form will report that it is not configured:
+# and this is picked up automatically. Environment variables are set in the
+# Netlify UI:
 #
-#   VITE_SUPABASE_URL            Supabase -> Project Settings -> API -> Project URL
-#   VITE_SUPABASE_ANON_KEY       the PUBLISHABLE key on that same page
-#                                (VITE_SUPABASE_PUBLISHABLE_KEY also works)
+#   MAILERLITE_API_KEY   REQUIRED. MailerLite is the system of record for
+#                        subscribers. Deliberately has NO VITE_ prefix: that is
+#                        what keeps it out of the client bundle. Only the
+#                        subscribe function ever reads it.
 #
-# Never use the SECRET key here. It bypasses row-level security, and everything
-# in a Vite build is served to every visitor.
+#   VITE_SUPABASE_URL          Optional now. Supabase is no longer written to on
+#   VITE_SUPABASE_ANON_KEY     signup; these remain only so the client can be
+#                              constructed without throwing. Safe to remove once
+#                              the Supabase client is dropped entirely.
+#
+# Never put a MailerLite key or a Supabase SECRET key behind a VITE_ prefix.
+# Everything in a Vite build is served to every visitor.
 
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"

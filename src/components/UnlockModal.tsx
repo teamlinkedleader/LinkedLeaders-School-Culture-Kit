@@ -1,6 +1,5 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { X, Mail, User, Briefcase, School, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import { totalActivities } from '@/data/stats';
 
 interface UnlockModalProps {
@@ -38,30 +37,30 @@ export function UnlockModal({ open, onClose, onSuccess }: UnlockModalProps) {
     setStatus('submitting');
     setErrorMsg('');
 
-    if (!isSupabaseConfigured) {
-      setErrorMsg('Sign-ups are not configured yet. Please try again shortly.');
-      setStatus('error');
-      return;
-    }
+    const cleanEmail = email.trim().toLowerCase();
 
     try {
-      const cleanEmail = email.trim().toLowerCase();
-      const { error } = await supabase.from('subscribers').insert({
-        email: cleanEmail,
-        name: name.trim(),
-        role: role.trim(),
-        school_name: schoolName.trim(),
+      // Posts to a Netlify function rather than to MailerLite directly: the
+      // MailerLite API key grants full account access and must never reach the
+      // browser bundle. MailerLite upserts, so signing up twice is fine.
+      const res = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: cleanEmail,
+          name: name.trim(),
+          role: role.trim(),
+          school_name: schoolName.trim(),
+        }),
       });
 
-      if (error) {
-        // 23505 is the unique violation on email. An existing subscriber asking
-        // for a pack is a normal thing to do, not an error worth blocking on.
-        if (error.code === '23505') {
-          setStatus('success');
-          setTimeout(() => { onSuccess(name.trim(), cleanEmail); onClose(); }, 1200);
-          return;
-        }
-        setErrorMsg('Something went wrong. Please try again.');
+      if (!res.ok) {
+        const { error } = await res.json().catch(() => ({ error: 'unknown' }));
+        setErrorMsg(
+          error === 'not_configured'
+            ? 'Sign-ups are not configured yet. Please try again shortly.'
+            : 'Something went wrong. Please try again.',
+        );
         setStatus('error');
         return;
       }
