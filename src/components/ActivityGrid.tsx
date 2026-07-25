@@ -3,14 +3,16 @@ import { activities, monthThemes, categoryColors } from '@/data/activities';
 import { ActivityCard } from './ActivityCard';
 import type { CultureActivity } from '@/data/activities';
 import { totalActivities } from '@/data/stats';
+import { canRead, type AccessState } from '@/lib/access';
+import { packByKey } from '@/data/packs';
 
 interface ActivityGridProps {
-  unlocked: boolean;
-  onSubscribeClick: () => void;
+  access: AccessState;
+  onClaimClick: (packKey?: string | null) => void;
   onActivityClick?: (activity: CultureActivity) => void;
 }
 
-export function ActivityGrid({ unlocked, onSubscribeClick, onActivityClick }: ActivityGridProps) {
+export function ActivityGrid({ access, onClaimClick, onActivityClick }: ActivityGridProps) {
   const sortedMonths = [...monthThemes].sort((a, b) => a.monthIndex - b.monthIndex);
   return (
     <section id="activities" className="py-20 md:py-28 bg-white">
@@ -46,7 +48,7 @@ export function ActivityGrid({ unlocked, onSubscribeClick, onActivityClick }: Ac
 
         {/* Weekly email invitation. Everything is readable already, so this asks
             rather than gates. */}
-        {!unlocked && (
+        {access.tier === 'visitor' && (
           <div className="mb-10 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 p-6 md:p-8 text-center">
             <div className="flex items-center justify-center gap-3 mb-3">
               <Sparkles className="w-6 h-6 text-blue-100" />
@@ -57,7 +59,7 @@ export function ActivityGrid({ unlocked, onSubscribeClick, onActivityClick }: Ac
               we will send you the right activity for the right week, every week.
             </p>
             <button
-              onClick={onSubscribeClick}
+              onClick={() => onClaimClick()}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-blue-700 font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:scale-105 transform"
             >
               <Sparkles className="w-5 h-5" />
@@ -86,6 +88,14 @@ export function ActivityGrid({ unlocked, onSubscribeClick, onActivityClick }: Ac
                     </div>
                     <p className="text-sm text-slate-400 mt-1">{mt.blurb}</p>
                   </div>
+                  {access.tier === 'visitor' && packByKey(mt.month) && (
+                    <button
+                      onClick={() => onClaimClick(mt.month)}
+                      className="ml-auto shrink-0 text-xs font-semibold px-3.5 py-2 rounded-full border border-blue-200 text-blue-700 hover:bg-blue-50 transition-colors"
+                    >
+                      Get this 3-pack free
+                    </button>
+                  )}
                 </div>
 
                 {/* Activity cards for this month */}
@@ -94,7 +104,7 @@ export function ActivityGrid({ unlocked, onSubscribeClick, onActivityClick }: Ac
                     <ActivityCard
                       key={activity.id}
                       activity={activity}
-                      unlocked={unlocked || activity.freePreview === true}
+                      unlocked={canRead(access, activity.id)}
                       index={i}
                       onClick={() => onActivityClick?.(activity)}
                     />

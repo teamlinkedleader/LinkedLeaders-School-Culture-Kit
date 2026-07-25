@@ -17,16 +17,20 @@ import {
   Image,
   ExternalLink,
   Workflow,
+  Lock,
 } from 'lucide-react';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
 
 interface ActivityCornerProps {
+  /** Whether this visitor's access tier allows reading the full activity. */
+  readable?: boolean;
+  onClaimClick?: () => void;
   activity: CultureActivity | null;
   onClose: () => void;
 }
 
-export function ActivityCorner({ activity, onClose }: ActivityCornerProps) {
+export function ActivityCorner({activity, onClose, readable = true, onClaimClick }: ActivityCornerProps) {
   useEffect(() => {
     if (activity) {
       document.body.style.overflow = 'hidden';
@@ -106,6 +110,24 @@ export function ActivityCorner({ activity, onClose }: ActivityCornerProps) {
         </div>
 
         {/* Body */}
+        {!readable ? (
+          <div className="px-6 py-14 text-center">
+            <div className="flex items-center justify-center w-14 h-14 rounded-full bg-slate-100 mx-auto mb-4">
+              <Lock className="w-7 h-7 text-slate-400" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-800">This one is not in your kit</h3>
+            <p className="mt-2 text-sm text-slate-500 leading-relaxed max-w-sm mx-auto">
+              {activity.promise}
+            </p>
+            <button
+              type="button"
+              onClick={onClaimClick}
+              className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-lg"
+            >
+              Choose your free 3-pack
+            </button>
+          </div>
+        ) : (
         <div className="px-6 py-6 space-y-8">
           {/* Objective */}
           {activity.objective && (
@@ -244,6 +266,7 @@ export function ActivityCorner({ activity, onClose }: ActivityCornerProps) {
             </Section>
           )}
         </div>
+        )}
 
         {/* Footer */}
         <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between">

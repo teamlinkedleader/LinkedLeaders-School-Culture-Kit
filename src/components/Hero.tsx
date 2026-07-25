@@ -1,12 +1,14 @@
 import { ArrowDown, Sparkles, Users, HeartHandshake, Home } from 'lucide-react';
 import { totalActivities, culturePillars, monthsCovered, collectionSummary } from '@/data/stats';
+import { PACK_SIZE } from '@/data/packs';
+import type { AccessState } from '@/lib/access';
 
 interface HeroProps {
-  onSubscribeClick: () => void;
-  isSubscribed: boolean;
+  onClaimClick: () => void;
+  access: AccessState;
 }
 
-export function Hero({ onSubscribeClick, isSubscribed }: HeroProps) {
+export function Hero({ onClaimClick, access }: HeroProps) {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient */}
@@ -52,20 +54,20 @@ export function Hero({ onSubscribeClick, isSubscribed }: HeroProps) {
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            {isSubscribed ? (
+            {access.tier !== 'visitor' ? (
               <button
                 onClick={() => document.getElementById('activities')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-blue-700 font-semibold text-base hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
                 <Sparkles className="w-5 h-5 text-blue-600" />
-                Browse All the Activities
+                Browse the Activities
               </button>
             ) : (
               <button
-                onClick={onSubscribeClick}
+                onClick={onClaimClick}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-blue-600 text-white font-semibold text-base hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
-                Send Me the Weekly Activity
+                Get {PACK_SIZE} Activities Free
               </button>
             )}
             <button
