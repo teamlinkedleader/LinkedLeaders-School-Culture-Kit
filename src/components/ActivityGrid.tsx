@@ -134,6 +134,7 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
                       unlocked={canRead(access)}
                       index={i}
                       onClick={() => onActivityClick?.(activity)}
+                      onClaimClick={onClaimClick}
                     />
                   ))}
                 </div>

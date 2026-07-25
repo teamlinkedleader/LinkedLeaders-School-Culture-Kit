@@ -106,7 +106,11 @@ function App() {
           onClaimClick={openClaim}
           onActivityClick={(a) => setSelectedActivity(a)}
         />
-        <FrameworkSection access={access} onActivityClick={(a) => setSelectedActivity(a)} />
+        <FrameworkSection
+          access={access}
+          onActivityClick={(a) => setSelectedActivity(a)}
+          onClaimClick={openClaim}
+        />
         <CoachingOffer access={access} />
       </main>
       <Footer />

@@ -1,4 +1,4 @@
-import { Lock, Users, HeartHandshake, Home, Compass, CheckCircle2, ArrowRight, Star } from 'lucide-react';
+import { Lock, Users, HeartHandshake, Home, Compass, CheckCircle2, ArrowRight, Star, Sparkles } from 'lucide-react';
 import { toggleFavourite, useIsFavourite } from '@/lib/favourites';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
@@ -8,6 +8,9 @@ interface ActivityCardProps {
   unlocked: boolean;
   index: number;
   onClick?: () => void;
+  /** Opens the unlock form. Every locked card offers this, so someone scanning
+   *  the grid never has to scroll back up to find the one button. */
+  onClaimClick?: () => void;
 }
 
 const iconComponents: Record<string, typeof Users> = {
@@ -17,7 +20,13 @@ const iconComponents: Record<string, typeof Users> = {
   Compass,
 };
 
-export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCardProps) {
+export function ActivityCard({
+  activity,
+  unlocked,
+  index,
+  onClick,
+  onClaimClick,
+}: ActivityCardProps) {
   const Icon = iconComponents[activity.icon] ?? Users;
   const colors = categoryColors[activity.category];
   const isFreePreview = activity.freePreview;
@@ -25,11 +34,13 @@ export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCar
 
   return (
     <div
-      onClick={unlocked ? onClick : undefined}
+      onClick={unlocked ? onClick : onClaimClick}
       className={`relative rounded-xl border-2 transition-all duration-300 overflow-hidden group ${
         unlocked
           ? `${colors.bg} ${colors.border} hover:shadow-xl hover:-translate-y-1 ${onClick ? 'cursor-pointer' : ''}`
-          : 'bg-slate-50 border-slate-200'
+          : `bg-slate-50 border-slate-200 ${
+              onClaimClick ? 'cursor-pointer hover:border-blue-300 hover:shadow-lg' : ''
+            }`
       }`}
       style={{
         animationDelay: `${index * 40}ms`,
@@ -126,7 +137,7 @@ export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCar
           <span className={`text-xs font-medium ${unlocked ? 'text-slate-400' : 'text-slate-300'}`}>
             {activity.month} · {activity.theme}
           </span>
-          {unlocked && (
+          {unlocked ? (
             <div className="flex items-center gap-2">
               {onClick && (
                 <span className={`text-xs font-semibold ${colors.text} opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1`}>
@@ -136,6 +147,26 @@ export function ActivityCard({ activity, unlocked, index, onClick }: ActivityCar
               )}
               <CheckCircle2 className="w-4 h-4 text-blue-500" />
             </div>
+          ) : (
+            onClaimClick && (
+              // A real button, not just the clickable card, so this is reachable
+              // by keyboard and announced by a screen reader. stopPropagation
+              // keeps the card's own handler from firing the modal twice.
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClaimClick();
+                }}
+                aria-label={`Unlock ${activity.title} and the rest of the year`}
+                // z-20 lifts it above the locked card's fade overlay, which
+                // otherwise washes the button out to an unreadable grey.
+                className="relative z-20 inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+              >
+                <Sparkles className="w-3 h-3" />
+                Unlock
+              </button>
+            )
           )}
         </div>
       </div>

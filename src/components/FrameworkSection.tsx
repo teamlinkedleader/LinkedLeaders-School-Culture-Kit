@@ -17,6 +17,8 @@ const phases = [
 interface FrameworkSectionProps {
   access: AccessState;
   onActivityClick?: (activity: CultureActivity) => void;
+  /** Passed down so locked protocol cards can open the unlock form in place. */
+  onClaimClick?: () => void;
 }
 
 /**
@@ -31,7 +33,7 @@ interface FrameworkSectionProps {
  * self-assessment (which tells a leader which phase they are weakest in), then
  * the protocols that serve each phase. Diagnose, then prescribe.
  */
-export function FrameworkSection({ access, onActivityClick }: FrameworkSectionProps) {
+export function FrameworkSection({ access, onActivityClick, onClaimClick }: FrameworkSectionProps) {
   const bonus = activities.filter((a) => a.monthIndex === BONUS_MONTH_INDEX);
 
   return (
@@ -90,6 +92,7 @@ export function FrameworkSection({ access, onActivityClick }: FrameworkSectionPr
               unlocked={canRead(access)}
               index={i}
               onClick={() => onActivityClick?.(activity)}
+              onClaimClick={onClaimClick}
             />
           ))}
         </div>
