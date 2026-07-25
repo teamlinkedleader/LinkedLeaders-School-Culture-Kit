@@ -39,7 +39,7 @@ Rebuild your pre-service agenda so the first thing staff experience is each othe
 
 ## How It Works
 
-1. **Dump the mandates (5 minutes).** List every compliance item you have to cover. Bloodborne pathogens. Handbook. Safety drills. Evaluation timeline. Tech and badge setup. Be complete and be honest — the point is to see the real weight before you decide where it goes.
+1. **Dump the mandates (5 minutes).** List every compliance item you have to cover. Bloodborne pathogens. Handbook. Safety drills. Evaluation timeline. Tech and badge setup. Be complete and be honest, because the point is to see the real weight before you decide where it goes.
 2. **Sort every item into three buckets (5 minutes).** Bucket 1: genuinely has to be live and together. Bucket 2: can be done individually against a deadline. Bucket 3: a document plus a ten-minute Q&A. Most of what has always been Bucket 1 is actually Bucket 2. That is where your time comes from.
 3. **Build the first ninety minutes with zero Bucket 2 items in it (8 minutes).** A shape that works: 0–10 welcome and your one sentence; 10–35 Speed Connections; 35–60 Your Seat at This Table; 60–75 the year ahead in five slides and not one more; 75–90 the August BE word and what staff should expect from you.
 4. **Place everything else (4 minutes).** Bucket 2 becomes one checklist with a real Friday deadline. Bucket 3 gets a single block and one Q&A. Nothing from either bucket touches day one before lunch.
@@ -55,11 +55,11 @@ Rebuild your pre-service agenda so the first thing staff experience is each othe
 
 ## Script for the Leader
 
-"Here's how this week works. The things you have to sign and click through, you'll do on your own by Friday. It's all on one checklist and I'm not going to read it to you out loud — you can read. What we do together is the stuff that only works together, and this morning that means getting to know the people you're going to depend on all year."
+"Here's how this week works. The things you have to sign and click through, you'll do on your own by Friday. It's all on one checklist and I'm not going to read it to you out loud, because you can read. What we do together is the stuff that only works together, and this morning that means getting to know the people you're going to depend on all year."
 
 ## Facilitator Tips
 
 - Give the checklist a real deadline and then actually check it. If you let it slide, next year's staff will treat everything you say the same way.
 - If your district mandates a live compliance block you cannot move, put it after lunch on day two. Never in the first morning.
 - Open the week yourself. Do not delegate the welcome, and do not open with a video. The leader goes first is the rule the whole year runs on, and this is the first place staff see whether you mean it.
-- Extension: send the draft agenda to two teachers — one veteran, one in their second year — and ask what they would cut. Do it a week before you publish, and cut at least one thing they name.
+- Extension: send the draft agenda to two teachers, one veteran and one in their second year, and ask what they would cut. Do it a week before you publish, and cut at least one thing they name.

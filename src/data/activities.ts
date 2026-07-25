@@ -1,7 +1,7 @@
 // GENERATED FILE — DO NOT EDIT BY HAND.
 // Source of truth: src/data/activities/*.md
 // Regenerate with: npm run generate:activities
-// 56 activities.
+// 59 activities.
 
 export interface ActivityStep {
   title: string;
@@ -146,7 +146,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: true,
     beWord: "BE Ready",
     lane: "Leader",
-    objective: "Choose one BE word per month for the year and build the wall before staff arrive. A BE word is a single plain-language behavior word — BE Visible, BE Grateful, BE Reachable — that gives you and your staff a shared vocabulary for the month. It gives you something to say in announcements, something specific to recognize people for, and a hook to hang each month's culture work on.",
+    objective: "Choose one BE word per month for the year and build the wall before staff arrive. A BE word is a single plain-language behavior word, like BE Visible, BE Grateful or BE Reachable, that gives you and your staff a shared vocabulary for the month. It gives you something to say in announcements, something specific to recognize people for, and a hook to hang each month's culture work on.",
     supplies: [
       "The default twelve-month grid below, printed or copied onto your paper.",
       "Your one-sentence culture statement from Week 1.",
@@ -187,7 +187,7 @@ export const activities: CultureActivity[] = [
       "Posted by the copier beats laminated in the office. Culture lives where people already stand.",
       "The recurring calendar reminder is the whole difference between a system and a good intention. Most BE walls die in October because nobody scheduled the flip.",
     ],
-    leaderScript: "\"Every month this year has a word. It isn't a theme and it isn't a slogan, it's a behavior — the one thing I'm asking us to be intentional about that month. August is BE Visible, and that one's mine to model first. You should expect to see me in classrooms and hallways, not behind my office door. If you don't, call me on it.\"",
+    leaderScript: "\"Every month this year has a word. It isn't a theme and it isn't a slogan, it's a behavior. It's the one thing I'm asking us to be intentional about that month. August is BE Visible, and that one's mine to model first. You should expect to see me in classrooms and hallways, not behind my office door. If you don't, call me on it.\"",
     facilitatorTips: [
       "Do not announce all twelve at once. Reveal the month's word at the start of the month. The column on the wall does the foreshadowing for you.",
       "If a month goes sideways and the word stops fitting, change it. Announce the change out loud rather than quietly swapping the card. Naming it models the flexibility you want from them.",
@@ -228,7 +228,7 @@ export const activities: CultureActivity[] = [
       {
         title: "Dump the mandates",
         minutes: "5 min",
-        detail: "List every compliance item you have to cover. Bloodborne pathogens. Handbook. Safety drills. Evaluation timeline. Tech and badge setup. Be complete and be honest — the point is to see the real weight before you decide where it goes.",
+        detail: "List every compliance item you have to cover. Bloodborne pathogens. Handbook. Safety drills. Evaluation timeline. Tech and badge setup. Be complete and be honest, because the point is to see the real weight before you decide where it goes.",
       },
       {
         title: "Sort every item into three buckets",
@@ -258,12 +258,12 @@ export const activities: CultureActivity[] = [
       "Five slides forces you to decide what the year is about. Twenty slides guarantees nobody remembers any of it.",
       "Opening with connection makes the rest of the week cheaper. Staff who have talked to five colleagues on Monday collaborate differently on Thursday.",
     ],
-    leaderScript: "\"Here's how this week works. The things you have to sign and click through, you'll do on your own by Friday. It's all on one checklist and I'm not going to read it to you out loud — you can read. What we do together is the stuff that only works together, and this morning that means getting to know the people you're going to depend on all year.\"",
+    leaderScript: "\"Here's how this week works. The things you have to sign and click through, you'll do on your own by Friday. It's all on one checklist and I'm not going to read it to you out loud, because you can read. What we do together is the stuff that only works together, and this morning that means getting to know the people you're going to depend on all year.\"",
     facilitatorTips: [
       "Give the checklist a real deadline and then actually check it. If you let it slide, next year's staff will treat everything you say the same way.",
       "If your district mandates a live compliance block you cannot move, put it after lunch on day two. Never in the first morning.",
       "Open the week yourself. Do not delegate the welcome, and do not open with a video. The leader goes first is the rule the whole year runs on, and this is the first place staff see whether you mean it.",
-      "Extension: send the draft agenda to two teachers — one veteran, one in their second year — and ask what they would cut. Do it a week before you publish, and cut at least one thing they name.",
+      "Extension: send the draft agenda to two teachers, one veteran and one in their second year, and ask what they would cut. Do it a week before you publish, and cut at least one thing they name.",
     ],
   },
   {
@@ -298,7 +298,7 @@ export const activities: CultureActivity[] = [
       {
         title: "Calendar holds first",
         minutes: "4 min",
-        detail: "Put all four on the calendar right now, each attached to the specific meeting or moment it lives in. Not \"Week 2\" — \"Aug 14 staff meeting, first 25 minutes.\" An activity without a slot is a wish.",
+        detail: "Put all four on the calendar right now, each attached to the specific meeting or moment it lives in. Not \"Week 2\" but \"Aug 14 staff meeting, first 25 minutes.\" An activity without a slot is a wish.",
       },
       {
         title: "Print and cut",
@@ -313,7 +313,7 @@ export const activities: CultureActivity[] = [
       {
         title: "Assign the one thing you cannot do",
         minutes: "3 min",
-        detail: "Name a photographer. Not for social media — for you. Someone whose actual job that week is capturing what the room looked like.",
+        detail: "Name a photographer. Not for social media, for you. Someone whose actual job that week is capturing what the room looked like.",
       },
       {
         title: "Write your own answers",
@@ -328,7 +328,7 @@ export const activities: CultureActivity[] = [
       "A named photographer means you finish August with artifacts you can use with families, your board, and next year's hiring pool. Nobody ever regrets having the photos.",
       "Front-loading the whole month means that when the first real crisis of the year lands in week two, the culture work still happens, because it is already done.",
     ],
-    leaderScript: "\"I need one thing from you this month. Be the person with the camera. Not for social media — for us. I want us to have an actual record of what this year looked like at the start, so in May we can see it.\"",
+    leaderScript: "\"I need one thing from you this month. Be the person with the camera. Not for social media, for us. I want us to have an actual record of what this year looked like at the start, so in May we can see it.\"",
     facilitatorTips: [
       "The box lives in your office, not the workroom. Things in the workroom get borrowed.",
       "If you only get one of the four done, do Week 1. Speed Connections sets the relational floor for everything after it.",
@@ -4067,6 +4067,224 @@ export const activities: CultureActivity[] = [
       "Write down what you said to each person. In August you will want to remember, and next May you will want not to repeat yourself.",
     ],
     displayIdea: "Nothing new. The last day is the moment to bring back what was already made: the baton log, the hope wall, the traditions charters, the six-things cards. A year of the building's own artefacts, read back on the way out.",
+  },
+
+  // June — Reflection & Closure
+  {
+    id: 102,
+    week: 1,
+    title: "What We Keep, What We Kill",
+    category: "Staff Culture",
+    month: "June",
+    monthIndex: 10,
+    theme: "Reflection & Closure",
+    description: "Decide together what carries into next year and what does not, while the year is still fresh.",
+    icon: "Users",
+    freePreview: true,
+    code: "CB-102",
+    promise: "Decide together what carries into next year and what does not, while the year is still fresh.",
+    timeDisplay: "25 minutes",
+    timeMinutes: 25,
+    cost: "$0",
+    leavesBehind: "A written two-column list of what continues and what ends, dated and posted for August.",
+    leaderGoesFirst: true,
+    beWord: "BE Proud",
+    lane: "Staff",
+    objective: "Put everything the school did this year on a wall and sort it into what continues and what ends. Do it in June, while people remember what actually happened, and write the answer down where August can find it. Schools reliably rebuild their calendars in August from memory and habit, which is how a thing everyone hated in March quietly returns in September.",
+    supplies: [
+      "A list of everything the school did this year: traditions, events, meetings, initiatives, programmes, routines, the activities from this collection.",
+      "Two sheets of chart paper, headed KEEP and KILL.",
+      "The list of things you deleted in March, so you can check whether anyone missed them.",
+      "Somewhere permanent to store the result. This is the whole point and it is the step that gets skipped.",
+    ],
+    steps: [
+      {
+        title: "Put everything on the wall, including the small things",
+        minutes: "7 min",
+        detail: "Not just initiatives. The Friday all-call, the weekly tradition, the duty rota, the meeting structure, the awards, the family night. If it happened more than twice, it goes up.",
+      },
+      {
+        title: "Sort by one question, out loud",
+        minutes: "8 min",
+        detail: "Not \"was it good.\" The question is: if this did not happen next year, would anyone notice or miss it. That reframing kills the things that survive purely because they are traditional, and it protects the small things that quietly matter.",
+      },
+      {
+        title: "Check what you killed in March",
+        minutes: "3 min",
+        detail: "Read out the tasks deleted in March and ask whether anybody missed them. Almost nobody will have, and that is the most persuasive evidence in the room for killing more.",
+      },
+      {
+        title: "Be honest about the things you like",
+        minutes: "4 min",
+        detail: "Every leader has a pet initiative on that wall. Ask the room directly whether it is on the keep list or is being kept out of politeness, and mean the question. If it belongs in the kill column, put it there yourself.",
+      },
+      {
+        title: "Write it down and store it where August will find it",
+        minutes: "3 min",
+        detail: "Two lists, dated, in the shared drive and in your own planning folder. A decision made in June and stored in a memory is a decision that does not survive the summer.",
+      },
+    ],
+    whyItWorks: [
+      "June is the only month when the year is both finished and still remembered. In August nobody can recall which things worked, so the default is to repeat everything.",
+      "The \"would anyone miss it\" question is the one that cuts. \"Was it good\" gets you a defence of everything, because everything was somebody's effort.",
+      "Reading out March's deletions and finding nobody missed them is the single most useful thing that happens in this meeting, because it makes the next round of cuts easy.",
+      "A leader putting their own initiative into the kill column changes what the staff believe the exercise is for, and it is the only way to find out whether the room has been humouring you.",
+      "Writing it down is the entire mechanism. Every school has killed the same thing three times, because the killing was verbal.",
+    ],
+    leaderScript: "\"Everything we did this year is going on that wall, and we're sorting it with one question. Not was it good, because everything up there was somebody's hard work. The question is: if it didn't happen next year, would anyone notice. I'll start with mine. The data walls I asked every room to build in September are in the kill column. I liked them, nobody used them after October, and I'm the reason they existed. And before we start, here are the four things we deleted in March. Did anybody miss any of them?\"",
+    facilitatorTips: [
+      "Put your own pet project in the kill column first. Nothing else you do in the meeting matters as much.",
+      "Ask about the small routines, not just the big initiatives. The Friday tradition that nobody would miss is worth knowing about, and so is the tiny one everybody would.",
+      "Do not let anything land in a \"review later\" column. Later means it continues by default.",
+      "Write the reason next to each kill. In August somebody will ask why, and \"we decided in June\" is not an answer that holds.",
+      "Include the activities from this collection in the sort. If one of them did not work in your building, kill it and say so.",
+      "Store the lists somewhere a successor could find them. This is the note that stops a new leader repeating a decade of settled decisions.",
+    ],
+    displayIdea: "Both lists, dated, posted in the workroom until the end of the year and then filed. Bring them out on the first day back in August, before anybody starts planning anything.",
+  },
+  {
+    id: 103,
+    week: 2,
+    title: "Your Year in Six Words",
+    category: "Staff Culture",
+    month: "June",
+    monthIndex: 10,
+    theme: "Reflection & Closure",
+    description: "Everyone in the building, adults and students, sums up the year in six words.",
+    icon: "Users",
+    freePreview: true,
+    code: "CB-103",
+    promise: "Everyone in the building, adults and students, sums up the year in six words.",
+    timeDisplay: "15 minutes",
+    timeMinutes: 15,
+    cost: "$0",
+    leavesBehind: "A wall of six-word summaries from everyone in the building, kept as the record of what the year was.",
+    leaderGoesFirst: true,
+    beWord: "BE Proud",
+    lane: "Staff",
+    objective: "Ask every person in the school to sum up their year in exactly six words, then put them all on one wall without names. Six words is short enough that everyone will do it and tight enough that it forces honesty. It also produces, in about fifteen minutes, a more accurate picture of what the year was actually like than any survey you could run.",
+    supplies: [
+      "Strips of paper or index cards, one per person.",
+      "One long stretch of wall or a big board.",
+      "Your own six words, written in advance and honest rather than upbeat.",
+      "The rule that nothing is signed.",
+    ],
+    steps: [
+      {
+        title: "Post yours first, unsigned but known",
+        minutes: "3 min",
+        detail: "Write your six words and put them up before anyone else writes theirs, and tell people they are yours. Make them true rather than inspirational. \"Harder than last year. Worth it.\" A principal's six words that read like a mission statement will produce a wall of mission statements.",
+      },
+      {
+        title: "Exactly six, and nothing signed",
+        minutes: "2 min",
+        detail: "Six is the constraint that does the work; five is a slogan and ten is a paragraph. Unsigned is what makes the honest ones possible, and the honest ones are the point.",
+      },
+      {
+        title: "Everyone writes, including every adult",
+        minutes: "5 min",
+        detail: "Students, teachers, office, custodial, food service, paraprofessionals, bus drivers if you can reach them. All on the same wall, mixed together, with no sections.",
+      },
+      {
+        title: "Read the wall together",
+        minutes: "5 min",
+        detail: "Classes walk it, staff walk it. No discussion, no analysis, no grouping into themes. Reading it is enough, and it is the part people remember.",
+      },
+      {
+        title: "Photograph it and keep it",
+        minutes: "2 min",
+        detail: "This is your honest record of the year. It belongs next to the July culture statement and the January grade, and it is what you read before writing next year's sentence.",
+      },
+    ],
+    whyItWorks: [
+      "Six words is achievable for everyone, including the youngest students, the newest English learners, and the most exhausted adult in the building. Nobody is excluded by the format.",
+      "The constraint forces a choice. In six words you cannot be diplomatic, so what you get is closer to true than anything a survey produces.",
+      "An unsigned wall makes the difficult entries possible, and the difficult entries are the most valuable thing on it.",
+      "Mixing students and adults with no sections is what makes it a portrait of the school rather than two separate exercises.",
+      "Reading rather than analysing is deliberate. The moment an adult starts sorting them into themes it becomes data and stops being a record.",
+    ],
+    leaderScript: "\"Mine's already on the wall. Six words about this year: 'Harder than last year. Worth it.' That's honest, and honest is what I'm asking for, not cheerful. Exactly six words, nobody signs anything, and everybody in this building does it: every kid, every teacher, the office, the kitchen, the crew. Then we all go read the wall. Nobody's going to analyse it or make a graph out of it. We're just going to look at what this year was.\"",
+    facilitatorTips: [
+      "Write yours honestly. An upbeat principal entry guarantees a wall of upbeat entries and wastes the exercise.",
+      "Enforce exactly six. The constraint is the whole mechanism and people will try to negotiate it.",
+      "Do not sort, theme, or count them. Turning it into analysis is how you lose the honest entries next year.",
+      "Expect two or three genuinely bleak entries. Do not remove them. They are the most important things on that wall and removing them tells everyone the wall is decorative.",
+      "Reach the bus drivers and anyone not in the building daily. They have six words too.",
+      "Related but different: the Drive activity \"My Summer in 6 Words\" is a back-to-school opener about the summer. This one is the year, in June, for everybody. Keep both; do not merge them.",
+    ],
+    displayIdea: "One wall, everything mixed, no names and no sections. Photograph the whole thing before it comes down. That photograph is the single best artefact of the school year you will have, and it costs fifteen minutes.",
+  },
+  {
+    id: 104,
+    week: 3,
+    title: "The Final Grade",
+    category: "Leader",
+    month: "June",
+    monthIndex: 10,
+    theme: "Reflection & Closure",
+    description: "Grade the sentence you wrote last July, then write next year's from the evidence.",
+    icon: "Compass",
+    freePreview: true,
+    code: "CB-104",
+    promise: "Grade the sentence you wrote last July, then write next year's from the evidence.",
+    timeDisplay: "25 minutes",
+    timeMinutes: 25,
+    cost: "$0",
+    leavesBehind: "A dated final grade against the July culture statement, and the first draft of next year's sentence.",
+    leaderGoesFirst: true,
+    beWord: "BE Proud",
+    lane: "Leader",
+    objective: "Close the loop. Take the one sentence you wrote in July, put every piece of evidence the year produced next to it, give it a final grade, and then write next year's sentence from what you actually learned rather than from a fresh burst of summer optimism. This is the activity that turns a year of culture work into a second year that is better rather than just different.",
+    supplies: [
+      "The July paper with your one sentence on it, and your January grade next to it.",
+      "The year's artefacts: the unclaimed-student wall photo, the two chip bowls, the rounds tracker, the baton log, the family hope cards, the six-word wall photo, the keep and kill lists, the coverage tally, the recognition audit.",
+      "The stay conversation and re-recruiting notes, and who actually resigned.",
+      "One hour of quiet, of which you will use 25 minutes.",
+    ],
+    steps: [
+      {
+        title: "Read the sentence and your January grade before anything else",
+        minutes: "3 min",
+        detail: "In that order, and before you look at any artefact. You are measuring the year against what you said in July, not against what you have since decided you meant.",
+      },
+      {
+        title: "Lay the evidence next to it",
+        minutes: "8 min",
+        detail: "Not impressions. The artefacts. Did the unclaimed count fall between August and October. Did the bowl empty more than twice. Did the weekly tradition survive to June, and if it broke, in which month. Did the coverage distribution flatten. Are the people you re-recruited coming back. Each of those is a yes or a no.",
+      },
+      {
+        title: "Grade it, with a letter and one sentence",
+        minutes: "4 min",
+        detail: "Then put it next to January's grade. The direction between those two numbers is more informative than either one, because it tells you whether the second half was a recovery or a decline.",
+      },
+      {
+        title: "Name the one thing that actually changed the culture, and the one that did nothing",
+        minutes: "5 min",
+        detail: "Be specific and be willing to find that your favourite initiative is in the second column. This is the finding that shapes next year, and the keep and kill lists should agree with it. If they disagree, your staff know something you do not.",
+      },
+      {
+        title: "Draft next July's sentence, from the evidence",
+        minutes: "5 min",
+        detail: "Not a fresh idea. The sentence for next year should come out of what this year's evidence says is still unfinished. Then put it in the folder with everything else and do not touch it until July, when the July activity asks you to write it properly.",
+      },
+    ],
+    whyItWorks: [
+      "A culture statement graded once is an exercise. Graded twice, in January and June, it becomes a measurement, and the direction between the two grades is the actual information.",
+      "Artefacts beat memory. By June you cannot recall August accurately, but the photograph of the unclaimed wall is unarguable and so is the date the weekly tradition broke.",
+      "Naming what did nothing is harder and more valuable than naming what worked, because the thing that did nothing is usually the thing that cost the most and that you liked best.",
+      "Checking your finding against the staff's keep and kill lists is a genuine cross-check. Where they disagree with you, they are usually right, because they experienced the year from the receiving end.",
+      "Writing next year's sentence in June from evidence, rather than in July from optimism, is the difference between a second year that compounds and a second year that starts over.",
+    ],
+    leaderScript: "\"Last July I wrote one sentence about what I wanted it to feel like to work here. In January I gave us a C plus. Today I'd give us a B, and the reason it moved is the thing most of you did without being asked, which is covering for each other. What did not work was the initiative I was most attached to in September, and I have put it on the kill list myself. Next year's sentence is going to come out of this year rather than out of my summer.\"",
+    facilitatorTips: [
+      "Grade before you look at the artefacts once, then again after. If the two grades differ, the second one is the honest one.",
+      "Keep everything in one folder. This activity is only as good as what was filed during the year, and the leaders who get the most from it are the ones who kept the photographs.",
+      "Do not skip the direction between January and June. A B in June after a B in January is a flat year, and flat is information.",
+      "Be specific about the thing that did nothing, and put it in writing. Vagueness here is how an expensive initiative survives into a third year.",
+      "Share the grade with staff, briefly, on the last day. Not the whole analysis. The grade, the reason, and what you are killing.",
+      "Keep the file for your successor. A school where each new leader can read the last three years of honest grades is a school that stops relearning the same lessons.",
+    ],
+    displayIdea: "Nothing public. The one thing worth doing is physical: put the July sentence, the January grade, the June grade and next year's draft sentence in a single folder, and start the next one with it open on the desk.",
   },
 ];
 

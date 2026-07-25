@@ -40,10 +40,10 @@ Assemble everything August needs while you still have the margin to do it. Augus
 
 ## How It Works
 
-1. **Calendar holds first (4 minutes).** Put all four on the calendar right now, each attached to the specific meeting or moment it lives in. Not "Week 2" — "Aug 14 staff meeting, first 25 minutes." An activity without a slot is a wish.
+1. **Calendar holds first (4 minutes).** Put all four on the calendar right now, each attached to the specific meeting or moment it lives in. Not "Week 2" but "Aug 14 staff meeting, first 25 minutes." An activity without a slot is a wish.
 2. **Print and cut (10 minutes).** Placemat cards, prompt cards, commitment half-sheets. Print ten percent more than your headcount. Cut them now, put each set in its folder, and never think about it again.
 3. **Claim the wall space (5 minutes).** Walk the building and physically tape off where "Our Table" and the "We're All In On" wall are going. Deciding this in July prevents the August version of the conversation, which is standing in a hallway holding forty cards saying "we'll find a spot."
-4. **Assign the one thing you cannot do (3 minutes).** Name a photographer. Not for social media — for you. Someone whose actual job that week is capturing what the room looked like.
+4. **Assign the one thing you cannot do (3 minutes).** Name a photographer. Not for social media, for you. Someone whose actual job that week is capturing what the room looked like.
 5. **Write your own answers (3 minutes).** You go first in three of these four. Draft your placemat, your six words, and your "all in on" commitment now, on paper, while you have time to make them honest. Doing it in the parking lot five minutes before is how leaders end up saying something safe.
 
 ## Why It Works
@@ -58,7 +58,7 @@ Assemble everything August needs while you still have the margin to do it. Augus
 
 For the photographer ask:
 
-"I need one thing from you this month. Be the person with the camera. Not for social media — for us. I want us to have an actual record of what this year looked like at the start, so in May we can see it."
+"I need one thing from you this month. Be the person with the camera. Not for social media, for us. I want us to have an actual record of what this year looked like at the start, so in May we can see it."
 
 ## Facilitator Tips
 

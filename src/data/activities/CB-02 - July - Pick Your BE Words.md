@@ -24,7 +24,7 @@ Twelve words that give your building a shared language, chosen in one sitting be
 
 ## Objective
 
-Choose one BE word per month for the year and build the wall before staff arrive. A BE word is a single plain-language behavior word — BE Visible, BE Grateful, BE Reachable — that gives you and your staff a shared vocabulary for the month. It gives you something to say in announcements, something specific to recognize people for, and a hook to hang each month's culture work on.
+Choose one BE word per month for the year and build the wall before staff arrive. A BE word is a single plain-language behavior word, like BE Visible, BE Grateful or BE Reachable, that gives you and your staff a shared vocabulary for the month. It gives you something to say in announcements, something specific to recognize people for, and a hook to hang each month's culture work on.
 
 ## Time Needed
 
@@ -72,7 +72,7 @@ Choose one BE word per month for the year and build the wall before staff arrive
 
 ## Script for the Leader
 
-"Every month this year has a word. It isn't a theme and it isn't a slogan, it's a behavior — the one thing I'm asking us to be intentional about that month. August is BE Visible, and that one's mine to model first. You should expect to see me in classrooms and hallways, not behind my office door. If you don't, call me on it."
+"Every month this year has a word. It isn't a theme and it isn't a slogan, it's a behavior. It's the one thing I'm asking us to be intentional about that month. August is BE Visible, and that one's mine to model first. You should expect to see me in classrooms and hallways, not behind my office door. If you don't, call me on it."
 
 ## Facilitator Tips
 
