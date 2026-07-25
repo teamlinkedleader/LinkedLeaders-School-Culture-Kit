@@ -86,10 +86,19 @@ const BE_WORD = {
 };
 
 /**
- * Which activities are readable without subscribing. Everything else is gated
- * behind the email capture. Edit this list to change the free sample.
+ * Everything is free to read. Mike's call, 2026-07-24: dismiss the email gate
+ * for now, on the reasoning that reach matters more than capture at this stage
+ * and the gate can be added later.
+ *
+ * To re-introduce a gate: set ALL_FREE to false. FREE_PREVIEW then becomes the
+ * free sample and everything else is marked gated. Note that a real gate also
+ * needs server-side work — every activity currently ships in the client bundle,
+ * so `freePreview` alone only changes what the UI displays, not what a
+ * determined visitor can read.
  */
+const ALL_FREE = true;
 const FREE_PREVIEW = new Set(['CB-01', 'CB-02', 'CB-03', 'CB-04', 'CB-10', 'CB-11', 'CB-53']);
+const isFree = (code) => ALL_FREE || FREE_PREVIEW.has(code);
 
 /** Lane vocabulary in the markdown maps onto the four display categories. */
 const LANE_TO_CATEGORY = {
@@ -229,7 +238,7 @@ function build() {
       theme: monthMeta.theme,
       description: introDescription(intro),
       icon: CATEGORY_ICON[category],
-      freePreview: FREE_PREVIEW.has(code) || undefined,
+      freePreview: isFree(code) || undefined,
       promise: fm.promise,
       timeDisplay: fm.time_display,
       timeMinutes: fm.time_minutes ? Number(fm.time_minutes) : undefined,

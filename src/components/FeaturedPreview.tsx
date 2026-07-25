@@ -119,7 +119,7 @@ export function FeaturedPreview({ activity, onOpen, onSubscribeClick }: Featured
                     onClick={onSubscribeClick}
                     className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-all"
                   >
-                    Unlock All 52
+                    Get the Weekly Email
                   </button>
                 </div>
               </div>

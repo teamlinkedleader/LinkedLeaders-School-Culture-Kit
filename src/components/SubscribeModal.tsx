@@ -53,7 +53,7 @@ export function SubscribeModal({ open, onClose, onSuccess }: SubscribeModalProps
 
       if (error) {
         if (error.code === '23505') {
-          setErrorMsg('You\u2019re already subscribed! All 52 activities are unlocked for you.');
+          setErrorMsg('You\u2019re already on the list. Your next activity is on its way.');
           setStatus('error');
         } else {
           setErrorMsg('Something went wrong. Please try again.');
@@ -91,7 +91,7 @@ export function SubscribeModal({ open, onClose, onSuccess }: SubscribeModalProps
           >
             <X className="w-5 h-5 text-white" />
           </button>
-          <h2 className="text-2xl font-bold text-white">Unlock All 52 Activities</h2>
+          <h2 className="text-2xl font-bold text-white">Get the Weekly Activity</h2>
           <p className="text-blue-100 text-sm mt-2">
             Get one culture-building activity delivered to your inbox each week for a full year.
           </p>
@@ -106,7 +106,7 @@ export function SubscribeModal({ open, onClose, onSuccess }: SubscribeModalProps
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2">You\u2019re In!</h3>
               <p className="text-slate-500 text-sm">
-                All 52 activities are now unlocked. Check your inbox for your first activity.
+                You\u2019re on the list. Check your inbox for your first activity.
               </p>
             </div>
           ) : (
@@ -201,7 +201,7 @@ export function SubscribeModal({ open, onClose, onSuccess }: SubscribeModalProps
                     Subscribing...
                   </>
                 ) : (
-                  'Unlock All 52 Activities'
+                  'Send It to Me'
                 )}
               </button>
 

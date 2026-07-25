@@ -67,14 +67,14 @@ export function Header({ onSubscribeClick, isSubscribed }: HeaderProps) {
           <div className="hidden md:block">
             {isSubscribed ? (
               <span className={`flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full ${scrolled ? 'text-blue-700 bg-blue-50' : 'text-white bg-white/20 backdrop-blur-sm'}`}>
-                Unlocked
+                Subscribed
               </span>
             ) : (
               <button
                 onClick={onSubscribeClick}
                 className="text-sm font-semibold px-5 py-2.5 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
-                Unlock All 52
+                Get the Weekly Email
               </button>
             )}
           </div>
@@ -101,7 +101,7 @@ export function Header({ onSubscribeClick, isSubscribed }: HeaderProps) {
                 onClick={() => { onSubscribeClick(); setMobileOpen(false); }}
                 className="block w-full text-center py-2.5 rounded-full bg-blue-600 text-white font-semibold"
               >
-                Unlock All 52
+                Get the Weekly Email
               </button>
             )}
           </div>
