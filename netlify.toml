@@ -3,8 +3,13 @@
 # Connect the repo at netlify.com (Add new site -> Import an existing project)
 # and this is picked up automatically. Two environment variables must be set in
 # the Netlify UI or the sign-up form will report that it is not configured:
-#   VITE_SUPABASE_URL
-#   VITE_SUPABASE_ANON_KEY
+#
+#   VITE_SUPABASE_URL            Supabase -> Project Settings -> API -> Project URL
+#   VITE_SUPABASE_ANON_KEY       the PUBLISHABLE key on that same page
+#                                (VITE_SUPABASE_PUBLISHABLE_KEY also works)
+#
+# Never use the SECRET key here. It bypasses row-level security, and everything
+# in a Vite build is served to every visitor.
 
 [build]
   command = "npm run build"

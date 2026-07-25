@@ -1,7 +1,18 @@
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+/**
+ * Supabase renamed the browser-safe key from "anon / public" to "publishable".
+ * Both names are accepted so the variable can be called whatever the dashboard
+ * currently calls it without breaking the build.
+ *
+ * This must never be the "secret" key (formerly service_role). A secret key
+ * bypasses row-level security, and everything in a Vite build is shipped to
+ * every visitor, so putting it here would expose the entire subscribers table.
+ */
+const supabaseAnonKey =
+  import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
 /**
  * Whether the Supabase environment variables are actually present.
