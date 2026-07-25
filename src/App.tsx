@@ -6,6 +6,7 @@ import { ActivityGrid } from '@/components/ActivityGrid';
 import { FeaturedPreview } from '@/components/FeaturedPreview';
 import { ActivityCorner } from '@/components/ActivityCorner';
 import { ScavengerHunt } from '@/components/ScavengerHunt';
+import { SelfAssessment } from '@/components/SelfAssessment';
 import { SubscribeModal } from '@/components/SubscribeModal';
 import { Footer } from '@/components/Footer';
 import type { CultureActivity } from '@/data/activities';
@@ -43,6 +44,7 @@ function App() {
           onSubscribeClick={handleSubscribeClick}
           onActivityClick={(a) => setSelectedActivity(a)}
         />
+        <SelfAssessment />
         <ScavengerHunt />
       </main>
       <Footer />

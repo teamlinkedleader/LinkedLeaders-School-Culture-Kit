@@ -46,3 +46,37 @@
     transform: translateX(0);
   }
 }
+
+/* Print rules for the self-reflection tool. The page is a worksheet a leader
+   may want on paper or as a PDF, so drop everything else and keep the answers
+   and reflections readable in black and white. */
+@media print {
+  body {
+    background: #fff;
+  }
+  header,
+  footer,
+  #hero,
+  #principles,
+  #activities,
+  #scavenger-hunt,
+  #featured {
+    display: none !important;
+  }
+  #self-assessment {
+    padding: 0 !important;
+  }
+  #self-assessment textarea {
+    border: 1px solid #cbd5e1 !important;
+    min-height: 4.5rem;
+    resize: none;
+  }
+  #self-assessment button[role='radio'] {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #self-assessment li,
+  #self-assessment section > div {
+    break-inside: avoid;
+  }
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { X, Mail, User, Briefcase, School, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 interface SubscribeModalProps {
   open: boolean;
@@ -40,6 +40,12 @@ export function SubscribeModal({ open, onClose, onSuccess }: SubscribeModalProps
     e.preventDefault();
     setStatus('submitting');
     setErrorMsg('');
+
+    if (!isSupabaseConfigured) {
+      setErrorMsg('Sign-ups are not configured yet. Everything on the page is free to read in the meantime.');
+      setStatus('error');
+      return;
+    }
 
     try {
       const { error } = await supabase
