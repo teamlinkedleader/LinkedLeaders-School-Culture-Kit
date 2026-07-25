@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: Chart paper from three tables, an individual 15% commitment from every person, and a written team commitment with a measurable indicator and a first action inside two weeks.
 leader_goes_first: true
 learn_more: https://www.liberatingstructures.com
+framework_phase: Clarify · Collaborate · Commit
 source: built-2026-07-25
 ---
 # Culture Builder: The Collective Ownership Session (Bonus)
@@ -25,7 +26,7 @@ Ninety minutes that ends with team commitments and dated first actions, not a li
 
 ## Objective
 
-Build collective ownership across three priority areas in a single 90-minute faculty session, and end with commitments rather than conversation. This chains four methods deliberately: Appreciative Inquiry to open, World Café to develop, 15% Solutions for individual ownership, and team commitments to convert it into implementation. Each stage exists because the one before it is not enough on its own.
+Build collective ownership across three priority areas in a single 90-minute faculty session, and end with commitments rather than conversation. This chains four methods deliberately: Appreciative Inquiry to open, World Café to develop, 15% Solutions for individual ownership, and team commitments to convert it into implementation. Each stage exists because the one before it is not enough on its own. Within the Collaborative Impact Framework this session runs Clarify, Collaborate and Commit in one 90-minute block. It deliberately does not include Coach, which is a separate follow-up and the phase this design most depends on. See [[CB-115 - Bonus - The Collaborative Impact Framework]].
 
 ## Time Needed
 
@@ -76,7 +77,9 @@ Build collective ownership across three priority areas in a single 90-minute fac
 - Celebrate the patterns that emerge, especially where the same theme appears at all three tables.
 - End with commitments rather than simply ideas. If you are running short, cut the gallery walk, never the commitments.
 - Brief your table hosts properly and separately. Three weak hosts turns the strongest 45 minutes of this design into three unrelated discussions.
-- Report back within two weeks on the commitments. This is a high-investment session and staff will read your follow-through as the verdict on whether it was real.
+- **Book the Coach session before you run this one.** The framework's fourth phase is where this design either lands or evaporates, and it is the phase every school skips. Put a date in the calendar during planning, not afterwards.
+- At that follow-up, work the Coach questions rather than asking for status: what progress have we observed, what evidence shows we are improving, what barriers need removing, where is coaching needed, and what should we celebrate. A status round produces reassurance; those questions produce information.
+- Report back within two weeks regardless. This is a high-investment session and staff will read your follow-through as the verdict on whether it was real.
 
 ## Display Idea
 

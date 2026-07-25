@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: The written output of whichever routine was run, and a set of routines any staff member can run without you.
 leader_goes_first: false
 learn_more: https://www.liberatingstructures.com
+framework_phase: Clarify · Collaborate · Commit
 source: built-2026-07-25
 ---
 # Culture Builder: Liberating Structures Starter Set (Bonus)
@@ -25,7 +26,7 @@ Three small routines that get everyone talking in ten minutes without anyone dom
 
 ## Objective
 
-Learn three short, repeatable engagement routines and use them instead of open discussion. Liberating Structures is a large collection of these; three of them cover most of what a school leader needs. Each one solves the specific problem that in an open discussion, the same confident people talk and everyone else waits.
+Learn three short, repeatable engagement routines and use them instead of open discussion. Liberating Structures is a large collection of these; three of them cover most of what a school leader needs. Each one solves the specific problem that in an open discussion, the same confident people talk and everyone else waits. Within the Collaborative Impact Framework each routine serves a different phase: TRIZ is Clarify, 1-2-4-All is Collaborate, and 15% Solutions is Commit. Pick by the phase you are in rather than by preference.
 
 ## Time Needed
 

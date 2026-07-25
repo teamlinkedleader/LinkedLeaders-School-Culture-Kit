@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: Chart paper from every table, carrying the accumulated thinking of the whole faculty on each question.
 leader_goes_first: false
 learn_more: https://www.theworldcafe.com
+framework_phase: Collaborate
 source: built-2026-07-25
 ---
 # Culture Builder: World Café (Bonus)
@@ -25,7 +26,7 @@ Three rotating conversations that build on each other instead of starting over.
 
 ## Objective
 
-Get an entire faculty thinking about two or three real problems, in small groups, in a way where each conversation inherits the last one rather than repeating it. The reason most staff discussions produce nothing is that every table starts from zero and the loudest voice sets the direction. World Café fixes both with a host who stays put and a summary that carries forward.
+Get an entire faculty thinking about two or three real problems, in small groups, in a way where each conversation inherits the last one rather than repeating it. The reason most staff discussions produce nothing is that every table starts from zero and the loudest voice sets the direction. World Café fixes both with a host who stays put and a summary that carries forward. Within the Collaborative Impact Framework this is a Collaborate protocol: use it once the problem is already shared, to harness the faculty's collective expertise across two or three topics at once.
 
 ## Time Needed
 

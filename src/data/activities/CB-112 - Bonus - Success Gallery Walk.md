@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: A posted gallery of working practices, and a written commitment from each person naming the one they are taking.
 leader_goes_first: true
 learn_more: https://www.edutopia.org
+framework_phase: Collaborate · Commit
 source: built-2026-07-25
 ---
 # Culture Builder: Success Gallery Walk (Bonus)
@@ -25,7 +26,7 @@ Every team posts one thing that is genuinely working, and everyone leaves with o
 
 ## Objective
 
-Get the practices that are already working in your building out of individual classrooms and into general circulation. Schools are full of solved problems that nobody else knows about, because the person who solved it does not consider it noteworthy. The gallery format moves it without requiring anyone to present, which is the barrier.
+Get the practices that are already working in your building out of individual classrooms and into general circulation. Schools are full of solved problems that nobody else knows about, because the person who solved it does not consider it noteworthy. The gallery format moves it without requiring anyone to present, which is the barrier. Within the Collaborative Impact Framework this spans Collaborate and Commit: it surfaces what already works and ends with each person naming one practice they will adopt and when.
 
 ## Time Needed
 

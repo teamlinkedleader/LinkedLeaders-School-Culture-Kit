@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: A rough prototype of one fix, plus written feedback from the students or staff it was tested on.
 leader_goes_first: false
 learn_more: https://dschool.stanford.edu/resources
+framework_phase: Clarify · Collaborate · Commit
 source: built-2026-07-25
 ---
 # Culture Builder: Design Thinking Sprint (Bonus)
@@ -25,7 +26,7 @@ Build a rough solution to one real problem in ninety minutes, then test it on th
 
 ## Objective
 
-Take one specific, bounded school problem through five stages in a single session: Empathize, Define, Ideate, Prototype, Test. The discipline that makes it work is that you leave with something rough and tested rather than a plan to plan. Most school improvement conversations stop at Ideate, which is why they produce lists nobody implements.
+Take one specific, bounded school problem through five stages in a single session: Empathize, Define, Ideate, Prototype, Test. The discipline that makes it work is that you leave with something rough and tested rather than a plan to plan. Most school improvement conversations stop at Ideate, which is why they produce lists nobody implements. Within the Collaborative Impact Framework this runs Clarify through Commit in a single session, which is why it needs 90 minutes. Book the Coach follow-up before you start.
 
 ## Time Needed
 

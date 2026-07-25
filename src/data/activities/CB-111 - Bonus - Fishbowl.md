@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: Written notes from the observers on what they heard, which is usually sharper than the conversation itself.
 leader_goes_first: false
 learn_more: https://www.facinghistory.org/resource-library/fishbowl
+framework_phase: Clarify · Collaborate
 source: built-2026-07-25
 ---
 # Culture Builder: Fishbowl (Bonus)
@@ -25,7 +26,7 @@ A few people talk properly while everyone else listens, then they swap.
 
 ## Objective
 
-Have a real conversation about something difficult in front of the whole staff, with four or five people in an inner circle actually talking and everyone else listening and taking notes. It solves the specific problem that a whole-staff discussion of forty people is not a discussion, it is a series of statements, and the same four voices make all of them.
+Have a real conversation about something difficult in front of the whole staff, with four or five people in an inner circle actually talking and everyone else listening and taking notes. It solves the specific problem that a whole-staff discussion of forty people is not a discussion, it is a series of statements, and the same four voices make all of them. Within the Collaborative Impact Framework this spans Clarify and Collaborate, and it is the protocol for when the group is too large for the real conversation to happen at all.
 
 ## Time Needed
 

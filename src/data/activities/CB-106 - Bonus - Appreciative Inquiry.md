@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: A written list of the conditions that produced the school's best moments, and which of them are recreatable now.
 leader_goes_first: true
 learn_more: https://appreciativeinquiry.champlain.edu
+framework_phase: Clarify · Collaborate
 source: built-2026-07-25
 ---
 # Culture Builder: Appreciative Inquiry (Bonus)
@@ -25,7 +26,7 @@ Start from a time this school was genuinely at its best, and work out what made 
 
 ## Objective
 
-Open a hard conversation by asking what has worked here rather than what is broken. Appreciative Inquiry moves through four stages: Discover, Dream, Design, Deliver. Used honestly it is not positive thinking, it is evidence gathering, because the conditions that produced your school's best moments are usually still available and nobody has named them.
+Open a hard conversation by asking what has worked here rather than what is broken. Appreciative Inquiry moves through four stages: Discover, Dream, Design, Deliver. Used honestly it is not positive thinking, it is evidence gathering, because the conditions that produced your school's best moments are usually still available and nobody has named them. Within the Collaborative Impact Framework this spans Clarify and Collaborate: it establishes what matters by starting from evidence the school already has, which makes it the right opener when a room is demoralised.
 
 ## Time Needed
 

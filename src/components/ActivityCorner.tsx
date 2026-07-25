@@ -16,6 +16,7 @@ import {
   HelpCircle,
   Image,
   ExternalLink,
+  Workflow,
 } from 'lucide-react';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
@@ -206,6 +207,16 @@ export function ActivityCorner({ activity, onClose }: ActivityCornerProps) {
                   </li>
                 ))}
               </ul>
+            </Section>
+          )}
+
+          {/* Collaborative Impact Framework phase */}
+          {activity.frameworkPhase && (
+            <Section icon={Workflow} title="Where This Fits">
+              <p className="text-sm text-slate-600 leading-relaxed">
+                <span className="font-semibold text-slate-800">{activity.frameworkPhase}</span> in
+                the Collaborative Impact Framework: Clarify, Collaborate, Commit, Coach.
+              </p>
             </Section>
           )}
 

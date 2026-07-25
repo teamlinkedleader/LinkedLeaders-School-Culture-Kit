@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: A written description of the school three years out, and a backwards timeline with the first step dated.
 leader_goes_first: true
 learn_more: https://www.futuresearch.net
+framework_phase: Clarify
 source: built-2026-07-25
 ---
 # Culture Builder: Future Search (Bonus)
@@ -25,7 +26,7 @@ Describe the school you want in three years as if it already exists, then work b
 
 ## Objective
 
-Build a shared picture of the school three years from now, in the present tense and in concrete detail, then reason backwards to what has to be true at two years, one year, and this term. The reason most school visions do nothing is that they are written as aspirations rather than as descriptions, and aspirations have no first step.
+Build a shared picture of the school three years from now, in the present tense and in concrete detail, then reason backwards to what has to be true at two years, one year, and this term. The reason most school visions do nothing is that they are written as aspirations rather than as descriptions, and aspirations have no first step. Within the Collaborative Impact Framework this is a Clarify protocol at the largest scale: it establishes what matters over a three-year horizon, which then frames every Collaborate session that follows.
 
 ## Time Needed
 

@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: The presenter's written note on what they will try, plus the protocol itself as a repeatable routine.
 leader_goes_first: true
 learn_more: https://schoolreforminitiative.org/protocols/
+framework_phase: Collaborate
 source: built-2026-07-25
 ---
 # Culture Builder: Consultancy Protocol (Bonus)
@@ -25,7 +26,7 @@ One colleague brings a real dilemma and the group is banned from giving advice f
 
 ## Objective
 
-Give one staff member structured help with a genuine, current, unresolved problem in their practice. The protocol's power comes entirely from its constraints: the presenter stays quiet while the group discusses, and the group must ask questions before offering anything. It is the most useful thirty minutes available in a school and almost nobody runs it because the silence feels wrong.
+Give one staff member structured help with a genuine, current, unresolved problem in their practice. The protocol's power comes entirely from its constraints: the presenter stays quiet while the group discusses, and the group must ask questions before offering anything. It is the most useful thirty minutes available in a school and almost nobody runs it because the silence feels wrong. Within the Collaborative Impact Framework this is a Collaborate protocol scaled to one person's dilemma rather than a school-wide problem, which makes it the one you can run monthly.
 
 ## Time Needed
 

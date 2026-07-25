@@ -17,6 +17,7 @@ cost: $0
 leaves_behind: A written record from every session, posted, plus the agenda the staff created.
 leader_goes_first: false
 learn_more: https://openspaceworld.org
+framework_phase: Clarify · Collaborate
 source: built-2026-07-25
 ---
 # Culture Builder: Open Space (Bonus)
@@ -25,7 +26,7 @@ Hand the agenda to your staff and find out what they actually need to talk about
 
 ## Objective
 
-Run a meeting where the participants set the agenda in the first ten minutes and then run the sessions themselves. Open Space is the most uncomfortable facilitation method a school leader can use and the most informative, because what your staff choose to put on the wall is a direct readout of what is actually on their minds.
+Run a meeting where the participants set the agenda in the first ten minutes and then run the sessions themselves. Open Space is the most uncomfortable facilitation method a school leader can use and the most informative, because what your staff choose to put on the wall is a direct readout of what is actually on their minds. Within the Collaborative Impact Framework this is the Clarify protocol for when you do not yet know what the problem is. Use it when you need the faculty to tell you what matters rather than confirming what you think matters.
 
 ## Time Needed
 

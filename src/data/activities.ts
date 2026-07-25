@@ -1,7 +1,7 @@
 // GENERATED FILE — DO NOT EDIT BY HAND.
 // Source of truth: src/data/activities/*.md
 // Regenerate with: npm run generate:activities
-// 74 activities.
+// 75 activities.
 
 export interface ActivityStep {
   title: string;
@@ -39,6 +39,8 @@ export interface CultureActivity {
   displayIdea?: string;
   /** Attribution link for externally-developed methods. */
   learnMore?: string;
+  /** Which phase of the Collaborative Impact Framework this serves. */
+  frameworkPhase?: string;
 }
 
 export const monthThemes: { month: string; theme: string; monthIndex: number; blurb: string }[] = [
@@ -54,7 +56,7 @@ export const monthThemes: { month: string; theme: string; monthIndex: number; bl
   { month: "April", theme: "Appreciation", monthIndex: 8, blurb: "Recognize the quiet contributors and celebrate the community." },
   { month: "May", theme: "Celebration & Legacy", monthIndex: 9, blurb: "Honor the year's work and send everyone off with pride." },
   { month: "June", theme: "Reflection & Closure", monthIndex: 10, blurb: "Close the year with gratitude, recognition, and connection." },
-  { month: "Bonus", theme: "Collective Problem-Solving", monthIndex: 11, blurb: "Longer facilitation strategies for faculty meetings and retreats, for when the work is a shared problem rather than a weekly activity." },
+  { month: "Bonus", theme: "The Collaborative Impact Framework", monthIndex: 11, blurb: "Clarify, Collaborate, Commit, Coach. A facilitation framework for faculty problem-solving, plus the protocols that power each phase." },
 ];
 
 export const activities: CultureActivity[] = [
@@ -4638,7 +4640,7 @@ export const activities: CultureActivity[] = [
     displayIdea: "Nothing public. The one thing worth doing is physical: put the July sentence, the January grade, the June grade and next year's draft sentence in a single folder, and start the next one with it open on the desk.",
   },
 
-  // Bonus — Collective Problem-Solving
+  // Bonus — The Collaborative Impact Framework
   {
     id: 105,
     week: 1,
@@ -4646,7 +4648,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Three rotating conversations that build on each other instead of starting over.",
     icon: "Users",
     freePreview: true,
@@ -4659,7 +4661,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: false,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Get an entire faculty thinking about two or three real problems, in small groups, in a way where each conversation inherits the last one rather than repeating it. The reason most staff discussions produce nothing is that every table starts from zero and the loudest voice sets the direction. World Café fixes both with a host who stays put and a summary that carries forward.",
+    objective: "Get an entire faculty thinking about two or three real problems, in small groups, in a way where each conversation inherits the last one rather than repeating it. The reason most staff discussions produce nothing is that every table starts from zero and the loudest voice sets the direction. World Café fixes both with a host who stays put and a summary that carries forward. Within the Collaborative Impact Framework this is a Collaborate protocol: use it once the problem is already shared, to harness the faculty's collective expertise across two or three topics at once.",
     supplies: [
       "One table per topic, two or three topics maximum. More than three and no idea gets developed.",
       "Chart paper and markers on every table.",
@@ -4714,6 +4716,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "Post all the chart paper together on one wall after the session, with the cross-table themes written on a separate sheet in the middle. It is a visible record that the priorities came from the room.",
     learnMore: "https://www.theworldcafe.com",
+    frameworkPhase: "Collaborate",
   },
   {
     id: 106,
@@ -4722,7 +4725,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Start from a time this school was genuinely at its best, and work out what made it possible.",
     icon: "Users",
     freePreview: true,
@@ -4735,7 +4738,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: true,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Open a hard conversation by asking what has worked here rather than what is broken. Appreciative Inquiry moves through four stages: Discover, Dream, Design, Deliver. Used honestly it is not positive thinking, it is evidence gathering, because the conditions that produced your school's best moments are usually still available and nobody has named them.",
+    objective: "Open a hard conversation by asking what has worked here rather than what is broken. Appreciative Inquiry moves through four stages: Discover, Dream, Design, Deliver. Used honestly it is not positive thinking, it is evidence gathering, because the conditions that produced your school's best moments are usually still available and nobody has named them. Within the Collaborative Impact Framework this spans Clarify and Collaborate: it establishes what matters by starting from evidence the school already has, which makes it the right opener when a room is demoralised.",
     supplies: [
       "Chart paper and markers.",
       "Small groups of four to six. Mixed across roles and grade levels.",
@@ -4792,6 +4795,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "The list of recurring conditions, posted plainly, headed with something like \"What it takes for this school to be at its best, according to us.\" No names, no stories, just the conditions.",
     learnMore: "https://appreciativeinquiry.champlain.edu",
+    frameworkPhase: "Clarify · Collaborate",
   },
   {
     id: 107,
@@ -4800,7 +4804,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Build a rough solution to one real problem in ninety minutes, then test it on the people it affects.",
     icon: "Users",
     freePreview: true,
@@ -4813,7 +4817,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: false,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Take one specific, bounded school problem through five stages in a single session: Empathize, Define, Ideate, Prototype, Test. The discipline that makes it work is that you leave with something rough and tested rather than a plan to plan. Most school improvement conversations stop at Ideate, which is why they produce lists nobody implements.",
+    objective: "Take one specific, bounded school problem through five stages in a single session: Empathize, Define, Ideate, Prototype, Test. The discipline that makes it work is that you leave with something rough and tested rather than a plan to plan. Most school improvement conversations stop at Ideate, which is why they produce lists nobody implements. Within the Collaborative Impact Framework this runs Clarify through Commit in a single session, which is why it needs 90 minutes. Book the Coach follow-up before you start.",
     supplies: [
       "One problem, chosen in advance and narrow. \"Improve school culture\" is not a problem; \"the hallway between third and fourth period is chaos\" is.",
       "Chart paper, markers, sticky notes, and whatever junk is around for prototyping.",
@@ -4860,6 +4864,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "Keep the prototype, however crude, and post it next to the objections it collected. In a month, add a note on what actually happened. That sequence is the most useful thing a staff room wall can show.",
     learnMore: "https://dschool.stanford.edu/resources",
+    frameworkPhase: "Clarify · Collaborate · Commit",
   },
   {
     id: 108,
@@ -4868,7 +4873,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Describe the school you want in three years as if it already exists, then work backwards to Monday.",
     icon: "Users",
     freePreview: true,
@@ -4881,7 +4886,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: true,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Build a shared picture of the school three years from now, in the present tense and in concrete detail, then reason backwards to what has to be true at two years, one year, and this term. The reason most school visions do nothing is that they are written as aspirations rather than as descriptions, and aspirations have no first step.",
+    objective: "Build a shared picture of the school three years from now, in the present tense and in concrete detail, then reason backwards to what has to be true at two years, one year, and this term. The reason most school visions do nothing is that they are written as aspirations rather than as descriptions, and aspirations have no first step. Within the Collaborative Impact Framework this is a Clarify protocol at the largest scale: it establishes what matters over a three-year horizon, which then frames every Collaborate session that follows.",
     supplies: [
       "Chart paper, a long wall, and markers.",
       "A genuine cross-section in the room: teachers, classified staff, a few families, and students if they are old enough. This is what distinguishes Future Search from a leadership planning meeting.",
@@ -4939,6 +4944,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "The common-ground description, written out in the present tense on a single sheet, posted in the entryway with the date it was written. Add a mark next to each element as it becomes true.",
     learnMore: "https://www.futuresearch.net",
+    frameworkPhase: "Clarify",
   },
   {
     id: 109,
@@ -4947,7 +4953,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Hand the agenda to your staff and find out what they actually need to talk about.",
     icon: "Users",
     freePreview: true,
@@ -4960,7 +4966,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: false,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Run a meeting where the participants set the agenda in the first ten minutes and then run the sessions themselves. Open Space is the most uncomfortable facilitation method a school leader can use and the most informative, because what your staff choose to put on the wall is a direct readout of what is actually on their minds.",
+    objective: "Run a meeting where the participants set the agenda in the first ten minutes and then run the sessions themselves. Open Space is the most uncomfortable facilitation method a school leader can use and the most informative, because what your staff choose to put on the wall is a direct readout of what is actually on their minds. Within the Collaborative Impact Framework this is the Clarify protocol for when you do not yet know what the problem is. Use it when you need the faculty to tell you what matters rather than confirming what you think matters.",
     supplies: [
       "A large blank wall, sticky notes or half sheets, and markers.",
       "Two or three spaces people can spread into, and a note-taker per session.",
@@ -5014,6 +5020,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "The agenda wall itself, left up with all the session notes pinned under each topic, plus your written response added alongside within the week.",
     learnMore: "https://openspaceworld.org",
+    frameworkPhase: "Clarify · Collaborate",
   },
   {
     id: 110,
@@ -5022,7 +5029,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "One colleague brings a real dilemma and the group is banned from giving advice for the first ten minutes.",
     icon: "Users",
     freePreview: true,
@@ -5035,7 +5042,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: true,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Give one staff member structured help with a genuine, current, unresolved problem in their practice. The protocol's power comes entirely from its constraints: the presenter stays quiet while the group discusses, and the group must ask questions before offering anything. It is the most useful thirty minutes available in a school and almost nobody runs it because the silence feels wrong.",
+    objective: "Give one staff member structured help with a genuine, current, unresolved problem in their practice. The protocol's power comes entirely from its constraints: the presenter stays quiet while the group discusses, and the group must ask questions before offering anything. It is the most useful thirty minutes available in a school and almost nobody runs it because the silence feels wrong. Within the Collaborative Impact Framework this is a Collaborate protocol scaled to one person's dilemma rather than a school-wide problem, which makes it the one you can run monthly.",
     supplies: [
       "One presenter with a real dilemma, briefed in advance to bring something unresolved rather than something already solved.",
       "A group of four to seven. Mixed roles works better than same-grade.",
@@ -5088,6 +5095,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "The five steps and their timings, posted in whatever room your team meets in, so the protocol can be run by anyone without you facilitating it.",
     learnMore: "https://schoolreforminitiative.org/protocols/",
+    frameworkPhase: "Collaborate",
   },
   {
     id: 111,
@@ -5096,7 +5104,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "A few people talk properly while everyone else listens, then they swap.",
     icon: "Users",
     freePreview: true,
@@ -5109,7 +5117,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: false,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Have a real conversation about something difficult in front of the whole staff, with four or five people in an inner circle actually talking and everyone else listening and taking notes. It solves the specific problem that a whole-staff discussion of forty people is not a discussion, it is a series of statements, and the same four voices make all of them.",
+    objective: "Have a real conversation about something difficult in front of the whole staff, with four or five people in an inner circle actually talking and everyone else listening and taking notes. It solves the specific problem that a whole-staff discussion of forty people is not a discussion, it is a series of statements, and the same four voices make all of them. Within the Collaborative Impact Framework this spans Clarify and Collaborate, and it is the protocol for when the group is too large for the real conversation to happen at all.",
     supplies: [
       "Four or five chairs in an inner circle, everyone else seated around them.",
       "One clear question, chosen in advance.",
@@ -5166,6 +5174,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "The observers' notes, collected and posted anonymously under three headings: where we agree, where we disagree, and what we are not saying. That third column is the useful one.",
     learnMore: "https://www.facinghistory.org/resource-library/fishbowl",
+    frameworkPhase: "Clarify · Collaborate",
   },
   {
     id: 112,
@@ -5174,7 +5183,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Every team posts one thing that is genuinely working, and everyone leaves with one thing to steal.",
     icon: "Users",
     freePreview: true,
@@ -5187,7 +5196,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: true,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Get the practices that are already working in your building out of individual classrooms and into general circulation. Schools are full of solved problems that nobody else knows about, because the person who solved it does not consider it noteworthy. The gallery format moves it without requiring anyone to present, which is the barrier.",
+    objective: "Get the practices that are already working in your building out of individual classrooms and into general circulation. Schools are full of solved problems that nobody else knows about, because the person who solved it does not consider it noteworthy. The gallery format moves it without requiring anyone to present, which is the barrier. Within the Collaborative Impact Framework this spans Collaborate and Commit: it surfaces what already works and ends with each person naming one practice they will adopt and when.",
     supplies: [
       "Chart paper or a sheet per team, prepared in advance to a fixed format.",
       "Wall space enough for every sheet to be read simultaneously.",
@@ -5241,6 +5250,7 @@ export const activities: CultureActivity[] = [
     ],
     displayIdea: "Leave the whole gallery up for two weeks with the sticky-note questions still attached, and add the answers next to them. The questions and answers together are more useful than the original sheets.",
     learnMore: "https://www.edutopia.org",
+    frameworkPhase: "Collaborate · Commit",
   },
   {
     id: 113,
@@ -5249,7 +5259,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Three small routines that get everyone talking in ten minutes without anyone dominating.",
     icon: "Users",
     freePreview: true,
@@ -5262,7 +5272,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: false,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Learn three short, repeatable engagement routines and use them instead of open discussion. Liberating Structures is a large collection of these; three of them cover most of what a school leader needs. Each one solves the specific problem that in an open discussion, the same confident people talk and everyone else waits.",
+    objective: "Learn three short, repeatable engagement routines and use them instead of open discussion. Liberating Structures is a large collection of these; three of them cover most of what a school leader needs. Each one solves the specific problem that in an open discussion, the same confident people talk and everyone else waits. Within the Collaborative Impact Framework each routine serves a different phase: TRIZ is Clarify, 1-2-4-All is Collaborate, and 15% Solutions is Commit. Pick by the phase you are in rather than by preference.",
     supplies: [
       "Paper and pens.",
       "A visible timer.",
@@ -5315,6 +5325,7 @@ export const activities: CultureActivity[] = [
       "The full collection is large. Three used well beats thirty read about.",
     ],
     learnMore: "https://www.liberatingstructures.com",
+    frameworkPhase: "Clarify · Collaborate · Commit",
   },
   {
     id: 114,
@@ -5323,7 +5334,7 @@ export const activities: CultureActivity[] = [
     category: "Staff Culture",
     month: "Bonus",
     monthIndex: 11,
-    theme: "Collective Problem-Solving",
+    theme: "The Collaborative Impact Framework",
     description: "Ninety minutes that ends with team commitments and dated first actions, not a list of ideas.",
     icon: "Users",
     freePreview: true,
@@ -5336,7 +5347,7 @@ export const activities: CultureActivity[] = [
     leaderGoesFirst: true,
     beWord: "BE Collective",
     lane: "Staff",
-    objective: "Build collective ownership across three priority areas in a single 90-minute faculty session, and end with commitments rather than conversation. This chains four methods deliberately: Appreciative Inquiry to open, World Café to develop, 15% Solutions for individual ownership, and team commitments to convert it into implementation. Each stage exists because the one before it is not enough on its own.",
+    objective: "Build collective ownership across three priority areas in a single 90-minute faculty session, and end with commitments rather than conversation. This chains four methods deliberately: Appreciative Inquiry to open, World Café to develop, 15% Solutions for individual ownership, and team commitments to convert it into implementation. Each stage exists because the one before it is not enough on its own. Within the Collaborative Impact Framework this session runs Clarify, Collaborate and Commit in one 90-minute block. It deliberately does not include Coach, which is a separate follow-up and the phase this design most depends on. See [[CB-115 - Bonus - The Collaborative Impact Framework]].",
     supplies: [
       "Three tables, one per priority area. Suggested: Student Discipline and Engagement, Staff Morale and School Culture, Academic Excellence. Change them to your school's real three.",
       "A named table host per table, briefed in advance. This is the role the middle 45 minutes depends on.",
@@ -5389,10 +5400,94 @@ export const activities: CultureActivity[] = [
       "Celebrate the patterns that emerge, especially where the same theme appears at all three tables.",
       "End with commitments rather than simply ideas. If you are running short, cut the gallery walk, never the commitments.",
       "Brief your table hosts properly and separately. Three weak hosts turns the strongest 45 minutes of this design into three unrelated discussions.",
-      "Report back within two weeks on the commitments. This is a high-investment session and staff will read your follow-through as the verdict on whether it was real.",
+      "**Book the Coach session before you run this one.** The framework's fourth phase is where this design either lands or evaporates, and it is the phase every school skips. Put a date in the calendar during planning, not afterwards.",
+      "At that follow-up, work the Coach questions rather than asking for status: what progress have we observed, what evidence shows we are improving, what barriers need removing, where is coaching needed, and what should we celebrate. A status round produces reassurance; those questions produce information.",
+      "Report back within two weeks regardless. This is a high-investment session and staff will read your follow-through as the verdict on whether it was real.",
     ],
     displayIdea: "All three tables' chart paper posted together, with the team commitments written on a separate sheet alongside, each showing its measurable indicator and its two-week action. Add the outcome next to each commitment as it lands.",
     learnMore: "https://www.liberatingstructures.com",
+    frameworkPhase: "Clarify · Collaborate · Commit",
+  },
+  {
+    id: 115,
+    week: 11,
+    title: "The Collaborative Impact Framework",
+    category: "Leader",
+    month: "Bonus",
+    monthIndex: 11,
+    theme: "The Collaborative Impact Framework",
+    description: "Four phases and four questions that turn a faculty meeting into collective ownership.",
+    icon: "Compass",
+    freePreview: true,
+    code: "CB-115",
+    promise: "Four phases and four questions that turn a faculty meeting into collective ownership.",
+    timeDisplay: "20 minutes to plan any meeting",
+    timeMinutes: 20,
+    cost: "$0",
+    leavesBehind: "A meeting designed against all four phases, with commitments recorded and a date set to coach them.",
+    leaderGoesFirst: true,
+    beWord: "BE Collective",
+    lane: "Leader",
+    objective: "Design any collaborative meeting so it answers four questions: what matters, what do we see, what will we do, and how will we know. Most faculty meetings answer the first two and stop, which is exactly why they generate discussion and not change. This is the frame that the protocols in this Bonus section plug into. Start here, then pick the protocol that fits the phase you are in.",
+    supplies: [
+      "The actual problem you are convening people about, written as a problem rather than as an agenda item.",
+      "Whatever evidence you already have. Attendance, survey results, discipline patterns, work samples.",
+      "The list of protocols in this Bonus section, so you can pick rather than default.",
+      "A calendar, for Phase 4, which has to be booked before the meeting happens rather than after.",
+    ],
+    samplePrompts: [
+      "**Clarify: what matters.** What problem are we trying to solve? Why does this matter for students and staff? What evidence do we have? What assumptions should we challenge? What would success look like?",
+      "**Collaborate: what do we see.** What ideas are emerging? Where are the common themes? What strengths can we build on? What has worked elsewhere? Which ideas deserve deeper exploration?",
+      "**Commit: what will we do.** What is one action I will take? What is one action our team will take? What will we start, stop, or continue? What is our first milestone? Who owns each action?",
+      "**Coach: how will we know.** What progress have we observed? What evidence shows we are improving? What barriers need removing? Where is coaching needed? What should we celebrate and refine?",
+    ],
+    steps: [
+      {
+        title: "Clarify before you convene anyone",
+        minutes: "6 min",
+        detail: "Write the problem, the evidence, and what success would look like. If you cannot state why it matters for students and staff in one sentence, the meeting is not ready. Bring your assumptions to be challenged rather than defended.",
+      },
+      {
+        title: "Choose the protocol that fits, do not default to discussion",
+        minutes: "4 min",
+        detail: "Collaborate is where the protocols live. World Café for breadth across several topics. Appreciative Inquiry when the room is demoralised. Consultancy Protocol for one person's real dilemma. Fishbowl when the group is too big for a real conversation. Gallery Walk to move what already works. Design Thinking Sprint for one bounded problem. Open Space when you do not know what the issue is. Liberating Structures when you need everyone's thinking in ten minutes.",
+      },
+      {
+        title: "Design the Commit phase into the agenda, with time protected",
+        minutes: "4 min",
+        detail: "One individual action, one team action, a first milestone, and a named owner for each. If the clock runs down, cut the Collaborate phase short rather than losing Commit. A meeting that ends in ideas has spent everyone's time and bought nothing.",
+      },
+      {
+        title: "Book Phase 4 before the meeting starts",
+        minutes: "3 min",
+        detail: "Put the follow-up date in the calendar while you are still planning. Coach is the phase every school skips, and skipping it is what teaches staff that commitments are ceremonial.",
+      },
+      {
+        title: "Run the cycle again",
+        minutes: "ongoing",
+        detail: "Clarify, Collaborate, Commit, Coach, and back to Clarify. Each pass builds the faculty's capacity to solve the next problem with less scaffolding from you.",
+      },
+    ],
+    whyItWorks: [
+      "Naming four distinct questions stops the most common failure in school meetings, which is jumping to solutions before the problem is shared. Phase 1 exists to prevent it.",
+      "Separating Collaborate from Commit means the generative part does not have to also produce ownership, and the ownership part does not have to also be creative. Both go better.",
+      "Requiring an individual action and a team action catches the gap where everyone agrees something should happen and nobody is doing anything on Monday.",
+      "Phase 4 is the difference between a framework and an event. Commitments that are never observed, coached or celebrated stop being made honestly.",
+      "The cycle compounds. Each pass makes the faculty better at the next one, which is what collective efficacy actually means in practice.",
+    ],
+    leaderScript: "\"Every meeting we run together is going to answer four questions, and I am going to name them out loud each time so you can hold me to them. What matters. What do we see. What will we do. And how will we know. We have historically been good at the first two and we stop there, which is why we leave these rooms with a lot of good thinking and not much changes. So the last twenty minutes of every session is commitments, and I have already put the follow-up date in the calendar.\"",
+    facilitatorTips: [
+      "Lead with curiosity rather than certainty. If you have already decided, do not convene a Collaborate phase about it; the room will know and you will spend credibility.",
+      "Ensure every voice is heard, and use a protocol to do it rather than relying on inviting people to speak.",
+      "Capture ideas visibly. Chart paper, not a laptop.",
+      "Look for patterns before solutions.",
+      "End every meeting with commitments rather than discussion.",
+      "Revisit commitments through observation and coaching, not through a status email.",
+      "Celebrate progress specifically, to reinforce momentum.",
+      "**Where this applies:** faculty meetings, school improvement planning, PLCs, leadership retreats, department and grade-level meetings, strategic planning, and culture and climate initiatives.",
+    ],
+    displayIdea: "The four phases and the four questions, posted in whatever room your faculty meets in. Then, at the start of each meeting, mark which phase the session is in. Staff knowing that today is a Clarify session and not a Commit session changes how they participate.",
+    frameworkPhase: "All four phases",
   },
 ];
 

@@ -62,7 +62,7 @@ const MONTH_THEMES = [
   { month: 'April', theme: 'Appreciation', monthIndex: 8, blurb: 'Recognize the quiet contributors and celebrate the community.' },
   { month: 'May', theme: 'Celebration & Legacy', monthIndex: 9, blurb: "Honor the year's work and send everyone off with pride." },
   { month: 'June', theme: 'Reflection & Closure', monthIndex: 10, blurb: 'Close the year with gratitude, recognition, and connection.' },
-  { month: 'Bonus', theme: 'Collective Problem-Solving', monthIndex: 11, blurb: 'Longer facilitation strategies for faculty meetings and retreats, for when the work is a shared problem rather than a weekly activity.' },
+  { month: 'Bonus', theme: 'The Collaborative Impact Framework', monthIndex: 11, blurb: 'Clarify, Collaborate, Commit, Coach. A facilitation framework for faculty problem-solving, plus the protocols that power each phase.' },
 ];
 
 /**
@@ -258,6 +258,7 @@ function build() {
       facilitatorTips: bullets(sections['Facilitator Tips']),
       displayIdea: paragraphs(sections['Display Idea']).join('\n\n'),
       learnMore: fm.learn_more ?? '',
+      frameworkPhase: fm.framework_phase ?? '',
     };
   });
 
@@ -324,6 +325,7 @@ function emitActivity(a) {
   );
   if (a.displayIdea) lines.push(`    displayIdea: ${s(a.displayIdea)},`);
   if (a.learnMore) lines.push(`    learnMore: ${s(a.learnMore)},`);
+  if (a.frameworkPhase) lines.push(`    frameworkPhase: ${s(a.frameworkPhase)},`);
   return `  {\n${lines.join('\n')}\n  },`;
 }
 
@@ -379,6 +381,8 @@ export interface CultureActivity {
   displayIdea?: string;
   /** Attribution link for externally-developed methods. */
   learnMore?: string;
+  /** Which phase of the Collaborative Impact Framework this serves. */
+  frameworkPhase?: string;
 }
 
 export const monthThemes: { month: string; theme: string; monthIndex: number; blurb: string }[] = [
