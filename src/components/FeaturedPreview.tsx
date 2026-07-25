@@ -22,8 +22,8 @@ export function FeaturedPreview({ activity, onOpen, onSubscribeClick }: Featured
             Free Preview
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
-            See One Activity
-            <span className="text-blue-600"> Before You Subscribe</span>
+            See What You Get
+            <span className="text-blue-600"> Before You Sign Up</span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 leading-relaxed">
             This is a complete, unabridged activity, exactly what you'll get every week.

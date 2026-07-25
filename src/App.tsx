@@ -10,14 +10,19 @@ import { ScavengerHunt } from '@/components/ScavengerHunt';
 import { SelfAssessment } from '@/components/SelfAssessment';
 import { UnlockModal } from '@/components/UnlockModal';
 import { CoachingOffer } from '@/components/CoachingOffer';
+import { MentorOfferModal } from '@/components/MentorOfferModal';
 import { Footer } from '@/components/Footer';
 import type { CultureActivity } from '@/data/activities';
 import { activities } from '@/data/activities';
 import { loadAccess, saveAccess, checkFullAccess, canRead, type AccessState } from '@/lib/access';
 
+/** Remembers that the mentor offer has been shown, so it only ever appears once. */
+const MENTOR_OFFER_SEEN = 'll-mentor-offer-seen-v1';
+
 function App() {
   const [access, setAccess] = useState<AccessState>(loadAccess);
   const [modalOpen, setModalOpen] = useState(false);
+  const [mentorOfferOpen, setMentorOfferOpen] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState<CultureActivity | null>(null);
 
   const featuredActivity = activities.find((a) => a.code === 'CB-53') ?? activities[0];
@@ -40,6 +45,41 @@ function App() {
   }, [access.email, access.tier]);
 
   const openClaim = () => setModalOpen(true);
+
+  /**
+   * Show the mentor offer once, after the visitor has unlocked the year and has
+   * actually started reading.
+   *
+   * The trigger is scroll depth rather than a timer, because time on page does
+   * not distinguish someone reading from someone who left a tab open. Firing it
+   * before they have seen the material would be noise; the offer only makes
+   * sense once they are facing the question of which activities to run.
+   *
+   * Once dismissed it never returns. A pop-up that reappears earns dismissals,
+   * not bookings, and would sour the free thing it interrupts.
+   */
+  useEffect(() => {
+    if (access.tier === 'visitor') return;
+    if (localStorage.getItem(MENTOR_OFFER_SEEN) === '1') return;
+
+    const onScroll = () => {
+      const grid = document.getElementById('activities');
+      if (!grid) return;
+      // A viewport and a half past the top of the grid: they have scrolled
+      // through roughly the first two months. Deliberately not a fraction of
+      // the grid's height, which with 83 cards would be several thousand
+      // pixels down and effectively never reached.
+      const trigger = grid.offsetTop + window.innerHeight * 1.5;
+      if (window.scrollY >= trigger) {
+        setMentorOfferOpen(true);
+        localStorage.setItem(MENTOR_OFFER_SEEN, '1');
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [access.tier]);
 
   const handleClaimed = (name: string, email: string) => {
     const next: AccessState = { tier: 'pack', email, name, packKey: null };
@@ -77,6 +117,11 @@ function App() {
         readable={canRead(access)}
         onClose={() => setSelectedActivity(null)}
         onClaimClick={() => { setSelectedActivity(null); openClaim(); }}
+      />
+      <MentorOfferModal
+        open={mentorOfferOpen}
+        name={access.name}
+        onClose={() => setMentorOfferOpen(false)}
       />
       <UnlockModal
         open={modalOpen}
