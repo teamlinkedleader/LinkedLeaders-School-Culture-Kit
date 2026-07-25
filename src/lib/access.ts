@@ -77,22 +77,23 @@ export async function checkFullAccess(email: string): Promise<boolean> {
 }
 
 /**
- * Whether an activity is readable.
+ * Whether an activity's full text is shown.
  *
- * Always true. Mike's tripwire is a one-hour coaching session, not a content
- * unlock, so nothing here is gated: every activity is free to read by design.
+ * This is a soft gate, enforced in the browser. That is deliberate and it is
+ * fine here, because nothing behind it costs money: it exists to trade a full
+ * activity for an email address, which is the entire job of a lead magnet.
  *
- * The tiers below are kept because they still carry useful information — who
- * someone is, and which three-pack they chose — but they no longer decide what
- * anyone can see. Gating content again would mean serving it from the server
- * rather than the bundle; a flag in this function would not achieve it.
+ * The earlier objection to client-side gating stands only where money is
+ * involved. Charging for something a visitor can lift out of the bundle is
+ * dishonest; asking for an email before showing the full text of a free
+ * activity is ordinary practice, and the worst case is that a determined
+ * visitor reads something we were giving away anyway.
+ *
+ * Card-level information (title, promise, month, time) is always visible. That
+ * is the advertisement, and hiding it would defeat the point.
  */
-export function canRead(): boolean {
-  return true;
-}
-
-/** Whether an activity is part of the visitor's claimed three-pack. Used to
- *  highlight their kit, not to restrict anything. */
-export function isInTheirPack(state: AccessState, activityId: number): boolean {
-  return state.tier !== 'visitor' && packActivityIds(state.packKey).has(activityId);
+export function canRead(state: AccessState, activityId: number): boolean {
+  if (state.tier === 'full') return true;
+  if (state.tier === 'pack') return packActivityIds(state.packKey).has(activityId);
+  return false;
 }

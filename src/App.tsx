@@ -78,7 +78,7 @@ function App() {
       <Footer />
       <ActivityCorner
         activity={selectedActivity}
-        readable={canRead()}
+        readable={selectedActivity ? canRead(access, selectedActivity.id) : false}
         onClose={() => setSelectedActivity(null)}
         onClaimClick={() => { setSelectedActivity(null); openClaim(); }}
       />

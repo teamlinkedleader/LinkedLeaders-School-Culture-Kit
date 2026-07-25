@@ -88,12 +88,12 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
                     </div>
                     <p className="text-sm text-slate-400 mt-1">{mt.blurb}</p>
                   </div>
-                  {access.tier === 'visitor' && packByKey(mt.month) && (
+                  {access.packKey !== mt.month && access.tier !== 'full' && packByKey(mt.month) && (
                     <button
                       onClick={() => onClaimClick(mt.month)}
                       className="ml-auto shrink-0 text-xs font-semibold px-3.5 py-2 rounded-full border border-blue-200 text-blue-700 hover:bg-blue-50 transition-colors"
                     >
-                      Get this 3-pack free
+                      {access.tier === 'visitor' ? 'Get this 3-pack free' : 'Not in your kit'}
                     </button>
                   )}
                 </div>
@@ -104,7 +104,7 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
                     <ActivityCard
                       key={activity.id}
                       activity={activity}
-                      unlocked={canRead()}
+                      unlocked={canRead(access, activity.id)}
                       index={i}
                       onClick={() => onActivityClick?.(activity)}
                     />

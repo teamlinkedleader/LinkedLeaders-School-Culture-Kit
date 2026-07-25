@@ -20,13 +20,12 @@ interface CoachingOfferProps {
 /**
  * The tripwire.
  *
- * Deliberately not a content unlock. Every activity on this site is free to
- * read; what is being sold is an hour with someone who has done the job, which
- * is the one thing that cannot be copied, forwarded or scraped.
+ * Deliberately not a content unlock. The activities remain a free lead magnet
+ * traded for an email; what is sold here is an hour with someone who has done
+ * the job, which is the one thing that cannot be copied, forwarded or scraped.
  */
 export function CoachingOffer({ access }: CoachingOfferProps) {
-  // Sentence has to read correctly whether or not we know their name.
-  const opener = access.name ? `${access.name}, every` : 'Every';
+  const opener = access.name ? `${access.name}, you` : 'You';
 
   return (
     <section id="coaching" className="py-20 md:py-24 bg-slate-900">
@@ -41,9 +40,9 @@ export function CoachingOffer({ access }: CoachingOfferProps) {
         </h2>
 
         <p className="mt-5 text-lg text-slate-300 leading-relaxed">
-          {opener} activity here is free to read. The hard part is not finding ideas, it is
-          deciding which three matter for your building this year and actually running them. That is
-          what the hour is for.
+          {opener} can collect kits all year and still be stuck on the same question. The hard part
+          is not finding ideas, it is deciding which few matter for your building this year and
+          actually running them. That is what the hour is for.
         </p>
 
         <ul className="mt-8 grid gap-3 sm:grid-cols-2 text-left max-w-xl mx-auto">
