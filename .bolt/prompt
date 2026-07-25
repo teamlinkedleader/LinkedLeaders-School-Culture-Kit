@@ -5,3 +5,5 @@ By default, this template supports JSX syntax with Tailwind CSS classes, React h
 Use icons from lucide-react for logos.
 
 Import project modules with the `@/` path alias, which maps to `src/` (e.g. `@/components/Foo` == `src/components/Foo`), instead of deep relative paths like `../../components/Foo`.
+
+`src/data/activities.ts` is a GENERATED file. Never edit it by hand and never add, remove, or reword an activity in it — your changes will be silently overwritten. The source of truth is the markdown in `src/data/activities/*.md`, which is authored elsewhere and copied in. To change activity content, edit the markdown and run `npm run generate:activities`. If asked to add an activity, create a markdown file matching the structure of the existing ones and regenerate. The generator derives `theme` and `beWord` from the activity's month, computes `week` as its slot within that month, and takes `id` from the `CB-nn` code, so do not set those by hand either.
