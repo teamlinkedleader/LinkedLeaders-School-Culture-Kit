@@ -27,10 +27,10 @@ const sections = [
     blurb: 'Rate your practice and find your weakest phase.',
   },
   {
-    id: 'scavenger-hunt',
+    id: 'coaching',
     icon: Sparkles,
-    label: 'Featured Activity',
-    blurb: 'One complete activity, start to finish.',
+    label: 'Book a Mentor',
+    blurb: 'An hour with someone who has done the job.',
   },
 ];
 

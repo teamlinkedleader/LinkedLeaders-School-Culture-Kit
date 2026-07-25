@@ -11,7 +11,7 @@ export function Hero({ onClaimClick, access }: HeroProps) {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#16386E] to-[#0A1C38]" />
 
       {/* Decorative shapes */}
       <div className="absolute inset-0 overflow-hidden">
@@ -33,13 +33,13 @@ export function Hero({ onClaimClick, access }: HeroProps) {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
             <Sparkles className="w-4 h-4 text-blue-200" />
-            <span className="text-sm font-medium text-blue-100">A LinkedLeaders Resource</span>
+            <span className="text-sm font-medium text-blue-100">Source Wisdom</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
             Build the School
             <br />
-            <span className="bg-gradient-to-r from-blue-300 via-blue-200 to-indigo-200 bg-clip-text text-transparent">
+            <span className="text-blue-300">
               People Are Proud
             </span>
             <br />

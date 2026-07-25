@@ -6,7 +6,6 @@ import { Principles } from '@/components/Principles';
 import { ActivityGrid } from '@/components/ActivityGrid';
 import { FeaturedPreview } from '@/components/FeaturedPreview';
 import { ActivityCorner } from '@/components/ActivityCorner';
-import { ScavengerHunt } from '@/components/ScavengerHunt';
 import { SelfAssessment } from '@/components/SelfAssessment';
 import { UnlockModal } from '@/components/UnlockModal';
 import { CoachingOffer } from '@/components/CoachingOffer';
@@ -109,7 +108,6 @@ function App() {
         />
         <CoachingOffer access={access} />
         <SelfAssessment />
-        <ScavengerHunt />
       </main>
       <Footer />
       <ActivityCorner
