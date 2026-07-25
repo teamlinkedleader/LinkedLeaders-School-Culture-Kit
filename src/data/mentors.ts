@@ -14,6 +14,31 @@
  * `profileUrl` at each mentor's existing page rather than carrying bios here.
  */
 
+/**
+ * The LinkedLeaders mentor directory, behind "See all available mentors" and
+ * the fallback destination for every Book now button.
+ *
+ * UNCONFIRMED. Mike has not given the path and it is recorded nowhere in the
+ * vault; this is the conventional guess and it must be checked before the site
+ * goes in front of anyone. It is a single constant precisely so that check is a
+ * one-line change.
+ */
+export const MENTOR_DIRECTORY_URL = 'https://www.linkedleaders.com/mentors';
+
+/**
+ * Where the booking flow lives.
+ *
+ * Intentionally null. Mike's decision 2026-07-25: booking gets wired once this
+ * app is incorporated into the main LinkedLeaders application, so payment and
+ * scheduling are built once rather than twice. Until then Book now falls
+ * through to the directory above.
+ *
+ * To go live, set this to the Stripe Payment Link (with the scheduler as its
+ * success URL), or to the scheduling page directly if payment is collected
+ * there.
+ */
+export const BOOKING_URL: string | null = null;
+
 /** What the hour is listed at. Shown struck through beside the price paid. */
 export const SESSION_LIST_PRICE_USD = 79;
 

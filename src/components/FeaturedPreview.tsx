@@ -26,8 +26,8 @@ export function FeaturedPreview({ activity, onOpen, onSubscribeClick }: Featured
             <span className="text-blue-600"> Before You Sign Up</span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 leading-relaxed">
-            This is a complete, unabridged activity, exactly what you'll get every week.
-            All {totalActivities} are free to read. Start with this one.
+            This is a complete, unabridged activity, exactly what you'll get every week. This one
+            is free to read in full. The other {totalActivities - 1} open when you sign up.
           </p>
         </div>
 
