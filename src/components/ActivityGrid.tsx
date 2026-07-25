@@ -52,11 +52,11 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
           <div className="mb-10 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 p-6 md:p-8 text-center">
             <div className="flex items-center justify-center gap-3 mb-3">
               <Sparkles className="w-6 h-6 text-blue-100" />
-              <h3 className="text-xl font-bold text-white">One a week, all year</h3>
+              <h3 className="text-xl font-bold text-white">Not sure where to start?</h3>
             </div>
             <p className="text-blue-100 mb-5 max-w-xl mx-auto">
-              Read anything here for free. If you would rather not plan it yourself,
-              we will send you the right activity for the right week, every week.
+              Everything here is free to read. Tell us which theme you need most and we will send
+              you those three, ready to run, plus one new idea each week.
             </p>
             <button
               onClick={() => onClaimClick()}
@@ -104,7 +104,7 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
                     <ActivityCard
                       key={activity.id}
                       activity={activity}
-                      unlocked={canRead(access, activity.id)}
+                      unlocked={canRead()}
                       index={i}
                       onClick={() => onActivityClick?.(activity)}
                     />

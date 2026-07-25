@@ -76,9 +76,23 @@ export async function checkFullAccess(email: string): Promise<boolean> {
   }
 }
 
-/** Whether a given activity should be readable in the UI for this access state. */
-export function canRead(state: AccessState, activityId: number): boolean {
-  if (state.tier === 'full') return true;
-  if (state.tier === 'pack') return packActivityIds(state.packKey).has(activityId);
-  return false;
+/**
+ * Whether an activity is readable.
+ *
+ * Always true. Mike's tripwire is a one-hour coaching session, not a content
+ * unlock, so nothing here is gated: every activity is free to read by design.
+ *
+ * The tiers below are kept because they still carry useful information — who
+ * someone is, and which three-pack they chose — but they no longer decide what
+ * anyone can see. Gating content again would mean serving it from the server
+ * rather than the bundle; a flag in this function would not achieve it.
+ */
+export function canRead(): boolean {
+  return true;
+}
+
+/** Whether an activity is part of the visitor's claimed three-pack. Used to
+ *  highlight their kit, not to restrict anything. */
+export function isInTheirPack(state: AccessState, activityId: number): boolean {
+  return state.tier !== 'visitor' && packActivityIds(state.packKey).has(activityId);
 }

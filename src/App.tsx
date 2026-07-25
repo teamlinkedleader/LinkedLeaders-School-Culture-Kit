@@ -9,7 +9,7 @@ import { ActivityCorner } from '@/components/ActivityCorner';
 import { ScavengerHunt } from '@/components/ScavengerHunt';
 import { SelfAssessment } from '@/components/SelfAssessment';
 import { ClaimPackModal } from '@/components/ClaimPackModal';
-import { UnlockEverything } from '@/components/UnlockEverything';
+import { CoachingOffer } from '@/components/CoachingOffer';
 import { Footer } from '@/components/Footer';
 import type { CultureActivity } from '@/data/activities';
 import { activities } from '@/data/activities';
@@ -71,14 +71,14 @@ function App() {
           onClaimClick={openClaim}
           onActivityClick={(a) => setSelectedActivity(a)}
         />
-        <UnlockEverything access={access} onClaimClick={() => openClaim()} />
+        <CoachingOffer access={access} />
         <SelfAssessment />
         <ScavengerHunt />
       </main>
       <Footer />
       <ActivityCorner
         activity={selectedActivity}
-        readable={selectedActivity ? canRead(access, selectedActivity.id) : false}
+        readable={canRead()}
         onClose={() => setSelectedActivity(null)}
         onClaimClick={() => { setSelectedActivity(null); openClaim(); }}
       />
