@@ -50,9 +50,13 @@ export function Header({ onClaimClick, access }: HeaderProps) {
             </span>
           </div>
 
-          {access.tier === 'full' ? (
+          {/* Anyone who has given their details has the whole year, so the
+              only distinction that matters here is visitor vs not. Testing for
+              'full' left the header inviting people to unlock something they
+              had already unlocked. */}
+          {access.tier !== 'visitor' ? (
             <span className="text-sm font-semibold px-4 py-2 rounded-full text-brand-navy bg-blue-50">
-              Full access
+              {access.name ? `Hi, ${access.name.split(' ')[0]}` : 'Unlocked'}
             </span>
           ) : (
             <button
