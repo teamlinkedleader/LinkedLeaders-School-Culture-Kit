@@ -4,11 +4,10 @@ import { ActivityCard } from './ActivityCard';
 import type { CultureActivity } from '@/data/activities';
 import { totalActivities } from '@/data/stats';
 import { canRead, type AccessState } from '@/lib/access';
-import { packByKey } from '@/data/packs';
 
 interface ActivityGridProps {
   access: AccessState;
-  onClaimClick: (packKey?: string | null) => void;
+  onClaimClick: () => void;
   onActivityClick?: (activity: CultureActivity) => void;
 }
 
@@ -59,7 +58,7 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
               will send you one ready-to-run activity a week, starting where you chose.
             </p>
             <button
-              onClick={() => onClaimClick()}
+              onClick={onClaimClick}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-blue-700 font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:scale-105 transform"
             >
               <Sparkles className="w-5 h-5" />
@@ -88,14 +87,6 @@ export function ActivityGrid({ access, onClaimClick, onActivityClick }: Activity
                     </div>
                     <p className="text-sm text-slate-400 mt-1">{mt.blurb}</p>
                   </div>
-                  {access.tier === 'visitor' && packByKey(mt.month) && (
-                    <button
-                      onClick={() => onClaimClick(mt.month)}
-                      className="ml-auto shrink-0 text-xs font-semibold px-3.5 py-2 rounded-full border border-blue-200 text-blue-700 hover:bg-blue-50 transition-colors"
-                    >
-                      Start here
-                    </button>
-                  )}
                 </div>
 
                 {/* Activity cards for this month */}

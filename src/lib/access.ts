@@ -17,7 +17,6 @@
  * anything customer-facing until that is fixed.
  */
 import { supabase, isSupabaseConfigured } from './supabase';
-import { packActivityIds } from '@/data/packs';
 
 const STORAGE_KEY = 'll-access-v1';
 
@@ -27,6 +26,8 @@ export interface AccessState {
   tier: AccessTier;
   email: string | null;
   name: string | null;
+  /** No longer collected. Retained so state saved by earlier versions still
+   *  parses rather than throwing a returning visitor back to locked. */
   packKey: string | null;
 }
 
@@ -129,8 +130,3 @@ export function canRead(state: AccessState): boolean {
   return state.tier !== 'visitor';
 }
 
-/** Whether an activity is in the theme the visitor chose to start with. Used
- *  only to highlight their starting point, never to restrict anything. */
-export function isStartingTheme(state: AccessState, activityId: number): boolean {
-  return state.tier !== 'visitor' && packActivityIds(state.packKey).has(activityId);
-}

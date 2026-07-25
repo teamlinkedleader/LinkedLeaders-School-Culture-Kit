@@ -8,7 +8,7 @@ import { FeaturedPreview } from '@/components/FeaturedPreview';
 import { ActivityCorner } from '@/components/ActivityCorner';
 import { ScavengerHunt } from '@/components/ScavengerHunt';
 import { SelfAssessment } from '@/components/SelfAssessment';
-import { ClaimPackModal } from '@/components/ClaimPackModal';
+import { UnlockModal } from '@/components/UnlockModal';
 import { CoachingOffer } from '@/components/CoachingOffer';
 import { Footer } from '@/components/Footer';
 import type { CultureActivity } from '@/data/activities';
@@ -18,7 +18,6 @@ import { loadAccess, saveAccess, checkFullAccess, canRead, type AccessState } fr
 function App() {
   const [access, setAccess] = useState<AccessState>(loadAccess);
   const [modalOpen, setModalOpen] = useState(false);
-  const [pendingPackKey, setPendingPackKey] = useState<string | null>(null);
   const [selectedActivity, setSelectedActivity] = useState<CultureActivity | null>(null);
 
   const featuredActivity = activities.find((a) => a.code === 'CB-53') ?? activities[0];
@@ -40,13 +39,10 @@ function App() {
     return () => { cancelled = true; };
   }, [access.email, access.tier]);
 
-  const openClaim = (packKey?: string | null) => {
-    setPendingPackKey(packKey ?? null);
-    setModalOpen(true);
-  };
+  const openClaim = () => setModalOpen(true);
 
-  const handleClaimed = (name: string, email: string, packKey: string) => {
-    const next: AccessState = { tier: 'pack', email, name, packKey };
+  const handleClaimed = (name: string, email: string) => {
+    const next: AccessState = { tier: 'pack', email, name, packKey: null };
     setAccess(next);
     saveAccess(next);
     setTimeout(() => {
@@ -58,13 +54,13 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header onClaimClick={() => openClaim()} access={access} />
       <main>
-        <Hero onClaimClick={() => openClaim()} access={access} />
+        <Hero onClaimClick={openClaim} access={access} />
         <SectionNav />
         <Principles />
         <FeaturedPreview
           activity={featuredActivity}
           onOpen={() => setSelectedActivity(featuredActivity)}
-          onSubscribeClick={() => openClaim()}
+          onSubscribeClick={openClaim}
         />
         <ActivityGrid
           access={access}
@@ -82,9 +78,8 @@ function App() {
         onClose={() => setSelectedActivity(null)}
         onClaimClick={() => { setSelectedActivity(null); openClaim(); }}
       />
-      <ClaimPackModal
+      <UnlockModal
         open={modalOpen}
-        initialPackKey={pendingPackKey}
         onClose={() => setModalOpen(false)}
         onSuccess={handleClaimed}
       />

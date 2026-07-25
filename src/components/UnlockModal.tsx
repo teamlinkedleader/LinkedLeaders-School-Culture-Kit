@@ -1,21 +1,17 @@
 import { useState, useEffect, type FormEvent } from 'react';
-import { X, Mail, User, Briefcase, School, Loader2, CheckCircle2, AlertCircle, Check } from 'lucide-react';
+import { X, Mail, User, Briefcase, School, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
-import { packs, type CulturePack } from '@/data/packs';
 import { totalActivities } from '@/data/stats';
 
-interface ClaimPackModalProps {
+interface UnlockModalProps {
   open: boolean;
   onClose: () => void;
-  onSuccess: (name: string, email: string, packKey: string) => void;
-  /** Preselect a theme when the visitor opened this from a specific pack. */
-  initialPackKey?: string | null;
+  onSuccess: (name: string, email: string) => void;
 }
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: ClaimPackModalProps) {
-  const [packKey, setPackKey] = useState<string | null>(initialPackKey ?? null);
+export function UnlockModal({ open, onClose, onSuccess }: UnlockModalProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
@@ -27,9 +23,8 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
     if (open) {
       setStatus('idle');
       setErrorMsg('');
-      setPackKey(initialPackKey ?? null);
     }
-  }, [open, initialPackKey]);
+  }, [open]);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -38,17 +33,8 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
 
   if (!open) return null;
 
-  const selected: CulturePack | undefined = packs.find((p) => p.key === packKey);
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
-    if (!packKey) {
-      setErrorMsg('Choose where you would like to start.');
-      setStatus('error');
-      return;
-    }
-
     setStatus('submitting');
     setErrorMsg('');
 
@@ -65,7 +51,6 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
         name: name.trim(),
         role: role.trim(),
         school_name: schoolName.trim(),
-        pack_theme: packKey,
       });
 
       if (error) {
@@ -73,7 +58,7 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
         // for a pack is a normal thing to do, not an error worth blocking on.
         if (error.code === '23505') {
           setStatus('success');
-          setTimeout(() => { onSuccess(name.trim(), cleanEmail, packKey); onClose(); }, 1200);
+          setTimeout(() => { onSuccess(name.trim(), cleanEmail); onClose(); }, 1200);
           return;
         }
         setErrorMsg('Something went wrong. Please try again.');
@@ -82,7 +67,7 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
       }
 
       setStatus('success');
-      setTimeout(() => { onSuccess(name.trim(), cleanEmail, packKey); onClose(); }, 1400);
+      setTimeout(() => { onSuccess(name.trim(), cleanEmail); onClose(); }, 1400);
     } catch {
       setErrorMsg('Network error. Please check your connection and try again.');
       setStatus('error');
@@ -107,8 +92,8 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
             Unlock a Year of Culture Building
           </h2>
           <p className="text-blue-100 text-sm mt-2 max-w-lg">
-            All {totalActivities} activities open straight away. Tell us which theme you need most
-            and we will start you there, then send one ready-to-run idea a week.
+            All {totalActivities} activities open straight away, free. We will also send you one
+            ready-to-run idea a week so you never have to plan it yourself.
           </p>
         </div>
 
@@ -119,69 +104,15 @@ export function ClaimPackModal({ open, onClose, onSuccess, initialPackKey }: Cla
             </div>
             <h3 className="text-xl font-bold text-slate-800 mb-2">The whole year is open</h3>
             <p className="text-slate-500 text-sm">
-              All {totalActivities} activities are unlocked below. We will start you at{' '}
-              {selected ? `${selected.month}: ${selected.theme}` : 'your chosen theme'}, and your
-              first email is on its way.
+              All {totalActivities} activities are unlocked below, and your first email is on its
+              way.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-7 space-y-6">
-            {/* Pack chooser */}
-            <fieldset>
-              <legend className="block text-sm font-semibold text-slate-700 mb-3">
-                1. Where would you like to start?{' '}
-                <span className="text-rose-500">*</span>
-              </legend>
-              <div className="grid gap-2.5 sm:grid-cols-2 max-h-64 overflow-y-auto pr-1">
-                {packs.map((p) => {
-                  const isSelected = p.key === packKey;
-                  return (
-                    <button
-                      type="button"
-                      key={p.key}
-                      onClick={() => setPackKey(p.key)}
-                      aria-pressed={isSelected}
-                      className={`text-left rounded-xl border-2 p-3.5 transition-all ${
-                        isSelected
-                          ? 'border-blue-600 bg-blue-50 shadow-sm'
-                          : 'border-slate-200 bg-white hover:border-blue-300'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-2">
-                        <div>
-                          <p className="text-sm font-bold text-slate-800">{p.theme}</p>
-                          <p className="text-xs text-slate-500 mt-0.5">{p.month}</p>
-                        </div>
-                        {isSelected && (
-                          <span className="shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-blue-600">
-                            <Check className="w-3.5 h-3.5 text-white" />
-                          </span>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-              {selected && (
-                <ul className="mt-3 rounded-lg bg-slate-50 border border-slate-100 p-3 space-y-1">
-                  <li className="text-xs font-semibold text-slate-500 pb-1">
-                    We will start you with these:
-                  </li>
-                  {selected.activities.map((a) => (
-                    <li key={a.id} className="flex gap-2 text-xs text-slate-600">
-                      <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
-                      <span>{a.title}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </fieldset>
-
             {/* Details. All four are required. */}
             <fieldset className="space-y-4">
-              <legend className="block text-sm font-semibold text-slate-700 mb-1">
-                2. Where should we send it? <span className="text-rose-500">*</span>
-              </legend>
+              <legend className="sr-only">Your details</legend>
 
               <Field icon={User} label="Your Name" value={name} onChange={setName} placeholder="Jordan Rivera" />
               <Field icon={Mail} label="Email Address" type="email" value={email} onChange={setEmail} placeholder="you@school.edu" />
