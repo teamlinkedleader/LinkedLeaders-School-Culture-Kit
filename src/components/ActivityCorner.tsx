@@ -65,7 +65,11 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
 
       {/* Drawer */}
       <aside
-        className="fixed top-0 right-0 bottom-0 w-full max-w-xl bg-white z-50 shadow-2xl overflow-y-auto animate-[slideInRight_0.3s_ease-out]"
+        // Half the viewport from lg up, which roughly halves the scrolling on
+        // the longer activities. Capped at 4xl so the body text does not run to
+        // an unreadable line length on a wide monitor, and floored at the old
+        // width so nothing gets narrower than it was.
+        className="fixed top-0 right-0 bottom-0 w-full max-w-xl lg:w-1/2 lg:min-w-[36rem] lg:max-w-4xl bg-white z-50 shadow-2xl overflow-y-auto animate-[slideInRight_0.3s_ease-out]"
         role="dialog"
         aria-modal="true"
         aria-label={`${activity.title} details`}
@@ -74,10 +78,9 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
         <div className={`sticky top-0 z-10 ${colors.bg} ${colors.border} border-b-2 px-6 py-5`}>
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1 min-w-0">
+              {/* The CB code is a vault filing reference and means nothing to a
+                  reader, so it does not lead the panel. It stays in the data. */}
               <div className="flex items-center gap-2 mb-2">
-                <span className={`text-xs font-bold px-2 py-0.5 rounded-full bg-white/80 ${colors.text}`}>
-                  {activity.code ?? `Activity ${activity.id}`}
-                </span>
                 <span className={`text-xs font-semibold ${colors.text}`}>{activity.category}</span>
               </div>
               <h2 className="text-xl font-bold text-slate-800 leading-snug">{activity.title}</h2>

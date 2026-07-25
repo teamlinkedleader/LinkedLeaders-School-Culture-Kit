@@ -70,7 +70,7 @@ export function FeaturedPreview({ activity, onOpen, onSubscribeClick, access }: 
               <div className="flex items-center gap-3">
                 <HeartHandshake className="w-5 h-5 text-white" />
                 <span className="text-white font-bold text-sm tracking-wide uppercase">
-                  {activity.code} · {activity.category}
+                  {activity.category}
                 </span>
               </div>
               <span className="text-white/90 text-sm font-medium">
