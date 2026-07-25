@@ -13,6 +13,8 @@ import {
   Flag,
   Repeat,
   UserCheck,
+  HelpCircle,
+  Image,
 } from 'lucide-react';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
@@ -131,6 +133,20 @@ export function ActivityCorner({ activity, onClose }: ActivityCornerProps) {
             </Section>
           )}
 
+          {/* Sample prompts */}
+          {activity.samplePrompts && activity.samplePrompts.length > 0 && (
+            <Section icon={HelpCircle} title="Prompts You Can Use">
+              <ul className="space-y-2">
+                {activity.samplePrompts.map((p, i) => (
+                  <li key={i} className="flex gap-2 text-sm text-slate-600 leading-relaxed">
+                    <span className="text-slate-400 mt-0.5">•</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
+
           {/* Steps */}
           {activity.steps && activity.steps.length > 0 && (
             <Section icon={ListChecks} title="Step by Step">
@@ -189,6 +205,13 @@ export function ActivityCorner({ activity, onClose }: ActivityCornerProps) {
                   </li>
                 ))}
               </ul>
+            </Section>
+          )}
+
+          {/* Display idea */}
+          {activity.displayIdea && (
+            <Section icon={Image} title="Make It Visible">
+              <p className="text-sm text-slate-600 leading-relaxed">{activity.displayIdea}</p>
             </Section>
           )}
         </div>

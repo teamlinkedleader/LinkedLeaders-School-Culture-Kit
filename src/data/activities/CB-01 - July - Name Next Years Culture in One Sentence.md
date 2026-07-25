@@ -9,7 +9,7 @@ week: 1
 theme: Renewal & Preparation
 be_word: BE Ready
 lane: Leader
-title: Name Next Year's Culture in One Sentence
+title: Name Next Year's Culture in One Sentence (July)
 promise: Write the one sentence every decision this year gets measured against.
 time_display: 20–25 minutes
 time_minutes: 25
@@ -18,7 +18,7 @@ leaves_behind: A dated one-sentence culture statement, posted where the leader s
 leader_goes_first: true
 source: built-2026-07-24
 ---
-# Culture Builder: Name Next Year's Culture in One Sentence
+# Culture Builder: Name Next Year's Culture in One Sentence (July)
 
 Write the one sentence every decision this year gets measured against, in under 25 minutes, before anyone else is in the building.
 

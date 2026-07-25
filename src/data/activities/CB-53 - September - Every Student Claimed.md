@@ -4,12 +4,12 @@ project: linkedleaders
 type: reference
 id: CB-53
 sequence: 53
-month: August
+month: September
 week: Bank
-theme: Welcome & Belonging
-be_word: BE Visible
+theme: Establishing Identity
+be_word: BE Consistent
 lane: Staff · Student
-title: Every Student Claimed (August)
+title: Every Student Claimed (September)
 promise: Put every student's name on a wall and find out which kids no adult can claim.
 time_display: 25 minutes
 time_minutes: 25
@@ -18,7 +18,7 @@ leaves_behind: A wall grid of every student name with the adults who claim them,
 leader_goes_first: true
 source: built-2026-07-24
 ---
-# Culture Builder: Every Student Claimed (August)
+# Culture Builder: Every Student Claimed (September)
 
 Put every student's name on a wall and find out which kids no adult can claim.
 
