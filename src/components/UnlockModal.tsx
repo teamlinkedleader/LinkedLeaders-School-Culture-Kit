@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { X, Mail, User, Briefcase, School, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { totalActivities } from '@/data/stats';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 interface UnlockModalProps {
   open: boolean;
@@ -56,11 +57,34 @@ export function UnlockModal({ open, onClose, onSuccess }: UnlockModalProps) {
 
       if (!res.ok) {
         const { error } = await res.json().catch(() => ({ error: 'unknown' }));
-        setErrorMsg(
-          error === 'not_configured'
-            ? 'Sign-ups are not configured yet. Please try again shortly.'
-            : 'Something went wrong. Please try again.',
-        );
+
+        // TEMPORARY BRIDGE, added 2026-07-25.
+        //
+        // MAILERLITE_API_KEY is not set in Netlify yet, so the function cannot
+        // record anyone. Rather than show a live visitor a dead form, fall back
+        // to Supabase, which is still configured and still accepting inserts.
+        //
+        // These rows are real leads and will need migrating into MailerLite once
+        // the key exists. Remove this branch at that point: two write paths is
+        // exactly the split-list problem that choosing MailerLite was meant to
+        // avoid, and it is only tolerable because it is short-lived and known.
+        if (error === 'not_configured' && isSupabaseConfigured) {
+          const { error: dbError } = await supabase.from('subscribers').insert({
+            email: cleanEmail,
+            name: name.trim(),
+            role: role.trim(),
+            school_name: schoolName.trim(),
+          });
+          // 23505 is a duplicate email, which is a normal thing for someone to
+          // do and not worth blocking them over.
+          if (!dbError || dbError.code === '23505') {
+            setStatus('success');
+            setTimeout(() => { onSuccess(name.trim(), cleanEmail); onClose(); }, 1400);
+            return;
+          }
+        }
+
+        setErrorMsg('Something went wrong. Please try again.');
         setStatus('error');
         return;
       }
