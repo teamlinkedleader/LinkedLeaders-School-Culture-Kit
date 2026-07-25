@@ -1,0 +1,29 @@
+# Netlify deploy config.
+#
+# Connect the repo at netlify.com (Add new site -> Import an existing project)
+# and this is picked up automatically. Two environment variables must be set in
+# the Netlify UI or the sign-up form will report that it is not configured:
+#   VITE_SUPABASE_URL
+#   VITE_SUPABASE_ANON_KEY
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Single-page app: any route other than "/" must fall through to index.html,
+# otherwise a refresh or a deep link returns a 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Sensible defaults for a public marketing page.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"

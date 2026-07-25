@@ -37,7 +37,30 @@ export const emptyAccess: AccessState = {
   packKey: null,
 };
 
+/**
+ * Reviewer preview.
+ *
+ * Visiting with `?preview=all` opens every activity without claiming a pack and
+ * without writing anything to the database. It exists so the team can review
+ * the full collection on a deployed link without each reviewer leaving a junk
+ * row in the live subscribers table.
+ *
+ * This is not a security hole. The gate it bypasses is a soft, browser-side one
+ * over content that is free, and every activity already ships in the bundle, so
+ * this exposes nothing that was not already reachable.
+ */
+function previewRequested(): boolean {
+  try {
+    return new URLSearchParams(window.location.search).get('preview') === 'all';
+  } catch {
+    return false;
+  }
+}
+
 export function loadAccess(): AccessState {
+  if (previewRequested()) {
+    return { tier: 'full', email: null, name: null, packKey: null };
+  }
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return { ...emptyAccess, ...(JSON.parse(raw) as Partial<AccessState>) };
