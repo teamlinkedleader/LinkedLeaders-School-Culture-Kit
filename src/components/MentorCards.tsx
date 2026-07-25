@@ -1,5 +1,5 @@
 import { UserRound, CalendarCheck } from 'lucide-react';
-import { mentors, mentorsArePlaceholders, SESSION_PRICE_USD } from '@/data/mentors';
+import { mentors, mentorBiosNeedConfirming, SESSION_PRICE_USD } from '@/data/mentors';
 
 interface MentorCardsProps {
   /** 'dark' for the slate section, 'light' for the modal. */
@@ -65,10 +65,9 @@ export function MentorCards({ tone = 'dark' }: MentorCardsProps) {
         ))}
       </div>
 
-      {mentorsArePlaceholders && (
+      {mentorBiosNeedConfirming && (
         <p className={`mt-3 text-[11px] ${dark ? 'text-slate-500' : 'text-slate-400'}`}>
-          Example mentors. Real profiles appear here once this is connected to the LinkedLeaders
-          mentor directory.
+          Full profiles and booking open once this connects to the LinkedLeaders mentor directory.
         </p>
       )}
     </div>
