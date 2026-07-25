@@ -62,6 +62,7 @@ const MONTH_THEMES = [
   { month: 'April', theme: 'Appreciation', monthIndex: 8, blurb: 'Recognize the quiet contributors and celebrate the community.' },
   { month: 'May', theme: 'Celebration & Legacy', monthIndex: 9, blurb: "Honor the year's work and send everyone off with pride." },
   { month: 'June', theme: 'Reflection & Closure', monthIndex: 10, blurb: 'Close the year with gratitude, recognition, and connection.' },
+  { month: 'Bonus', theme: 'Collective Problem-Solving', monthIndex: 11, blurb: 'Longer facilitation strategies for faculty meetings and retreats, for when the work is a shared problem rather than a weekly activity.' },
 ];
 
 /**
@@ -83,6 +84,7 @@ const BE_WORD = {
   April: 'BE Generous',
   May: 'BE Memorable',
   June: 'BE Proud',
+  Bonus: 'BE Collective',
 };
 
 /**
@@ -255,6 +257,7 @@ function build() {
       leaderScript: parseScript(sections['Script for the Leader']),
       facilitatorTips: bullets(sections['Facilitator Tips']),
       displayIdea: paragraphs(sections['Display Idea']).join('\n\n'),
+      learnMore: fm.learn_more ?? '',
     };
   });
 
@@ -320,6 +323,7 @@ function emitActivity(a) {
     `    facilitatorTips: [\n${a.facilitatorTips.map((x) => `      ${s(x)},`).join('\n')}\n    ],`,
   );
   if (a.displayIdea) lines.push(`    displayIdea: ${s(a.displayIdea)},`);
+  if (a.learnMore) lines.push(`    learnMore: ${s(a.learnMore)},`);
   return `  {\n${lines.join('\n')}\n  },`;
 }
 
@@ -373,6 +377,8 @@ export interface CultureActivity {
   leaderScript?: string;
   facilitatorTips?: string[];
   displayIdea?: string;
+  /** Attribution link for externally-developed methods. */
+  learnMore?: string;
 }
 
 export const monthThemes: { month: string; theme: string; monthIndex: number; blurb: string }[] = [

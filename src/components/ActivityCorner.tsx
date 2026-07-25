@@ -15,6 +15,7 @@ import {
   UserCheck,
   HelpCircle,
   Image,
+  ExternalLink,
 } from 'lucide-react';
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
@@ -205,6 +206,23 @@ export function ActivityCorner({ activity, onClose }: ActivityCornerProps) {
                   </li>
                 ))}
               </ul>
+            </Section>
+          )}
+
+          {/* Attribution for externally-developed methods */}
+          {activity.learnMore && (
+            <Section icon={ExternalLink} title="Where This Comes From">
+              <p className="text-sm text-slate-600 leading-relaxed">
+                This is our take on an established facilitation method. Learn more from the source:{' '}
+                <a
+                  href={activity.learnMore}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline break-all hover:text-blue-700"
+                >
+                  {activity.learnMore}
+                </a>
+              </p>
             </Section>
           )}
 
