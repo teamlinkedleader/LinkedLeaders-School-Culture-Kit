@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { X, CalendarCheck } from 'lucide-react';
+import { X } from 'lucide-react';
 import { MentorCards } from './MentorCards';
+import { MentorOfferIntro } from './MentorOfferIntro';
 
 interface MentorOfferModalProps {
   open: boolean;
@@ -52,18 +53,9 @@ export function MentorOfferModal({ open, onClose, name }: MentorOfferModalProps)
           >
             <X className="w-5 h-5 text-white" />
           </button>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 mb-3">
-            <CalendarCheck className="w-3.5 h-3.5 text-blue-100" />
-            <span className="text-xs font-semibold text-blue-100">One hour, one-to-one</span>
+          <div id="mentor-offer-title">
+            <MentorOfferIntro tone="light" name={name} align="left" />
           </div>
-          <h2 id="mentor-offer-title" className="text-2xl font-bold text-white">
-            {name ? `${name}, which of these will you actually run?` : 'Which of these will you actually run?'}
-          </h2>
-          <p className="text-blue-100 text-sm mt-2 max-w-lg">
-            You have the whole year now. Deciding which few matter for your building, and getting
-            them onto a real calendar, is the harder part. Spend an hour on it with someone who has
-            done the job.
-          </p>
         </div>
 
         <div className="p-7">
