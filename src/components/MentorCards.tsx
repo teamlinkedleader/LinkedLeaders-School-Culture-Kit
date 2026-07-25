@@ -1,5 +1,6 @@
 import { UserRound, CalendarCheck } from 'lucide-react';
-import { mentors, mentorBiosNeedConfirming, SESSION_PRICE_USD } from '@/data/mentors';
+import { mentors, mentorBiosNeedConfirming } from '@/data/mentors';
+import { SessionPrice } from './SessionPrice';
 
 interface MentorCardsProps {
   /** 'dark' for the slate section, 'light' for the modal. */
@@ -49,7 +50,8 @@ export function MentorCards({ tone = 'dark' }: MentorCardsProps) {
                 className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-500 hover:text-blue-400"
               >
                 <CalendarCheck className="w-3.5 h-3.5" />
-                Book ${SESSION_PRICE_USD}
+                Book
+                <SessionPrice size="sm" tone={dark ? 'dark' : 'light'} />
               </a>
             ) : (
               <span

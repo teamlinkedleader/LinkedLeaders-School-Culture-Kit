@@ -1,7 +1,7 @@
 import { CalendarCheck, Check } from 'lucide-react';
 import type { AccessState } from '@/lib/access';
 import { MentorCards } from './MentorCards';
-import { SESSION_PRICE_USD } from '@/data/mentors';
+import { SessionPrice } from './SessionPrice';
 
 
 /**
@@ -70,10 +70,7 @@ export function CoachingOffer({ access }: CoachingOfferProps) {
         </div>
 
         <div className="mt-9 flex flex-col items-center gap-4">
-          <p className="text-white">
-            <span className="text-4xl font-bold">${SESSION_PRICE_USD}</span>
-            <span className="text-slate-400 text-sm ml-2">for the hour</span>
-          </p>
+          <SessionPrice size="lg" tone="dark" />
 
           {BOOKING_URL ? (
             <a

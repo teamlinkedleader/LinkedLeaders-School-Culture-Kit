@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { X, CalendarCheck } from 'lucide-react';
 import { MentorCards } from './MentorCards';
-import { SESSION_PRICE_USD } from '@/data/mentors';
+import { SessionPrice } from './SessionPrice';
 
 interface MentorOfferModalProps {
   open: boolean;
@@ -71,10 +71,7 @@ export function MentorOfferModal({ open, onClose, name }: MentorOfferModalProps)
           <MentorCards tone="light" />
 
           <div className="mt-6 flex flex-col items-center gap-3 text-center">
-            <p className="text-slate-800">
-              <span className="text-3xl font-bold">${SESSION_PRICE_USD}</span>
-              <span className="text-slate-400 text-sm ml-2">for the hour</span>
-            </p>
+            <SessionPrice size="lg" tone="light" />
             <button
               type="button"
               onClick={onClose}

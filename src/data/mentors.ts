@@ -14,6 +14,10 @@
  * `profileUrl` at each mentor's existing page rather than carrying bios here.
  */
 
+/** What the hour is listed at. Shown struck through beside the price paid. */
+export const SESSION_LIST_PRICE_USD = 79;
+
+/** What a Culture Builder subscriber actually pays. */
 export const SESSION_PRICE_USD = 39;
 
 export interface Mentor {
