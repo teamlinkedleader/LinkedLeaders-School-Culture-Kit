@@ -14,6 +14,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <!--
+      Netlify Forms detection.
+
+      Netlify finds forms by parsing the HTML it deploys. The real form is a
+      React component, which is not in this file at build time, so it would
+      never be found. This hidden copy is what registers the form and its
+      fields; the component posts to it.
+
+      DO NOT DELETE. Removing this stops feedback submissions silently, with no
+      error anywhere. Field names must stay in step with FeedbackBox.tsx.
+    -->
+    <form name="culture-kit-feedback" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="kind" />
+      <textarea name="message"></textarea>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="access" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

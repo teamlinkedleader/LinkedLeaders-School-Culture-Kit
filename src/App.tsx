@@ -8,6 +8,7 @@ import { FeaturedPreview } from '@/components/FeaturedPreview';
 import { ActivityCorner } from '@/components/ActivityCorner';
 import { FrameworkSection } from '@/components/FrameworkSection';
 import { UnlockModal } from '@/components/UnlockModal';
+import { FeedbackBox } from '@/components/FeedbackBox';
 import { CoachingOffer } from '@/components/CoachingOffer';
 import { MentorOfferModal } from '@/components/MentorOfferModal';
 import { Footer } from '@/components/Footer';
@@ -113,6 +114,7 @@ function App() {
           onClaimClick={openClaim}
         />
         <CoachingOffer access={access} />
+        <FeedbackBox access={access} />
       </main>
       <Footer />
       <ActivityCorner
