@@ -79,11 +79,6 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
                   {activity.code ?? `Activity ${activity.id}`}
                 </span>
                 <span className={`text-xs font-semibold ${colors.text}`}>{activity.category}</span>
-                {activity.freePreview && (
-                  <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-500 text-white">
-                    Free Preview
-                  </span>
-                )}
               </div>
               <h2 className="text-xl font-bold text-slate-800 leading-snug">{activity.title}</h2>
               {activity.promise && (

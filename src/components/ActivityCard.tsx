@@ -29,7 +29,6 @@ export function ActivityCard({
 }: ActivityCardProps) {
   const Icon = iconComponents[activity.icon] ?? Users;
   const colors = categoryColors[activity.category];
-  const isFreePreview = activity.freePreview;
   const saved = useIsFavourite(activity.id);
 
   return (
@@ -72,15 +71,6 @@ export function ActivityCard({
         >
           <Star className={`w-4 h-4 ${saved ? 'fill-current' : ''}`} />
         </button>
-      )}
-
-      {/* Free preview badge */}
-      {isFreePreview && unlocked && (
-        <div className="absolute top-4 left-4 z-10">
-          <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-500 text-white shadow-sm">
-            Free Preview
-          </span>
-        </div>
       )}
 
       {/* Activity reference, e.g. SEP-4. Sits left of the save control rather

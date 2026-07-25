@@ -2,33 +2,64 @@ import { HeartHandshake, Clock, DollarSign, Compass, Flag, UserCheck, ArrowRight
 import type { CultureActivity } from '@/data/activities';
 import { categoryColors } from '@/data/activities';
 import { totalActivities } from '@/data/stats';
+import { canRead, type AccessState } from '@/lib/access';
 
 interface FeaturedPreviewProps {
   activity: CultureActivity;
   onOpen: () => void;
   onSubscribeClick: () => void;
+  access: AccessState;
 }
 
-export function FeaturedPreview({ activity, onOpen, onSubscribeClick }: FeaturedPreviewProps) {
+/**
+ * The one activity shown in full before signing up.
+ *
+ * Everything here is framed twice, because the section means two different
+ * things either side of the gate. To a visitor it is proof, and calling it a
+ * free preview is accurate. To someone who has already unlocked the year it is
+ * simply the first activity, and "preview" would be describing content they
+ * already have.
+ */
+export function FeaturedPreview({ activity, onOpen, onSubscribeClick, access }: FeaturedPreviewProps) {
   const colors = categoryColors[activity.category];
+  const unlocked = canRead(access);
 
   return (
     <section id="featured-preview" className="py-20 md:py-28 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold mb-4">
-            <Eye className="w-4 h-4" />
-            Free Preview
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
-            See What You Get
-            <span className="text-blue-600"> Before You Sign Up</span>
-          </h2>
-          <p className="mt-4 text-lg text-slate-500 leading-relaxed">
-            This is a complete, unabridged activity, exactly what you'll get every week. This one
-            is free to read in full. The other {totalActivities - 1} open when you sign up.
-          </p>
+          {unlocked ? (
+            <>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
+                <Flag className="w-4 h-4" />
+                Start Here
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
+                If You Only Run One,
+                <span className="text-blue-600"> Run This One</span>
+              </h2>
+              <p className="mt-4 text-lg text-slate-500 leading-relaxed">
+                All {totalActivities} are open to you now, which is its own problem. Start with this
+                one and the rest will make more sense.
+              </p>
+            </>
+          ) : (
+            <>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold mb-4">
+                <Eye className="w-4 h-4" />
+                Free Preview
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
+                See What You Get
+                <span className="text-blue-600"> Before You Sign Up</span>
+              </h2>
+              <p className="mt-4 text-lg text-slate-500 leading-relaxed">
+                This is a complete, unabridged activity, exactly what you'll get every week. This one
+                is free to read in full. The other {totalActivities - 1} open when you sign up.
+              </p>
+            </>
+          )}
         </div>
 
         {/* Featured card */}
@@ -116,12 +147,15 @@ export function FeaturedPreview({ activity, onOpen, onSubscribeClick }: Featured
                     Read the Full Activity
                     <ArrowRight className="w-4 h-4" />
                   </button>
-                  <button
-                    onClick={onSubscribeClick}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-all"
-                  >
-                    Get the Weekly Email
-                  </button>
+                  {/* Nothing left to ask for once they have signed up. */}
+                  {!unlocked && (
+                    <button
+                      onClick={onSubscribeClick}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition-all"
+                    >
+                      Get the Weekly Email
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

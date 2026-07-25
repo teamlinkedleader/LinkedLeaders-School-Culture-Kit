@@ -100,6 +100,7 @@ function App() {
           activity={featuredActivity}
           onOpen={() => setSelectedActivity(featuredActivity)}
           onSubscribeClick={openClaim}
+          access={access}
         />
         <ActivityGrid
           access={access}
