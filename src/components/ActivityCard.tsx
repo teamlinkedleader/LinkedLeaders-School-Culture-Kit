@@ -73,19 +73,6 @@ export function ActivityCard({
         </button>
       )}
 
-      {/* Activity reference, e.g. SEP-4. Sits left of the save control rather
-          than under it. This replaced a week number, which broke once a month
-          held more than four activities. */}
-      <div className={`absolute top-4 ${unlocked ? 'right-12' : 'right-4'}`}>
-        <span
-          className={`text-xs font-bold px-2.5 py-1 rounded-full ${
-            unlocked ? 'bg-white/80 text-slate-600' : 'bg-slate-200 text-slate-400'
-          }`}
-        >
-          {activity.ref}
-        </span>
-      </div>
-
       <div className="flex flex-1 flex-col p-6">
         {/* Icon */}
         <div
@@ -130,8 +117,12 @@ export function ActivityCard({
 
         {/* Footer */}
         <div className="mt-4 pt-4 border-t border-slate-200/60 flex items-center justify-between gap-2">
+          {/* The reference is an internal label, not something a reader needs.
+              Given prominence it read as a date: JUL-1 looks like 1 July, which
+              it is not. Demoted to the meta line and dimmed. */}
           <span className={`text-xs font-medium ${unlocked ? 'text-slate-400' : 'text-slate-300'}`}>
             {activity.month} · {activity.theme}
+            <span className={unlocked ? 'text-slate-300' : 'text-slate-200'}> · {activity.ref}</span>
           </span>
           {unlocked ? (
             <div className="flex items-center gap-2">

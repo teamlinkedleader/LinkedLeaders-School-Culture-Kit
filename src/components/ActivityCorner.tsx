@@ -289,6 +289,7 @@ export function ActivityCorner({activity, onClose, readable = true, onClaimClick
         <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 flex items-center justify-between">
           <span className="text-xs text-slate-400">
             {activity.month} · {activity.theme}
+            <span className="text-slate-300"> · {activity.ref}</span>
           </span>
           <button
             onClick={onClose}
