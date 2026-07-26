@@ -34,6 +34,9 @@ export function FeedbackBox({ access }: FeedbackBoxProps) {
   const [name, setName] = useState(access.name ?? '');
   const [email, setEmail] = useState(access.email ?? '');
   const [botField, setBotField] = useState('');
+  // Never pre-ticked. A pre-ticked consent box is not consent, and this one
+  // decides whether a named school leader ends up quoted on a sales page.
+  const [consent, setConsent] = useState(false);
   const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,6 +51,9 @@ export function FeedbackBox({ access }: FeedbackBoxProps) {
       message,
       name,
       email,
+      // Recorded as words rather than a boolean, so that anyone reading the
+      // submission later cannot mistake a blank for a yes.
+      consent: consent ? 'Yes, may be quoted publicly' : 'No, private',
       // Which page state they were in when they wrote it, which is often the
       // difference between an actionable report and a puzzling one.
       access: access.tier,
@@ -99,6 +105,11 @@ export function FeedbackBox({ access }: FeedbackBoxProps) {
             <p className="mt-2 text-sm text-slate-500 leading-relaxed">
               {name ? `${name}, we` : 'We'} read every one of these. If you left an email and it
               needs an answer, you will get one.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              {consent
+                ? 'You said we may share this publicly. Thank you, that is genuinely useful.'
+                : 'This stays between us.'}
             </p>
             {import.meta.env.DEV && (
               <p className="mt-4 text-xs text-amber-700">
@@ -201,6 +212,24 @@ export function FeedbackBox({ access }: FeedbackBoxProps) {
                 />
               </div>
             </div>
+
+            {/* Consent. Below the fields it applies to, so the writer has
+                already seen exactly what they would be agreeing to share. */}
+            <label className="mt-5 flex gap-3 cursor-pointer rounded-lg border border-brand-border p-3.5 hover:border-blue-300 transition-colors">
+              <input
+                type="checkbox"
+                name="consent"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-blue-600"
+              />
+              <span className="text-sm text-slate-600 leading-relaxed">
+                You may share this publicly, with my name and school if I gave them.
+                <span className="block text-xs text-slate-400 mt-0.5">
+                  Leave this unticked and it stays between us. We will not ask again later.
+                </span>
+              </span>
+            </label>
 
             {state === 'error' && (
               <div className="mt-4 flex gap-2 rounded-lg bg-rose-50 border border-rose-200 px-3.5 py-3">
